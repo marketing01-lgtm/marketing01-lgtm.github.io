@@ -1,0 +1,58 @@
+/* Phần dùng chung: menu trên điện thoại, form Đặt lịch, trang tĩnh (Cảm ơn, Chính sách, 404). Màu và chữ theo bộ nhận diện Lenna. */
+:root{--blue:#2f6bff;--navy:#173a8a;--ink:#14213d;--mut:#66718a;--line:#d6e4ff;--surface:#f4f7fd;--sky:#e9f0ff;--yellow:#ffc83d;--sun:#fff3a6}
+.lb-ov{position:fixed;inset:0;z-index:1000;background:rgba(20,33,61,.55);display:none;align-items:flex-end;justify-content:center;font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink)}
+.lb-ov.on{display:flex}
+.lb-sheet{background:#fff;width:100%;max-width:560px;max-height:94vh;overflow:auto;border-radius:28px 28px 0 0;padding:22px 20px 28px;box-shadow:0 -10px 40px rgba(23,58,138,.25);animation:lbUp .28s ease}
+@keyframes lbUp{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+@media(min-width:900px){.lb-ov{align-items:center}.lb-sheet{border-radius:28px;padding:32px;box-shadow:0 30px 80px rgba(23,58,138,.3)}}
+.lb-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.lb-sheet h2{margin:0;font-family:'Baloo 2','Be Vietnam Pro',sans-serif;font-weight:800;font-size:28px;line-height:1.1;color:var(--navy)}
+.lb-sub{margin:6px 0 0;font-size:15px;line-height:1.5;color:var(--mut)}
+.lb-x{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--sky);color:var(--navy);font-size:22px;line-height:1;cursor:pointer}
+.lb-f label{display:block;margin:14px 0 6px;font-size:14px;font-weight:600;color:var(--navy)}
+.lb-f label i{color:#e5484d;font-style:normal}
+.lb-f input,.lb-f select,.lb-f textarea{width:100%;box-sizing:border-box;font:inherit;font-size:16px;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;min-height:46px}
+.lb-f textarea{min-height:84px;resize:vertical}
+.lb-f input:focus,.lb-f select:focus,.lb-f textarea:focus{outline:3px solid rgba(47,107,255,.28);border-color:var(--blue)}
+.lb-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.lb-step{display:flex;align-items:center;gap:10px}
+.lb-step button{flex:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);background:#fff;color:var(--navy);font-size:24px;line-height:1;cursor:pointer}
+.lb-step input{text-align:center;font-weight:700}
+.lb-chk{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:14px;line-height:1.5;color:var(--mut)}
+.lb-chk input{flex:none;width:22px;height:22px;margin-top:2px;accent-color:var(--blue)}
+.lb-chk a{color:var(--blue)}
+.lb-btn{box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:20px;border:0;border-radius:999px;padding:15px 22px;min-height:52px;font:inherit;font-size:17px;font-weight:700;color:var(--navy);background:linear-gradient(180deg,#ffd86b,var(--yellow));box-shadow:0 8px 20px rgba(255,200,61,.45);cursor:pointer}
+.lb-btn:disabled{opacity:.6;cursor:wait}
+.lb-err{margin-top:14px;padding:12px 14px;border-radius:14px;background:#ffe9ec;color:#a4202a;font-size:14px;line-height:1.5;display:none}
+.lb-note{margin-top:12px;padding:12px 14px;border-radius:14px;background:var(--sun);color:var(--navy);font-size:14px;line-height:1.5}
+.lb-hp{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+.lb-mini{margin:14px 0 0;font-size:13px;line-height:1.5;color:var(--mut);text-align:center}
+/* menu điện thoại */
+.lm-ov{position:fixed;inset:0;z-index:999;background:rgba(20,33,61,.5);display:none;justify-content:flex-end;font-family:'Be Vietnam Pro',system-ui,sans-serif}
+.lm-ov.on{display:flex}
+.lm-panel{width:min(86vw,340px);height:100%;background:#fff;padding:20px 20px 28px;display:flex;flex-direction:column;gap:6px;overflow:auto;animation:lmIn .25s ease;box-shadow:-10px 0 40px rgba(23,58,138,.25)}
+@keyframes lmIn{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+.lm-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.lm-top img{height:34px;width:auto}
+.lm-panel a.lm-l{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:16px;font-size:18px;font-weight:600;color:var(--navy);text-decoration:none;background:var(--surface)}
+.lm-panel a.lm-l:active{background:var(--sky)}
+.lm-panel a.lm-l.on{background:var(--blue);color:#fff}
+.lm-cta{margin-top:10px}
+.lm-soc{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.lm-soc a{padding:9px 14px;border-radius:999px;background:var(--sky);color:var(--navy);text-decoration:none;font-size:14px;font-weight:600}
+/* trang tĩnh */
+.st{min-height:100vh;background:var(--surface);font-family:'Be Vietnam Pro',system-ui,sans-serif;color:var(--ink);display:flex;flex-direction:column}
+.st-head{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1100px;width:100%;margin:0 auto;padding:18px 20px;box-sizing:border-box}
+.st-head img{height:36px;width:auto;display:block}
+.st-head nav{display:flex;gap:6px;flex-wrap:wrap}
+.st-head nav a{padding:8px 12px;border-radius:999px;font-size:14px;font-weight:600;color:var(--navy);text-decoration:none}
+.st-head nav a:hover{background:var(--sky)}
+.st-main{flex:1;max-width:760px;width:100%;margin:0 auto;padding:12px 20px 48px;box-sizing:border-box}
+.st-main h1{margin:0 0 12px;font-family:'Baloo 2','Be Vietnam Pro',sans-serif;font-weight:800;font-size:38px;line-height:1.1;color:var(--navy)}
+.st-main h2{margin:28px 0 8px;font-family:'Baloo 2','Be Vietnam Pro',sans-serif;font-weight:700;font-size:23px;color:var(--navy)}
+.st-main p,.st-main li{font-size:16px;line-height:1.65}
+.st-main ul{padding-left:22px}
+.st-card{background:#fff;border-radius:24px;padding:28px 26px;box-shadow:0 10px 24px rgba(23,58,138,.08)}
+.st-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:var(--blue);box-shadow:0 8px 20px rgba(47,107,255,.32)}
+.st-foot{padding:22px 20px 32px;text-align:center;font-size:13px;color:var(--mut)}
+.st-chisu{display:block;width:min(240px,60%);height:auto;margin:0 auto 14px}

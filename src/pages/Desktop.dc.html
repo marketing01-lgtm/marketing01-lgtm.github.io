@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Trang chủ Lenna Board Game – máy tính</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2f6bff}a:hover{color:#173a8a}
+.chi{background-repeat:no-repeat;background-size:contain;background-position:center bottom}
+.c-cheerful{background-image:url(/_blob/134aab7d4a5cef7d6afe26533ecd3b45)}
+.c-capture{background-image:url(/_blob/b3b2caa8c85f0e898443b930a8a22909)}
+.c-cool{background-image:url(/_blob/9a94b55240e445712710227c073d7cdf)}
+.c-sad{background-image:url(/_blob/46172119ce30ce5cd88f453a12113077)}
+.c-lovely{background-image:url(/_blob/a713daca726764e2d9fd3cd8d8e477df)}
+.c-royal{background-image:url(/_blob/355744ab91a3ecb5ae5758c77bbdc13e)}
+.c-serious{background-image:url(/_blob/2a2d77665863fd3c9400018157e93e9e)}
+.c-music{background-image:url(/_blob/5967a115e52caa1b63efc70831c7ad26)}
+.c-chef{background-image:url(/_blob/c4e929238ad0840eb04349089f4f6521)}
+.heart{animation:hb 2.8s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-10px) rotate(6deg)}}
+.caro{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.7) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.7) 1.5px,transparent 1.5px);background-size:40px 40px}
+.stage{transition:opacity .3s ease,transform .3s ease}
+.stage.out{opacity:0;transform:scale(.9) translateY(20px)}
+.glass{background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 10px 28px rgba(23,58,138,.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.plate{background:linear-gradient(180deg,#ffffff 0%,#e9edf3 45%,#c9d0db 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.18)}
+.clay{box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -5px 10px rgba(23,58,138,.18),0 12px 22px rgba(23,58,138,.18)}
+.card3d{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 22px 48px rgba(23,58,138,.14),0 4px 12px rgba(23,58,138,.06)}
+.lift{transition:transform .25s ease,box-shadow .25s ease}
+.lift:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(23,58,138,.2)}
+.btn{transition:transform .15s ease}
+.btn:hover{transform:translateY(-2px)}
+.gloss{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 55%)}
+.twinkle{animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.05)}}
+.float{animation:fl 3.6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.ring{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+.nav a{color:#ffffff;text-decoration:none}
+.nav a:hover{color:#173a8a}
+.dot-run{offset-path:path('M260 0 C260 70 1180 40 1180 110');animation:run 3s ease-in-out infinite}
+@keyframes run{0%{offset-distance:0%;opacity:0}12%{opacity:1}88%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.stk{background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 6px 10px rgba(23,58,138,.16))}
+.s-vuitim{background-image:url(/_blob/064c6e7a3f9c9095565595b748ee8ad8)}
+.s-thacmac{background-image:url(/_blob/52692893d2a2a0019701697e663efa4d)}
+.s-khoc{background-image:url(/_blob/51cfbd976b71e203d79c384bd72bd820)}
+.s-cuoitit{background-image:url(/_blob/e7066522f47edea3d22089b85b54509e)}
+.s-nguvo{background-image:url(/_blob/fb7594efb4a53718714f79060c1a0bc7)}
+.s-kem{background-image:url(/_blob/d7984b01b7b9ab22c32cd2ce24109217)}
+.s-omtim{background-image:url(/_blob/1fd384fdd8136002adc3442c32eb0c74)}
+.s-mulen{background-image:url(/_blob/fcc65eb3d744d714ec01799caa881060)}
+.s-nhaymat{background-image:url(/_blob/9e080157885b5dd95ed6f0bbad4e61f7)}
+.s-kinhram{background-image:url(/_blob/d0654e36892b0ada4f731a4935d6bc61)}
+.s-khunglong{background-image:url(/_blob/21822868c03dd5a24398055997ebc495)}
+.s-matsao{background-image:url(/_blob/1964c797ffd583c28b06d46480358b37)}
+.s-trasua{background-image:url(/_blob/f2865b35ae3e4ddf5ba69a52502205bb)}
+.s-boiroi{background-image:url(/_blob/09192ff7001d432765f1882d5e9a85eb)}
+.s-chanhong{background-image:url(/_blob/1075fed9b6569e302a661317c26eb4f8)}
+.s-gian{background-image:url(/_blob/2399e60d4c123b07926d6db2d16ede62)}
+.s-horeo{background-image:url(/_blob/03de1b9706ac7623b432c992ec9658ad)}
+.s-omca{background-image:url(/_blob/8cfe053f743ce261f7d5a324d90e482d)}
+.s-rungrung{background-image:url(/_blob/6d99c9463938ad1a75ce3686f5a084f3)}
+.s-banhquy{background-image:url(/_blob/07521653d5e9199f519390988453093a)}
+.s-tainghe{background-image:url(/_blob/c9f1ae26055f90f500792896af14aef0)}
+.s-thuythu{background-image:url(/_blob/132ed2e6a4a338ef47de928032eae142)}
+.s-namngu{background-image:url(/_blob/8beb51433aaf64a785f3616ad15d81ca)}
+.s-mayanh{background-image:url(/_blob/2383fb83784a47c8aa310a944560b017)}
+.s-haohung{background-image:url(/_blob/88904cd385d7c832db872c7fc65483c6)}
+.s-vua{background-image:url(/_blob/31a668bbbb87277a1a0cef8ab98b0c30)}
+.s-aomua{background-image:url(/_blob/929f24584d87ddea52120472b288e50a)}
+.s-truottuyet{background-image:url(/_blob/7f1117346688c51dd9bc3f6cce54701e)}
+.s-nohong{background-image:url(/_blob/fc0d6ccaebc2e009ffd61557fe75b519)}
+.s-batngo{background-image:url(/_blob/30e351d699941b2391f041983ee68b47)}
+.s-khantim{background-image:url(/_blob/dbda5b51fcba58f4aa4a0c82aecea5bb)}
+.s-ngumu{background-image:url(/_blob/cd92d18adf2fca2d6a30845d1b0c8107)}
+.s-docsach{background-image:url(/_blob/5af1510a08370dd5695497610a712704)}
+.s-caphe{background-image:url(/_blob/17fc1892d611d066da9773b8f9fcb8fb)}
+.s-banhquy2{background-image:url(/_blob/55b3ef483827ad4696b1b642068f91bf)}
+.s-omtim2{background-image:url(/_blob/0456d5bcfeff159447fbe0f829d0b80e)}
+.s-tainghe2{background-image:url(/_blob/6d5b171e5fe048a018be52b8c3d5591c)}
+.s-vietbai{background-image:url(/_blob/7053c71af6d16eb5f35fe4adae1895a8)}
+.s-omsach{background-image:url(/_blob/51ef416166514b65f2e2ce9cfd62e8e1)}
+.s-chantim{background-image:url(/_blob/184a5c9277165d4c3368c6afb21f0658)}
+.s-choigame{background-image:url(/_blob/dc6c7a843fff44048ba0d4c3e9e8facf)}
+.s-nhaymua{background-image:url(/_blob/f6ec670b02418328bc2fdfb42c527cbf)}
+.s-oxanh{background-image:url(/_blob/21599f9def54a16bde8b233465efbfe4)}
+.s-ngaingung{background-image:url(/_blob/152a1ba4b1294d2b8863a22227ab7641)}
+.s-horeo2{background-image:url(/_blob/dac36042cced6dc26ea16be43c15456c)}
+.s-matna{background-image:url(/_blob/3ddd511515be20d8949bd66e2c45f404)}
+.s-lycaphe{background-image:url(/_blob/ce6c14263f2a3ab949b1d24c93ff99a0)}
+.s-laptop{background-image:url(/_blob/e95a075f36dba45568147293f3da817f)}
+.s-sokehoach{background-image:url(/_blob/6a5ed4fbb805b91d51b21f4cdabbb363)}
+.s-capdoi{background-image:url(/_blob/850f01f3e1d1300225b3c81361d25c2f)}
+.s-muadong{background-image:url(/_blob/6b34622723b69618a76f61184a0ae30f)}
+.s-bohoa{background-image:url(/_blob/e054537bd0daab1d052acef59c3019c1)}
+.s-balo{background-image:url(/_blob/cd9ef06d721217a5f2941313699ea778)}
+.s-ngungon{background-image:url(/_blob/edfa2db2fd2f0500a0c51573b42f21e2)}
+</style>
+</helmet>
+<div style="width: 100%; background: #f4f7fd; font-family: 'Be Vietnam Pro', system-ui, sans-serif; color: #14213d; overflow-x: clip">
+
+  <section style="position: relative; min-height: 840px; overflow: hidden; border-radius: 0 0 44px 44px; background: linear-gradient(180deg, {{k.c1}} 0%, {{k.c2}} 56%, {{k.c3}} 100%); box-shadow: 0 30px 60px rgba(23,58,138,.16); padding: 0 40px 60px">
+    <svg width="100%" height="100%" aria-hidden="true" style="position: absolute; inset: 0; opacity: .16"><defs><pattern id="gd" width="44" height="44" patternUnits="userSpaceOnUse"><path d="M44 0H0V44" fill="none" stroke="#ffffff" stroke-width="1"></path></pattern></defs><rect width="100%" height="100%" fill="url(#gd)"></rect></svg>
+    <div style="position: relative; z-index: 5; max-width: 1240px; margin: 0 auto; padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap">
+      <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 124px; height: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.12))">
+      <nav class="nav glass" style="display: flex; gap: 26px; flex-wrap: wrap; font-weight: 600; font-size: 15px; padding: 12px 26px; border-radius: 999px">
+        <a href="#phong">Phòng chơi</a><a href="#">Board game</a><a href="#">Menu</a><a href="#">Ưu đãi</a><a href="#">Giới thiệu</a><a href="#">Blog</a>
+      </nav>
+      <a href="#dat-lich-pc" class="btn" style="height: 48px; padding: 0 24px; border-radius: 999px; background: #ffffff; color: #173a8a; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none; box-shadow: 0 10px 24px rgba(23,58,138,.16)">Đặt lịch</a>
+    </div>
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 104px; z-index: 1; text-align: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: {{k.fs}}; line-height: .86; letter-spacing: -.01em; color: rgba(255,255,255,.62); transform: skewX(-7deg); text-shadow: 0 10px 40px rgba(255,255,255,.35); white-space: nowrap">{{k.word}}</div>
+    <svg class="twinkle" width="34" height="34" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 22%; top: 330px; z-index: 1"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 24%; top: 300px; z-index: 1; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 30%; top: 640px; z-index: 1; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div style="position: relative; z-index: 3; max-width: 1240px; margin: 0 auto; padding-top: 150px; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px">
+      <div style="flex: 1 1 300px; max-width: 340px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">
+        <span class="glass" style="align-self: flex-start; display: flex; align-items: center; gap: 10px; padding: 7px 14px 7px 7px; border-radius: 999px; color: #173a8a; font-weight: 700; font-size: 14px">
+          <span class="clay" style="width: 30px; height: 30px; border-radius: 10px; background: linear-gradient(160deg, #5b8cff, #2f6bff); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="5" cy="5" r="1.8" fill="#fff"></circle><circle cx="11" cy="11" r="1.8" fill="#fff"></circle></svg></span>
+          Sắp khai trương · TP. Thủ Đức
+        </span><h1 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 46px; line-height: 1; color: #173a8a; width: 418px">{{k.line}}</h1>
+        
+        <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #2b3a5c">Phòng chơi cho cả nhóm, đồ uống, ăn vặt và khu gắp gấu. Không biết chơi? Chisu dạy liền.</p>
+        <div style="display: flex; gap: 10px; align-items: center">
+          <a href="#dat-lich-pc" class="btn gloss" style="height: 52px; padding: 0 26px; border-radius: 999px; background-color: #173a8a; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none; box-shadow: 0 12px 26px rgba(23,58,138,.32), inset 0 1px 0 rgba(255,255,255,.3)">Đặt lịch giữ phòng</a>
+          <a href="#phong" aria-label="Xem phòng chơi" class="btn" style="width: 52px; height: 52px; border-radius: 999px; background: #173a8a; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 26px rgba(23,58,138,.32)">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 15 15 5M7 5h8v8"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div style="position: relative; flex: 0 1 540px; height: 600px">
+        <div aria-hidden="true" style="position: absolute; left: 50%; top: 40px; width: 560px; height: 560px; margin-left: -280px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.8), rgba(255,255,255,0))"></div>
+        <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 6px; width: 440px; height: 48px; margin-left: -220px; border-radius: 999px; background: radial-gradient(closest-side, rgba(40,30,20,.32), rgba(40,30,20,0))"></div>
+        <div class="{{stageCls}}" role="img" aria-label="{{k.name}}" style="position: absolute; left: 0; right: 0; top: 0; bottom: 20px">
+          <div class="chi {{k.cls}}" style="position: absolute; inset: 0; filter: drop-shadow(0 26px 24px rgba(40,30,20,.2))"></div>
+          <div class="plate" style="position: absolute; left: 50%; bottom: 36px; width: 240px; height: 38px; margin-left: -120px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; box-sizing: border-box">
+            <span style="width: 10px; height: 10px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span>
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; color: #4a3a2c; white-space: nowrap">{{k.plate}}</span>
+            <span style="width: 10px; height: 10px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span>
+          </div>
+        </div>
+      </div>
+      <div style="flex: 1 1 280px; max-width: 320px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          <sc-for list="{{side}}" as="t" hint-placeholder-count="2">
+            <div class="card3d" style="background: rgba(255,255,255,.88); border-radius: 22px; padding: 12px; display: flex; flex-direction: column; gap: 8px">
+              <strong style="font-size: 14px; line-height: 1.2; color: #173a8a">{{t.name}}</strong>
+              <div style="border-radius: 16px; background: linear-gradient(180deg, {{t.c2}}, {{t.c3}}); height: 120px; padding: 6px; box-sizing: border-box"><span class="chi {{t.cls}}" style="display: block; width: 100%; height: 100%"></span></div>
+              <button class="btn" onClick="{{t.pick}}" style="align-self: flex-start; height: 34px; padding: 0 14px; border-radius: 999px; border: none; background: #173a8a; color: #ffffff; font-weight: 700; font-size: 13px; cursor: pointer">Xem</button>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+          <span style="font-size: 14px; font-weight: 600; color: #173a8a">8 tư thế của Chisu</span>
+          <div style="display: flex; gap: 8px">
+            <button aria-label="Tư thế trước" class="btn glass" onClick="{{prev}}" style="width: 48px; height: 48px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#173a8a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6"></path></svg>
+            </button>
+            <button aria-label="Tư thế tiếp theo" class="btn glass" onClick="{{next}}" style="width: 48px; height: 48px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0; cursor: pointer">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#173a8a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 4l6 6-6 6"></path></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="phong" style="max-width: 1240px; margin: 0 auto; padding: 90px 40px 0; display: flex; flex-direction: column; gap: 34px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+      <h2 style="margin: 0; max-width: 560px; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 50px; line-height: 1.02; color: #173a8a">Kéo rèm lại là góc của nhóm mình</h2>
+      <p style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: #66718a">3 kiểu phòng, giá theo người, không giới hạn giờ chơi.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <div class="card3d lift" style="position: relative; flex: 1 1 300px; height: 500px; border-radius: 30px; overflow: hidden; background: #173a8a">
+        <img src="/_blob/6ba80b546249fe53da64ad0f97091600" alt="Phòng ngồi bệt" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,58,138,0) 42%, rgba(23,58,138,.9) 100%)"></div>
+        <span class="glass" style="position: absolute; left: 18px; top: 18px; color: #ffffff; font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 999px">Tầng 2</span>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 24px; color: #ffffff; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">Ngồi bệt</span>
+          <span style="font-size: 15px; opacity: .92">Nệm êm, bàn thấp, có rèm kéo</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px"><span style="font-weight: 700; font-size: 22px">50.000đ<span style="font-size: 13px; opacity: .85">/người</span></span><span class="glass" style="color: #ffffff; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 999px">Xem phòng</span></div>
+        </div>
+      </div>
+      <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 24px">
+        <div class="card3d lift" style="position: relative; height: 340px; border-radius: 30px; overflow: hidden; background: #173a8a">
+          <img src="/_blob/0bc27e803bb72cbfd7c12be4a627e9b4" alt="Phòng ngồi bàn" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,58,138,0) 36%, rgba(23,58,138,.9) 100%)"></div>
+          <span class="glass" style="position: absolute; left: 18px; top: 18px; color: #ffffff; font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 999px">Tầng 3</span>
+          <div style="position: absolute; left: 24px; right: 24px; bottom: 22px; color: #ffffff; display: flex; flex-direction: column; gap: 6px">
+            <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; line-height: 1">Ngồi bàn</span>
+            <div style="display: flex; align-items: center; justify-content: space-between"><span style="font-size: 15px; opacity: .92">Ghép bàn cho nhóm đông</span><span style="font-weight: 700; font-size: 20px">60.000đ<span style="font-size: 13px; opacity: .85">/người</span></span></div>
+          </div>
+        </div>
+        <p style="margin: 0; padding: 0 10px; font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.25; color: #173a8a">“Rủ cả đám, Lenna lo hết. <br><span style="color: rgb(47, 107, 255)">Chơi tới khi muốn về.</span>”</p>
+      </div>
+      <div class="card3d lift" style="position: relative; flex: 1 1 300px; height: 500px; border-radius: 30px; overflow: hidden; background: #173a8a">
+        <img src="/_blob/73d5ee55ce87b785c1ead527838c3555" alt="Phòng lều" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+        <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(23,58,138,0) 42%, rgba(23,58,138,.9) 100%)"></div>
+        <span class="glass" style="position: absolute; left: 18px; top: 18px; color: #ffffff; font-weight: 700; font-size: 13px; padding: 7px 14px; border-radius: 999px">Tầng 3</span>
+        <div style="position: absolute; left: 24px; right: 24px; bottom: 24px; color: #ffffff; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 36px; line-height: 1">Phòng lều</span>
+          <span style="font-size: 15px; opacity: .92">Lều xinh, đèn vàng ấm, hợp cặp đôi</span>
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 10px"><span style="font-weight: 700; font-size: 22px">70.000đ<span style="font-size: 13px; opacity: .85">/người</span></span><span class="glass" style="color: #ffffff; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 999px">Xem phòng</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="position: relative; max-width: 1440px; height: 110px; margin: 0 auto" aria-hidden="true">
+    <span class="stk s-docsach" aria-hidden="true" style="position: absolute; right: 9%; top: -6px; width: 104px; height: 104px; transform: rotate(8deg)"></span>
+    <svg width="1440" height="110" viewBox="0 0 1440 110" style="position: absolute; left: 0; top: 0; max-width: 100%"><path d="M260 0 C260 70 1180 40 1180 110" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 8"></path></svg>
+    <span class="dot-run" style="position: absolute; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 6px rgba(47,107,255,.18), 0 0 16px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 30px">
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+      <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 50px; line-height: 1.02; color: #173a8a">Không biết chơi?<br>Chisu dạy liền</h2>
+      <p style="margin: 0; max-width: 300px; font-size: 16px; line-height: 1.55; color: #66718a">Game nào cũng có video Chisu hướng dẫn, mở ngay trên điện thoại trong phòng.</p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center">
+      <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 16px">
+        <div class="card3d lift" style="background: #ffffff; border-radius: 24px; padding: 22px; display: flex; gap: 18px; align-items: flex-start">
+          <span class="clay" style="flex: none; width: 54px; height: 54px; border-radius: 17px; background: linear-gradient(160deg, #8fb0ff, #2f6bff); display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 22 22" fill="none" stroke="#ffffff" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1.5"></rect><rect x="13" y="3" width="6" height="6" rx="1.5"></rect><rect x="3" y="13" width="6" height="6" rx="1.5"></rect><path d="M13 13h2v2M19 13v6h-6"></path></svg></span>
+          <div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 18px; color: #173a8a">Quét mã QR trên bàn</strong><span style="font-size: 15px; line-height: 1.5; color: #66718a">Mở danh mục game của quán ngay trong phòng.</span></div>
+        </div>
+        <div class="card3d lift" style="background: #ffffff; border-radius: 24px; padding: 22px; display: flex; gap: 18px; align-items: flex-start">
+          <span class="clay" style="flex: none; width: 54px; height: 54px; border-radius: 17px; background: linear-gradient(160deg, #ffe08a, #ffc83d); display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 22 22" aria-hidden="true"><path d="M8 5.5v11l9-5.5z" fill="#173a8a"></path></svg></span>
+          <div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 18px; color: #173a8a">Xem Chisu dạy luật</strong><span style="font-size: 15px; line-height: 1.5; color: #66718a">Luật chơi gói gọn trong video ngắn, xem là chơi được.</span></div>
+        </div>
+        <div class="card3d lift" style="background: #ffffff; border-radius: 24px; padding: 22px; display: flex; gap: 18px; align-items: flex-start">
+          <span class="clay" style="flex: none; width: 54px; height: 54px; border-radius: 17px; background: linear-gradient(160deg, #ffb3c4, #ff7d9c); display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 22 22" aria-hidden="true"><path d="M4 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H10l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" fill="#ffffff"></path><circle cx="7.5" cy="10.5" r="1.3" fill="#ff7d9c"></circle><circle cx="11" cy="10.5" r="1.3" fill="#ff7d9c"></circle><circle cx="14.5" cy="10.5" r="1.3" fill="#ff7d9c"></circle></svg></span>
+          <div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 18px; color: #173a8a">Bí luật? Hỏi Chisu</strong><span style="font-size: 15px; line-height: 1.5; color: #66718a">Hỏi Chisu AI hoặc bấm gọi nhân viên, có người lên chỉ liền.</span></div>
+        </div>
+        <a href="#" class="btn gloss" style="align-self: flex-start; height: 52px; padding: 0 26px; border-radius: 999px; background-color: #2f6bff; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none; box-shadow: 0 12px 26px rgba(47,107,255,.36), inset 0 1px 0 rgba(255,255,255,.4)">Xem thư viện board game</a>
+      </div>
+      <div style="flex: 1 1 420px; max-width: 520px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px">
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/595830c27aa270b6fdf8b1774d0c4201" alt="Ma Sói" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Ma Sói</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/c946c29a781d87633120d1f55a708a0f" alt="UNO" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">UNO</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/098d0322431a8fb535e112c235e9eea7" alt="Mèo Nổ" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Mèo Nổ</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/35401c66104070d53cce1c4e58c4174d" alt="Codenames" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Codenames</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/73e3f186729f08cc9b48be33c654e20e" alt="Dixit" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Dixit</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/1b16a8389fa6f0704d4d0dbfabf6cb30" alt="Catan" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Catan</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/566399c5a197742aae997f2e231795d5" alt="Splendor" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px">Splendor</span></div>
+        <div class="card3d lift" style="position: relative; aspect-ratio: 1 / 1; border-radius: 24px; overflow: hidden; background: #eef3ff"><img src="/_blob/2422c3a4f75e74f44282f789ceea7fbc" alt="Ticket to Ride" style="width: 100%; height: 100%; object-fit: cover; display: block"><span class="glass" style="position: absolute; left: 8px; bottom: 8px; color: #173a8a; background: rgba(255,255,255,.82); font-size: 13px; font-weight: 700; padding: 4px 10px; border-radius: 999px; white-space: nowrap">Ticket to Ride</span></div>
+        <a href="#" class="card3d lift" style="aspect-ratio: 1 / 1; border-radius: 24px; background: linear-gradient(160deg, #5b8cff, #173a8a); color: #ffffff; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 4px; padding: 10px; box-sizing: border-box; text-decoration: none">
+          <span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 40px; line-height: 1">76</span>
+          <span style="font-size: 13px; font-weight: 600; line-height: 1.3; opacity: .9">game có Chisu dạy</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div style="position: relative; z-index: 2; height: 90px; max-width: 1240px; margin: 0 auto" aria-hidden="true"><span class="stk s-trasua" aria-hidden="true" style="position: absolute; left: 70px; bottom: -22px; width: 96px; height: 104px; transform: rotate(-8deg)"></span></div>
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: 0 40px">
+    <div class="card3d" style="position: relative; isolation: isolate; height: 470px; border-radius: 40px; overflow: hidden; background: linear-gradient(180deg, #fde08e 0%, #feecb8 55%, #fff7df 100%)">
+      <div class="caro" aria-hidden="true"></div>
+      <div aria-hidden="true" style="position: absolute; right: 50px; top: 24px; text-align: right; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 210px; line-height: .86; color: rgba(255,255,255,.7); transform: skewX(-7deg)">MENU</div>
+      <svg class="twinkle" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 44px; top: 50px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 470px; top: 90px; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <svg class="twinkle" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 60px; bottom: 70px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <div aria-hidden="true" style="position: absolute; right: 6%; top: 60px; width: 440px; height: 440px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.8), rgba(255,255,255,0))"></div>
+      <div aria-hidden="true" style="position: absolute; right: 11%; bottom: 22px; width: 320px; height: 34px; border-radius: 999px; background: radial-gradient(closest-side, rgba(120,80,10,.25), rgba(120,80,10,0))"></div>
+      <div class="chi c-chef float" role="img" aria-label="Chisu đầu bếp" style="position: absolute; right: 9%; bottom: 30px; width: 340px; height: 410px; filter: drop-shadow(0 22px 22px rgba(120,80,10,.2))"></div>
+      <div style="position: absolute; left: 56px; top: 120px; width: 360px; display: flex; flex-direction: column; gap: 10px">
+        <h2 style="margin: 0 0 6px; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 46px; line-height: 1; color: #173a8a">Vừa chơi vừa nhâm nhi</h2>
+        <span class="glass" style="display: flex; justify-content: space-between; color: #173a8a; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 16px; background: rgba(255,255,255,.72)">Trà sữa, trà trái cây, sữa chua<strong>từ 35.000đ</strong></span>
+        <span class="glass" style="display: flex; justify-content: space-between; color: #173a8a; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 16px; background: rgba(255,255,255,.72)">Ăn vặt<strong>từ 35.000đ</strong></span>
+        <span class="glass" style="display: flex; justify-content: space-between; color: #173a8a; font-size: 15px; font-weight: 600; padding: 11px 16px; border-radius: 16px; background: rgba(255,255,255,.72)">Combo chiên cả nhóm<strong>từ 125.000đ</strong></span>
+        <a href="#" class="btn" style="align-self: flex-start; margin-top: 6px; height: 48px; padding: 0 22px; border-radius: 999px; background: #ffffff; color: #173a8a; font-weight: 700; font-size: 15px; display: flex; align-items: center; text-decoration: none; box-shadow: 0 10px 22px rgba(23,58,138,.16)">Xem menu</a>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 28px"></div><section style="max-width: 1240px; margin: 0 auto; padding: 0 40px">
+    <a href="#dat-lich-pc" class="card3d lift" aria-label="Ăn xong đi đâu nhỉ? Đi chơi board game nè" style="display: block; aspect-ratio: 1584 / 901; border-radius: 40px; overflow: hidden; background: #dbe9b9">
+      <img src="/_blob/2a31ccd2124fc5e3e14f3eb2213280cf" alt="Ăn xong đi đâu nhỉ? Music box, cà phê, ăn vặt, xem phim hay đi chơi board game" style="width: 100%; height: 100%; display: block; object-fit: cover">
+    </a>
+  </section>
+
+  
+
+  <section style="max-width: 1240px; margin: 0 auto; padding: 100px 40px 0; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center">
+    <span style="font-size: 13px; font-weight: 700; color: #2f6bff; letter-spacing: .08em">ƯU ĐÃI CẢ NĂM · KHÔNG CẦN ĐẶT LỊCH</span>
+    <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 50px; line-height: 1.02; color: #173a8a">Ghé Lenna lúc nào cũng có quà</h2>
+    <div style="position: relative; width: 100%; max-width: 1100px; height: 560px; margin-top: 10px">
+      <svg width="100%" height="560" viewBox="0 0 1100 560" preserveAspectRatio="xMidYMax meet" aria-hidden="true" style="position: absolute; inset: 0"><g fill="none" stroke="#9db9ff" stroke-width="1.5"><circle class="ring" cx="550" cy="540" r="120"></circle><circle class="ring" cx="550" cy="540" r="200" style="animation-delay: .6s"></circle><circle class="ring" cx="550" cy="540" r="280" style="animation-delay: 1.2s"></circle><circle class="ring" cx="550" cy="540" r="360" style="animation-delay: 1.8s"></circle><circle class="ring" cx="550" cy="540" r="440" style="animation-delay: 2.4s"></circle></g></svg>
+      <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 360px; height: 40px; margin-left: -180px; border-radius: 999px; background: radial-gradient(closest-side, rgba(23,58,138,.25), rgba(23,58,138,0))"></div>
+      <div class="chi c-royal" role="img" aria-label="Chisu vua board game" style="position: absolute; left: 50%; bottom: 14px; width: 400px; height: 440px; margin-left: -200px; filter: drop-shadow(0 22px 22px rgba(23,58,138,.18))"></div>
+      <div class="card3d lift" style="position: absolute; left: 0; top: 40px; width: 270px; background: #ffffff; border-radius: 24px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 8px"><span class="clay gloss" style="align-self: flex-start; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; padding: 0 14px; border-radius: 14px">-10%</span><strong style="font-size: 17px; color: #173a8a">Giờ vàng</strong><span style="font-size: 14px; line-height: 1.45; color: #66718a">14:00 – 17:00, thứ 2 – thứ 6</span></div>
+      <div class="card3d lift" style="position: absolute; right: 0; top: 40px; width: 270px; background: #ffffff; border-radius: 24px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 8px"><span class="clay gloss" style="align-self: flex-start; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; padding: 0 14px; border-radius: 14px">-5%</span><strong style="font-size: 17px; color: #173a8a">Đánh giá Google Maps</strong><span style="font-size: 14px; line-height: 1.45; color: #66718a">Mỗi bạn 1 đánh giá, cả nhóm được giảm</span></div>
+      <div class="card3d lift" style="position: absolute; left: 110px; top: 290px; width: 270px; background: #ffffff; border-radius: 24px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 8px"><span class="clay gloss" style="align-self: flex-start; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; padding: 2px 14px; border-radius: 14px">Sinh nhật</span><strong style="font-size: 17px; color: #173a8a">Miễn phí giờ chơi + 1 ly</strong><span style="font-size: 14px; line-height: 1.45; color: #66718a">Xuất trình CCCD đúng ngày</span></div>
+      <div class="card3d lift" style="position: absolute; right: 110px; top: 290px; width: 270px; background: #ffffff; border-radius: 24px; padding: 20px; text-align: left; display: flex; flex-direction: column; gap: 8px"><span class="clay gloss" style="align-self: flex-start; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; padding: 2px 14px; border-radius: 14px">Tích điểm</span><strong style="font-size: 17px; color: #173a8a">Ghé 3 lần/tháng</strong><span style="font-size: 14px; line-height: 1.45; color: #66718a">Tặng 4 ly nước + 1 món ăn vặt</span></div>
+    </div>
+    <div class="card3d" style="margin-top: 24px; width: 100%; max-width: 1100px; box-sizing: border-box; background: linear-gradient(135deg, #2f6bff, #173a8a); color: #ffffff; border-radius: 26px; padding: 22px 28px; display: flex; flex-wrap: wrap; gap: 18px; align-items: center; justify-content: space-between; text-align: left">
+      <div style="display: flex; gap: 18px; align-items: center">
+        <svg width="58" height="58" viewBox="0 0 44 44" aria-hidden="true" style="flex: none; filter: drop-shadow(0 8px 10px rgba(0,0,0,.25))"><rect x="5" y="5" width="34" height="34" rx="10" fill="#ffc83d" transform="rotate(-10 22 22)"></rect><rect x="5" y="5" width="34" height="14" rx="8" fill="#ffffff" opacity=".35" transform="rotate(-10 22 22)"></rect><circle cx="16" cy="17" r="3" fill="#173a8a"></circle><circle cx="22" cy="22" r="3" fill="#173a8a"></circle><circle cx="28" cy="27" r="3" fill="#173a8a"></circle></svg>
+        <div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 19px">Tặng 1 board game Lenna</strong><span style="font-size: 15px; opacity: 0.9">Khi hóa đơn trung bình 1 khách trên 150.000đ</span></div>
+      </div>
+      <span style="font-size: 14px; opacity: .85">Mỗi hóa đơn 1 ưu đãi chính, cộng thêm được 5% Google Maps.</span>
+    </div>
+  </section>
+
+  <section id="dat-lich-pc" style="max-width: 1240px; margin: 0 auto; padding: 100px 40px 90px">
+    <div class="card3d" style="position: relative; isolation: isolate; border-radius: 40px; overflow: hidden; background: linear-gradient(180deg, #ffcadb 0%, #ffe2eb 60%, #fff2f6 100%); padding: 40px 44px 30px; display: flex; flex-direction: column; gap: 26px">
+      <div class="caro" aria-hidden="true"></div>
+      <svg class="twinkle" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 40px; top: 210px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 610px; top: 40px; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <svg class="twinkle" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 40px; top: 300px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <svg class="heart" width="44" height="40" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; left: 110px; top: 70px"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+      <svg class="heart" width="30" height="27" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; left: 470px; top: 120px; animation-delay: .9s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff9db5"></path></svg>
+      <svg class="heart" width="34" height="31" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 70px; top: 50px; animation-delay: 1.6s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center">
+        <div style="position: relative; flex: 0 1 480px; height: 420px">
+          <div aria-hidden="true" style="position: absolute; left: 50%; top: 20px; width: 440px; height: 380px; margin-left: -220px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0))"></div>
+          <div aria-hidden="true" class="clay" style="position: absolute; left: 10px; bottom: 60px; width: 120px; height: 128px; border-radius: 22px; background: #ffffff; transform: rotate(-10deg); overflow: hidden">
+            <div style="height: 34px; background: linear-gradient(180deg, #ff9db5, #ff6f93)"></div>
+            <svg width="50" height="46" viewBox="0 0 24 22" style="display: block; margin: 22px auto 0"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+          </div>
+          <div aria-hidden="true" class="clay" style="position: absolute; right: 10px; top: 110px; width: 86px; height: 76px; border-radius: 20px 20px 20px 6px; background: #ffffff; display: flex; align-items: center; justify-content: center; transform: rotate(8deg)"><svg width="38" height="34" viewBox="0 0 24 22"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff5c86"></path></svg></div>
+          <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 4px; width: 340px; height: 36px; margin-left: -170px; border-radius: 999px; background: radial-gradient(closest-side, rgba(200,60,100,.25), rgba(200,60,100,0))"></div>
+          <div class="chi c-lovely float" role="img" aria-label="Chisu ôm trái tim" style="position: absolute; left: 50%; bottom: 14px; width: 330px; height: 370px; margin-left: -165px; filter: drop-shadow(0 18px 18px rgba(200,60,100,.2))"></div>
+        </div>
+        <div style="flex: 1 1 440px; display: flex; flex-direction: column; gap: 16px; text-align: center; align-items: center">
+          <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 60px; line-height: 1; color: #173a8a">Nhắn là giữ phòng,<br><span style="color: #ff4f7b">không cần cọc</span></h2>
+          <p style="margin: 0; max-width: 460px; font-size: 18px; line-height: 1.55; color: #4a5470">Dạ, Lenna gọi xác nhận trước giờ hẹn 1 tiếng và giữ phòng 15 phút cho anh chị.</p>
+          <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 480px; margin-top: 6px">
+            <a href="#" class="btn gloss" style="height: 56px; justify-content: center; border-radius: 999px; background-color: #ff4f7b; color: #ffffff; font-weight: 700; font-size: 16px; display: flex; align-items: center; gap: 10px; text-decoration: none; box-shadow: 0 14px 28px rgba(255,79,123,.38), inset 0 1px 0 rgba(255,255,255,.45)"><svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>Đặt lịch qua form →</a>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+              <a href="#" class="btn card3d" style="height: 56px; justify-content: center; padding: 0 10px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; text-decoration: none"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.4 2 2 6.1 2 11.5c0 3 1.4 5.6 3.7 7.3V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.6 0 10-4.1 10-9.5S17.6 2 12 2z" fill="#2f6bff"></path><path d="m6.5 14 3.6-3.9 2.2 2.2 3.4-2.2-3.6 3.9-2.2-2.2z" fill="#ffffff"></path></svg>Messenger</a>
+              <a href="#" class="btn card3d" style="height: 56px; justify-content: center; padding: 0 10px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; text-decoration: none"><span style="background: #2f6bff; color: #ffffff; font-size: 9px; font-weight: 800; padding: 4px 5px; border-radius: 6px">Zalo</span>Zalo</a>
+              <a href="#" class="btn card3d" style="height: 56px; justify-content: center; padding: 0 10px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 8px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#2f6bff"></path></svg>Gọi ngay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="background: rgba(255,255,255,.88); border-radius: 26px; padding: 20px 26px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; box-shadow: inset 0 1px 0 #ffffff, 0 10px 24px rgba(200,60,100,.08)">
+        <div style="display: flex; gap: 14px; align-items: center"><span style="flex: none; width: 52px; height: 52px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="26" height="26" viewBox="0 0 20 20" fill="none" stroke="#ff4f7b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg></span><div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 17px; color: #173a8a">Xác nhận trước 1 tiếng</strong><span style="font-size: 14px; color: #66718a">Lenna gọi lại trước giờ hẹn cho chắc</span></div></div>
+        <div style="display: flex; gap: 14px; align-items: center"><span style="flex: none; width: 52px; height: 52px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2.5" fill="#ff4f7b"></rect><path d="M6.5 9V6.5a3.5 3.5 0 0 1 7 0V9" fill="none" stroke="#ff4f7b" stroke-width="2"></path></svg></span><div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 17px; color: #173a8a">Giữ phòng 15 phút</strong><span style="font-size: 14px; color: #66718a">Tới trễ chút vẫn còn phòng</span></div></div>
+        <div style="display: flex; gap: 14px; align-items: center"><span style="flex: none; width: 52px; height: 52px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="26" height="24" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff4f7b"></path></svg></span><div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 17px; color: #173a8a">Không cần cọc</strong><span style="font-size: 14px; color: #66718a">Chỉ cần nhắn đặt lịch, không trả trước</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="max-width: 1360px; margin: 0 auto; position: relative; overflow: hidden; border-radius: 44px 44px 0 0; background: linear-gradient(180deg, #5b8cff 0%, #2f6bff 60%, #2559e0 100%); color: #ffffff; padding: 40px 60px 0; display: flex; flex-direction: column; gap: 0">
+    <span class="stk s-khantim" aria-hidden="true" style="position: absolute; right: 60px; top: 30px; width: 124px; height: 124px; transform: rotate(6deg)"></span>
+    <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 130px; height: auto; display: block; margin-bottom: 22px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; border-top: 1px solid rgba(255,255,255,.25); padding: 16px 0">
+      <span style="width: 120px; font-size: 14px; opacity: .8">Trang</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Phòng chơi</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Board game</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Menu</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Ưu đãi</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Giới thiệu</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Blog</span></div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; border-top: 1px solid rgba(255,255,255,.25); padding: 16px 0">
+      <span style="width: 120px; font-size: 14px; opacity: .8">Liên hệ</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 15px">
+        <span style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg>Mở cửa 14:00 – 23:00 mỗi ngày</span>
+        <span style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5a6 6 0 0 0-6 6c0 4.5 6 11 6 11s6-6.5 6-11a6 6 0 0 0-6-6z" fill="#ffffff"></path><circle cx="10" cy="7.5" r="2.2" fill="#2f6bff"></circle></svg>[Địa chỉ], TP. Thủ Đức</span>
+        <span style="display: flex; align-items: center; gap: 8px"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#ffffff"></path></svg>[Hotline]</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; border-top: 1px solid rgba(255,255,255,.25); padding: 16px 0">
+      <span style="width: 120px; font-size: 14px; opacity: .8">Mạng xã hội</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px"><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Facebook</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">TikTok</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Zalo</span><span class="glass" style="font-size: 14px; padding: 7px 14px; border-radius: 999px">Google Maps</span></div>
+    </div>
+    <div aria-hidden="true" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 300px; line-height: .78; letter-spacing: -.02em; color: rgba(255,255,255,.16); text-align: center; margin: 10px 0 0; padding-bottom: 28px; white-space: nowrap">LENNA</div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5935}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { c: 0, fade: false };
+  }
+  list() {
+    return [
+      { cls: 'c-cheerful', word: 'CHEERFUL', plate: 'Cheerful Chisu', name: 'Chisu trà sữa', line: 'Vừa chơi vừa uống\nVui hết nấc!', c1: '#e49563', c2: '#f6be93', c3: '#fce8d4' },
+      { cls: 'c-capture', word: 'CAPTURE', plate: 'Capture Chisu', name: 'Chisu chụp hình', line: 'Góc nào cũng đáng một tấm hình!', c1: '#92b463', c2: '#c9d59a', c3: '#fbf5e2' },
+      { cls: 'c-cool', word: 'COOL', plate: 'Cool Chisu', name: 'Chisu đeo kính', line: 'Giờ vàng ghé chơi, giảm 10% nè!', c1: '#62a4b8', c2: '#b7d1e0', c3: '#f8f8f8' },
+      { cls: 'c-sad', word: 'SAD', plate: 'Sad Chisu', name: 'Chisu thua ván', line: 'Thua ván này, phục thù ván sau!', c1: '#6ba390', c2: '#afd2be', c3: '#e9efe4' },
+      { cls: 'c-lovely', word: 'LOVELY', plate: 'Lovely Chisu', name: 'Chisu ôm tim', line: 'Hẹn hò không sợ im lặng!', c1: '#e2908c', c2: '#f7c4c0', c3: '#fceae5' },
+      { cls: 'c-royal', word: 'ROYAL', plate: 'Royal Chisu', name: 'Chisu vua board game', line: 'Thắng là được làm vua cả buổi!', c1: '#e3b557', c2: '#f6db94', c3: '#fef3d6' },
+      { cls: 'c-serious', word: 'SERIOUS', plate: 'Serious Chisu', name: 'Chisu nghiêm túc', line: 'Đang tính nước đi, đừng hối nha!', c1: '#ae9ed1', c2: '#d5c4e6', c3: '#fcf3f9' },
+      { cls: 'c-music', word: 'MUSIC', plate: 'Music Chisu', name: 'Chisu nghe nhạc', line: 'Kéo rèm lại là góc của nhóm mình', c1: '#7fabd6', c2: '#b5d1e9', c3: '#e6ebf0' }
+    ];
+  }
+  componentWillUnmount() {
+    clearTimeout(this.swap);
+  }
+  goTo(n) {
+    if (this.state.fade || n === this.state.c) return;
+    this.setState({ fade: true });
+    clearTimeout(this.swap);
+    this.swap = setTimeout(() => this.setState({ c: n, fade: false }), 300);
+  }
+  renderVals() {
+    const L = this.list(), n = L.length, c = this.state.c, k = L[c];
+    const fs = Math.min(290, Math.floor(1300 / (k.word.length * 0.66)));
+    return {
+      k: Object.assign({}, k, { fs: fs + 'px' }),
+      stageCls: 'stage' + (this.state.fade ? ' out' : ''),
+      side: [1, 2].map((d) => { const i = (c + d) % n; return { cls: L[i].cls, name: L[i].name, c2: L[i].c2, c3: L[i].c3, pick: () => this.goTo(i) }; }),
+      prev: () => this.goTo((c - 1 + n) % n),
+      next: () => this.goTo((c + 1) % n)
+    };
+  }
+}
+</script>
+</body>
+</html>

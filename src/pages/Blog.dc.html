@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Blog Lenna Board Game – điện thoại</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2f6bff}a:hover{color:#173a8a}
+.chi{background-repeat:no-repeat;background-size:contain;background-position:center bottom}
+.c-cheerful{background-image:url(/_blob/134aab7d4a5cef7d6afe26533ecd3b45)}
+.c-capture{background-image:url(/_blob/b3b2caa8c85f0e898443b930a8a22909)}
+.c-cool{background-image:url(/_blob/9a94b55240e445712710227c073d7cdf)}
+.c-sad{background-image:url(/_blob/46172119ce30ce5cd88f453a12113077)}
+.c-lovely{background-image:url(/_blob/a713daca726764e2d9fd3cd8d8e477df)}
+.c-royal{background-image:url(/_blob/355744ab91a3ecb5ae5758c77bbdc13e)}
+.c-serious{background-image:url(/_blob/2a2d77665863fd3c9400018157e93e9e)}
+.c-music{background-image:url(/_blob/5967a115e52caa1b63efc70831c7ad26)}
+.c-chef{background-image:url(/_blob/c4e929238ad0840eb04349089f4f6521)}
+.heart{animation:hb 2.8s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(6deg)}}
+.caro{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.7) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.7) 1.5px,transparent 1.5px);background-size:28px 28px}
+.stage{transition:opacity .28s ease,transform .28s ease;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.stage.out{opacity:0;transform:scale(.9) translateY(16px)}
+.word{transition:opacity .3s ease}
+.glass{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 24px rgba(23,58,138,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.plate{background:linear-gradient(180deg,#ffffff 0%,#e9edf3 45%,#c9d0db 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.18)}
+.clay{box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -4px 8px rgba(23,58,138,.18),0 10px 18px rgba(23,58,138,.18)}
+.card3d{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px rgba(23,58,138,.14),0 4px 10px rgba(23,58,138,.06)}
+.btn{transition:transform .15s ease}
+.btn:active{transform:scale(.96)}
+.gloss{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 55%)}
+.twinkle{animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.05)}}
+.float{animation:fl 3.6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.rail{scrollbar-width:none;scroll-snap-type:x mandatory}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{scroll-snap-align:start}
+.dot-run{offset-path:path('M60 0 C60 46 330 34 330 80');animation:run 2.6s ease-in-out infinite}
+.dot-run2{offset-path:path('M330 0 C330 46 60 34 60 80');animation:run 2.6s ease-in-out infinite}
+@keyframes run{0%{offset-distance:0%;opacity:0}15%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.ring{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.stk{background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 6px 10px rgba(23,58,138,.16))}
+.s-vuitim{background-image:url(/_blob/064c6e7a3f9c9095565595b748ee8ad8)}
+.s-thacmac{background-image:url(/_blob/52692893d2a2a0019701697e663efa4d)}
+.s-khoc{background-image:url(/_blob/51cfbd976b71e203d79c384bd72bd820)}
+.s-cuoitit{background-image:url(/_blob/e7066522f47edea3d22089b85b54509e)}
+.s-nguvo{background-image:url(/_blob/fb7594efb4a53718714f79060c1a0bc7)}
+.s-kem{background-image:url(/_blob/d7984b01b7b9ab22c32cd2ce24109217)}
+.s-omtim{background-image:url(/_blob/1fd384fdd8136002adc3442c32eb0c74)}
+.s-mulen{background-image:url(/_blob/fcc65eb3d744d714ec01799caa881060)}
+.s-nhaymat{background-image:url(/_blob/9e080157885b5dd95ed6f0bbad4e61f7)}
+.s-kinhram{background-image:url(/_blob/d0654e36892b0ada4f731a4935d6bc61)}
+.s-khunglong{background-image:url(/_blob/21822868c03dd5a24398055997ebc495)}
+.s-matsao{background-image:url(/_blob/1964c797ffd583c28b06d46480358b37)}
+.s-trasua{background-image:url(/_blob/f2865b35ae3e4ddf5ba69a52502205bb)}
+.s-boiroi{background-image:url(/_blob/09192ff7001d432765f1882d5e9a85eb)}
+.s-chanhong{background-image:url(/_blob/1075fed9b6569e302a661317c26eb4f8)}
+.s-gian{background-image:url(/_blob/2399e60d4c123b07926d6db2d16ede62)}
+.s-horeo{background-image:url(/_blob/03de1b9706ac7623b432c992ec9658ad)}
+.s-omca{background-image:url(/_blob/8cfe053f743ce261f7d5a324d90e482d)}
+.s-rungrung{background-image:url(/_blob/6d99c9463938ad1a75ce3686f5a084f3)}
+.s-banhquy{background-image:url(/_blob/07521653d5e9199f519390988453093a)}
+.s-tainghe{background-image:url(/_blob/c9f1ae26055f90f500792896af14aef0)}
+.s-thuythu{background-image:url(/_blob/132ed2e6a4a338ef47de928032eae142)}
+.s-namngu{background-image:url(/_blob/8beb51433aaf64a785f3616ad15d81ca)}
+.s-mayanh{background-image:url(/_blob/2383fb83784a47c8aa310a944560b017)}
+.s-haohung{background-image:url(/_blob/88904cd385d7c832db872c7fc65483c6)}
+.s-vua{background-image:url(/_blob/31a668bbbb87277a1a0cef8ab98b0c30)}
+.s-aomua{background-image:url(/_blob/929f24584d87ddea52120472b288e50a)}
+.s-truottuyet{background-image:url(/_blob/7f1117346688c51dd9bc3f6cce54701e)}
+.s-nohong{background-image:url(/_blob/fc0d6ccaebc2e009ffd61557fe75b519)}
+.s-batngo{background-image:url(/_blob/30e351d699941b2391f041983ee68b47)}
+.s-khantim{background-image:url(/_blob/dbda5b51fcba58f4aa4a0c82aecea5bb)}
+.s-ngumu{background-image:url(/_blob/cd92d18adf2fca2d6a30845d1b0c8107)}
+.s-docsach{background-image:url(/_blob/5af1510a08370dd5695497610a712704)}
+.s-caphe{background-image:url(/_blob/17fc1892d611d066da9773b8f9fcb8fb)}
+.s-banhquy2{background-image:url(/_blob/55b3ef483827ad4696b1b642068f91bf)}
+.s-omtim2{background-image:url(/_blob/0456d5bcfeff159447fbe0f829d0b80e)}
+.s-tainghe2{background-image:url(/_blob/6d5b171e5fe048a018be52b8c3d5591c)}
+.s-vietbai{background-image:url(/_blob/7053c71af6d16eb5f35fe4adae1895a8)}
+.s-omsach{background-image:url(/_blob/51ef416166514b65f2e2ce9cfd62e8e1)}
+.s-chantim{background-image:url(/_blob/184a5c9277165d4c3368c6afb21f0658)}
+.s-choigame{background-image:url(/_blob/dc6c7a843fff44048ba0d4c3e9e8facf)}
+.s-nhaymua{background-image:url(/_blob/f6ec670b02418328bc2fdfb42c527cbf)}
+.s-oxanh{background-image:url(/_blob/21599f9def54a16bde8b233465efbfe4)}
+.s-ngaingung{background-image:url(/_blob/152a1ba4b1294d2b8863a22227ab7641)}
+.s-horeo2{background-image:url(/_blob/dac36042cced6dc26ea16be43c15456c)}
+.s-matna{background-image:url(/_blob/3ddd511515be20d8949bd66e2c45f404)}
+.s-lycaphe{background-image:url(/_blob/ce6c14263f2a3ab949b1d24c93ff99a0)}
+.s-laptop{background-image:url(/_blob/e95a075f36dba45568147293f3da817f)}
+.s-sokehoach{background-image:url(/_blob/6a5ed4fbb805b91d51b21f4cdabbb363)}
+.s-capdoi{background-image:url(/_blob/850f01f3e1d1300225b3c81361d25c2f)}
+.s-muadong{background-image:url(/_blob/6b34622723b69618a76f61184a0ae30f)}
+.s-bohoa{background-image:url(/_blob/e054537bd0daab1d052acef59c3019c1)}
+.s-balo{background-image:url(/_blob/cd9ef06d721217a5f2941313699ea778)}
+.s-ngungon{background-image:url(/_blob/edfa2db2fd2f0500a0c51573b42f21e2)}
+.cover{background-size:cover;background-position:center;background-repeat:no-repeat}
+.cv-masoi{background-image:url(/_blob/595830c27aa270b6fdf8b1774d0c4201)}
+.cv-uno{background-image:url(/_blob/c946c29a781d87633120d1f55a708a0f)}
+.cv-meono{background-image:url(/_blob/098d0322431a8fb535e112c235e9eea7)}
+.cv-codenames{background-image:url(/_blob/35401c66104070d53cce1c4e58c4174d)}
+.cv-dixit{background-image:url(/_blob/73e3f186729f08cc9b48be33c654e20e)}
+.cv-catan{background-image:url(/_blob/1b16a8389fa6f0704d4d0dbfabf6cb30)}
+.cv-splendor{background-image:url(/_blob/566399c5a197742aae997f2e231795d5)}
+.cv-tickettoride{background-image:url(/_blob/2422c3a4f75e74f44282f789ceea7fbc)}
+.b-anxong{background-image:url(/_blob/911e790cf259392bcdf8bc1435f0b193);background-position:center 30%}
+.b-leu{background-image:url(/_blob/73d5ee55ce87b785c1ead527838c3555)}
+.b-bet{background-image:url(/_blob/6ba80b546249fe53da64ad0f97091600)}
+.b-royal{background-image:linear-gradient(160deg,#ffe08a 0%,#ffc83d 100%)}
+.chiprail{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.chiprail::-webkit-scrollbar{display:none}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+.gcard{cursor:pointer}
+.sheet{animation:up .28s ease}
+.pop{animation:pop .35s ease}
+.spin{animation:roll .8s ease-in-out}
+@keyframes up{from{opacity:0;transform:translateY(28px)}}
+@keyframes pop{from{opacity:0;transform:scale(.92)}}
+@keyframes roll{to{transform:rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){.sheet,.pop,.spin{animation:none}}
+.prose p{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; background: #f4f7fd; font-family: 'Be Vietnam Pro', system-ui, sans-serif; color: #14213d; overflow-x: clip">
+
+  <section style="position: relative; height: 520px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #92b463 0%, #c9d59a 56%, #fbf5e2 100%); box-shadow: 0 24px 50px rgba(23,58,138,.16)">
+    <svg width="390" height="520" viewBox="0 0 390 520" aria-hidden="true" style="position: absolute; inset: 0; opacity: .18"><defs><pattern id="g-bl" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-width="1"></path></pattern></defs><rect width="390" height="520" fill="url(#g-bl)"></rect></svg>
+    <div style="position: absolute; left: 18px; right: 18px; top: 16px; z-index: 5; display: flex; align-items: center; justify-content: space-between">
+      <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 100px; height: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.12))">
+      <button aria-label="Mở menu" class="btn glass" style="width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"></path></svg>
+      </button>
+    </div>
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 84px; z-index: 1; text-align: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 132px; line-height: .9; letter-spacing: -.01em; color: rgba(255,255,255,.62); transform: skewX(-7deg); text-shadow: 0 6px 24px rgba(255,255,255,.35); white-space: nowrap">BLOG</div>
+    <svg class="twinkle" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 196px; z-index: 1"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 38px; top: 176px; z-index: 1; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 54px; top: 372px; z-index: 1; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: 120px; width: 330px; height: 330px; margin-left: -165px; z-index: 1; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.75), rgba(255,255,255,0))"></div>
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: 438px; width: 250px; height: 32px; margin-left: -125px; z-index: 1; border-radius: 999px; background: radial-gradient(closest-side, rgba(40,30,20,.3), rgba(40,30,20,0))"></div>
+    <div role="img" aria-label="Chisu chụp hình" style="position: absolute; left: 50%; top: 118px; width: 290px; height: 336px; margin-left: -138px; z-index: 2">
+      <div class="chi c-capture" style="position: absolute; inset: 0; filter: drop-shadow(0 18px 18px rgba(40,30,20,.18))"></div>
+      <div class="plate" style="position: absolute; left: 50%; bottom: 14px; width: 140px; height: 24px; margin-left: -70px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; padding: 0 7px; box-sizing: border-box">
+        <span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span>
+        <span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; color: #4a3a2c; white-space: nowrap">Capture Chisu</span>
+        <span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span>
+      </div>
+    </div>
+    <span class="glass" style="position: absolute; left: 16px; bottom: 22px; z-index: 4; max-width: 170px; color: #173a8a; background: rgba(255,255,255,.62); font-weight: 700; font-size: 13px; line-height: 1.3; padding: 9px 13px; border-radius: 16px 16px 16px 4px">Chisu ghi lại hết chuyện vui ở Lenna nè!</span>
+<span class="stk s-mayanh" aria-hidden="true" style="position: absolute; right: 12px; bottom: 22px; z-index: 4; width: 70px; height: 70px; transform: rotate(8deg)"></span>
+  </section>
+  <section style="position: relative; padding: 26px 22px 6px; display: flex; flex-direction: column; gap: 14px">
+    <div class="card3d" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; background: #ffffff; padding: 8px 14px 8px 8px; border-radius: 999px; font-size: 13px; font-weight: 700; color: #173a8a">
+      <span class="clay" style="width: 30px; height: 30px; border-radius: 10px; background: linear-gradient(160deg, #5b8cff, #2f6bff); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="5" cy="5" r="1.8" fill="#fff"></circle><circle cx="11" cy="11" r="1.8" fill="#fff"></circle></svg></span>
+      <a href="#" style="color: #66718a; text-decoration: none">Trang chủ</a><span style="color: #9aa6c4">›</span><span>Blog</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 36px; line-height: 1.04; color: #173a8a">Chơi gì, đi đâu, hẹn hò sao cho vui</h1>
+    <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3d4a66">Lenna chia sẻ luật chơi, gợi ý game theo nhóm và tin mới của quán. Đọc xong rủ cả nhóm ghé chơi nha.</p>
+    <a href="#bai-viet" class="btn gloss" style="height: 52px; border-radius: 999px; background-color: #2f6bff; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 22px rgba(47,107,255,.38), inset 0 1px 0 rgba(255,255,255,.4)">Đọc bài mới nhất</a>
+  </section>
+  <div style="position: relative; width: 390px; height: 80px" aria-hidden="true">
+    <svg width="390" height="80" viewBox="0 0 390 80" style="position: absolute; inset: 0"><path d="M60 0 C60 46 330 34 330 80" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"></path></svg>
+    <span class="dot-run" style="position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 5px rgba(47,107,255,.18), 0 0 14px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section id="bai-viet" style="display: flex; flex-direction: column; gap: 14px">
+    <div style="padding: 0 22px"><h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Bài viết</h2></div>
+    <div class="chiprail" style="padding: 2px 22px 4px">
+      <sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+          <button class="btn chip" onClick="{{c.pick}}" style="flex: none; height: 38px; padding: 0 14px; border-radius: 999px; border: 1.5px solid {{c.bd}}; background: {{c.bg}}; color: {{c.fg}}; font-family: inherit; font-weight: 700; font-size: 13px; cursor: pointer; white-space: nowrap"><span class="stk {{c.s}}" aria-hidden="true" style="display: inline-block; vertical-align: middle; width: {{c.w}}; height: 24px; margin: -4px {{c.m}} -2px -4px"></span>{{c.label}}</button>
+        </sc-for>
+    </div>
+    <sc-for list="{{featured}}" as="p" hint-placeholder-count="1">
+      <a href="#" class="card3d" style="margin: 0 22px; background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; text-decoration: none">
+        <div class="cover {{p.cv}}" role="img" aria-label="{{p.t}}" style="position: relative; height: 220px; overflow: hidden">
+              <div class="chi {{p.chi}}" aria-hidden="true" style="position: absolute; left: 12%; right: 12%; top: 8%; bottom: 0"></div>
+              <span class="stk {{p.stk}}" aria-hidden="true" style="position: absolute; right: 10px; bottom: 6px; width: 92px; height: 92px; transform: rotate(8deg)"></span>
+            </div>
+        <div style="padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px">
+          <span style="align-self: flex-start; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: {{p.pb}}; color: {{p.pc}}; white-space: nowrap">{{p.cat}}</span>
+          <strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 23px; line-height: 1.1; color: #173a8a">{{p.t}}</strong>
+          <span style="font-size: 14px; line-height: 1.5; color: #66718a">{{p.ex}}</span>
+          <span style="display: flex; align-items: center; gap: 5px; font-size: 12px; color: #9aa6c4"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="#9aa6c4" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg>{{p.mins}}</span>
+        </div>
+      </a>
+    </sc-for>
+    <div style="padding: 0 22px; display: flex; flex-direction: column; gap: 12px">
+      <sc-for list="{{rest}}" as="p" hint-placeholder-count="8">
+        <a href="#" class="card3d" style="background: #ffffff; border-radius: 20px; padding: 10px; display: flex; gap: 12px; align-items: stretch; text-decoration: none">
+          <div class="cover {{p.cv}}" role="img" aria-label="{{p.t}}" style="position: relative; width: 112px; height: 112px; flex: none; border-radius: 16px; overflow: hidden">
+              <div class="chi {{p.chi}}" aria-hidden="true" style="position: absolute; left: 12%; right: 12%; top: 8%; bottom: 0"></div>
+              <span class="stk {{p.stk}}" aria-hidden="true" style="position: absolute; right: 4px; bottom: 2px; width: 46px; height: 46px; transform: rotate(8deg)"></span>
+            </div>
+          <div style="min-width: 0; display: flex; flex-direction: column; gap: 5px; padding: 2px 2px 2px 0">
+            <span style="align-self: flex-start; font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: {{p.pb}}; color: {{p.pc}}; white-space: nowrap">{{p.cat}}</span>
+            <strong class="clamp2" style="font-size: 15px; line-height: 1.25; color: #173a8a">{{p.t}}</strong>
+            <span class="ell" style="font-size: 12px; color: #66718a">{{p.ex}}</span>
+            <span style="display: flex; align-items: center; gap: 5px; font-size: 11px; color: #9aa6c4"><svg width="13" height="13" viewBox="0 0 20 20" fill="none" stroke="#9aa6c4" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg>{{p.mins}}</span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="position: relative; width: 390px; height: 80px" aria-hidden="true">
+    <svg width="390" height="80" viewBox="0 0 390 80" style="position: absolute; inset: 0"><path d="M330 0 C330 46 60 34 60 80" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"></path></svg>
+    <span class="dot-run2" style="position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 5px rgba(47,107,255,.18), 0 0 14px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section class="card3d" style="position: relative; isolation: isolate; margin: 0 16px; padding: 22px 16px 18px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #d9ebc0 0%, #ecf5dc 55%, #f8fbef 100%); display: flex; flex-direction: column; gap: 12px">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 22px; top: 22px; animation-delay: 0s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 26px; top: 150px; animation-delay: 0.8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 150px; top: 200px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div style="position: relative; height: 190px">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 0; width: 220px; height: 200px; margin-left: -110px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.9), rgba(255,255,255,0))"></div>
+      <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 170px; height: 20px; margin-left: -85px; border-radius: 999px; background: radial-gradient(closest-side, rgba(60,90,30,.25), rgba(60,90,30,0))"></div>
+      <div class="chi c-cool float" role="img" aria-label="Chisu đeo kính" style="position: absolute; left: 50%; bottom: 6px; width: 160px; height: 180px; margin-left: -130px; filter: drop-shadow(0 12px 12px rgba(60,90,30,.18))"></div>
+      <span class="card3d" style="position: absolute; right: 0; top: 28px; width: 150px; background: #ffffff; color: #173a8a; font-weight: 700; font-size: 13px; line-height: 1.4; padding: 10px 12px; border-radius: 16px 16px 16px 4px">Anh chị muốn đọc về game nào, nhắn Chisu nha!</span>
+      <span class="stk s-laptop" aria-hidden="true" style="position: absolute; right: 8px; bottom: 2px; width: 72px; height: 72px; transform: rotate(-6deg)"></span>
+    </div>
+    <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 29px; line-height: 1.05; color: #173a8a; text-align: center">Muốn Lenna viết về game nào?</h2>
+    <a href="#" class="btn gloss" style="height: 50px; border-radius: 999px; background-color: #2f6bff; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 10px 22px rgba(47,107,255,.36), inset 0 1px 0 rgba(255,255,255,.4)"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.4 2 2 6.1 2 11.5c0 3 1.4 5.6 3.7 7.3V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.6 0 10-4.1 10-9.5S17.6 2 12 2z" fill="#ffffff"></path><path d="m6.5 14 3.6-3.9 2.2 2.2 3.4-2.2-3.6 3.9-2.2-2.2z" fill="#2f6bff"></path></svg>Nhắn Lenna</a>
+    <div style="display: flex; flex-wrap: wrap; gap: 6px; justify-content: center">
+      <span style="font-size: 12px; font-weight: 700; color: #1f6b2a; background: rgba(255,255,255,.85); padding: 6px 10px; border-radius: 999px">#LennaBoardGame</span>
+      <span style="font-size: 12px; font-weight: 700; color: #1f6b2a; background: rgba(255,255,255,.85); padding: 6px 10px; border-radius: 999px">#BoardGameThuDuc</span>
+      <span style="font-size: 12px; font-weight: 700; color: #1f6b2a; background: rgba(255,255,255,.85); padding: 6px 10px; border-radius: 999px">#CafeBoardGame</span>
+      <span style="font-size: 12px; font-weight: 700; color: #1f6b2a; background: rgba(255,255,255,.85); padding: 6px 10px; border-radius: 999px">#HenHoThuDuc</span>
+      <span style="font-size: 12px; font-weight: 700; color: #1f6b2a; background: rgba(255,255,255,.85); padding: 6px 10px; border-radius: 999px">#ChisuDayChoi</span>
+    </div>
+  </section>
+
+  <section id="dat-lich" class="card3d" style="position: relative; isolation: isolate; margin: 34px 12px 30px; padding: 22px 16px 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #ffcadb 0%, #ffe2eb 55%, #fff2f6 100%); display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 60px; top: 112px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 22px; top: 92px; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 300px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="heart" width="26" height="24" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; left: 22px; top: 26px"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+    <svg class="heart" width="20" height="18" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 30px; top: 40px; animation-delay: .9s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff9db5"></path></svg>
+    <svg class="heart" width="16" height="14" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 70px; top: 170px; animation-delay: 1.6s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+    <div style="position: relative; width: 100%; height: 210px">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 10px; width: 240px; height: 200px; margin-left: -120px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0))"></div>
+      <div aria-hidden="true" class="clay" style="position: absolute; left: 22px; bottom: 26px; width: 66px; height: 70px; border-radius: 14px; background: #ffffff; transform: rotate(-10deg); overflow: hidden">
+        <div style="height: 20px; background: linear-gradient(180deg, #ff9db5, #ff6f93)"></div>
+        <svg width="26" height="24" viewBox="0 0 24 22" style="display: block; margin: 12px auto 0"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+      </div>
+      <div aria-hidden="true" class="clay" style="position: absolute; right: 26px; top: 46px; width: 50px; height: 44px; border-radius: 14px 14px 14px 4px; background: #ffffff; display: flex; align-items: center; justify-content: center; transform: rotate(8deg)"><svg width="22" height="20" viewBox="0 0 24 22"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff5c86"></path></svg></div>
+      <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 200px; height: 22px; margin-left: -100px; border-radius: 999px; background: radial-gradient(closest-side, rgba(200,60,100,.25), rgba(200,60,100,0))"></div>
+      <div class="chi c-lovely float" role="img" aria-label="Chisu ôm trái tim" style="position: absolute; left: 50%; bottom: 6px; width: 190px; height: 200px; margin-left: -95px; filter: drop-shadow(0 14px 14px rgba(200,60,100,.18))"></div>
+    </div>
+    <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Nhắn là giữ phòng,<br><span style="color: #ff4f7b">không cần cọc</span></h2>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4a5470">Dạ, Lenna gọi xác nhận trước giờ hẹn 1 tiếng và giữ phòng 15 phút cho anh chị.</p>
+    <a href="#" class="btn gloss" style="width: 100%; height: 52px; border-radius: 999px; background-color: #ff4f7b; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 12px 24px rgba(255,79,123,.38), inset 0 1px 0 rgba(255,255,255,.45)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>
+      Đặt lịch qua form →
+    </a>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%">
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.4 2 2 6.1 2 11.5c0 3 1.4 5.6 3.7 7.3V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.6 0 10-4.1 10-9.5S17.6 2 12 2z" fill="#2f6bff"></path><path d="m6.5 14 3.6-3.9 2.2 2.2 3.4-2.2-3.6 3.9-2.2-2.2z" fill="#ffffff"></path></svg>Messenger</a>
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><span style="background: #2f6bff; color: #ffffff; font-size: 8px; font-weight: 800; padding: 3px 4px; border-radius: 5px">Zalo</span>Zalo</a>
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#2f6bff"></path></svg>Gọi</a>
+    </div>
+    <div style="width: 100%; box-sizing: border-box; background: rgba(255,255,255,.85); border-radius: 20px; padding: 6px 12px; display: flex; flex-direction: column; text-align: left; box-shadow: inset 0 1px 0 #ffffff, 0 8px 20px rgba(200,60,100,.08)">
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffe0e8">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ff4f7b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Xác nhận trước 1 tiếng</strong><span style="font-size: 12px; color: #66718a">Lenna gọi lại trước giờ hẹn</span></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffe0e8">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2.5" fill="#ff4f7b"></rect><path d="M6.5 9V6.5a3.5 3.5 0 0 1 7 0V9" fill="none" stroke="#ff4f7b" stroke-width="2"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Giữ phòng 15 phút</strong><span style="font-size: 12px; color: #66718a">Tới trễ chút vẫn còn phòng</span></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="20" height="18" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff4f7b"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Không cần cọc</strong><span style="font-size: 12px; color: #66718a">Chỉ cần nhắn đặt lịch</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position: relative; overflow: hidden; border-radius: 34px 34px 0 0; background: linear-gradient(180deg, #5b8cff 0%, #2f6bff 60%, #2559e0 100%); color: #ffffff; padding: 28px 22px 0; display: flex; flex-direction: column; gap: 16px">
+    <span class="stk s-khantim" aria-hidden="true" style="position: absolute; right: 18px; top: 16px; width: 84px; height: 84px; transform: rotate(6deg)"></span>
+    <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 112px; height: auto; display: block">
+    <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px">
+      <span style="font-size: 12px; opacity: .8">Trang</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px"><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Phòng chơi</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Board game</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Menu</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Ưu đãi</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Giới thiệu</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Blog</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px; font-size: 14px; line-height: 1.45">
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg>Mở cửa 14:00 – 23:00 mỗi ngày</span>
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5a6 6 0 0 0-6 6c0 4.5 6 11 6 11s6-6.5 6-11a6 6 0 0 0-6-6z" fill="#ffffff"></path><circle cx="10" cy="7.5" r="2.2" fill="#2f6bff"></circle></svg>[Địa chỉ], TP. Thủ Đức</span>
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#ffffff"></path></svg>[Hotline]</span>
+    </div>
+    <div aria-hidden="true" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 98px; line-height: .8; letter-spacing: -.01em; color: rgba(255,255,255,.16); margin: 8px 0 0; padding-bottom: 92px; text-align: center; white-space: nowrap">LENNA</div>
+  </footer>
+
+  <div style="position: sticky; bottom: 14px; z-index: 20; padding: 0 16px 14px; display: flex; justify-content: center; margin-top: -84px">
+    <a href="#dat-lich" class="btn gloss" style="width: 100%; height: 54px; border-radius: 999px; background-color: #ffc83d; color: #173a8a; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 12px 28px rgba(23,58,138,.3), inset 0 1px 0 rgba(255,255,255,.6)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#173a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>
+      Đặt lịch giữ phòng
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":4381}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { cat: 'all' };
+  }
+  posts() {
+    return [
+      { t: 'Ăn tối xong ở Thủ Đức đi đâu chơi?', cat: 'Nhóm bạn', ex: 'Gợi ý chỗ chơi tiếp sau bữa tối cho cả nhóm: phòng chơi, đồ uống, board game.', cv: 'b-anxong', chi: '', stk: 's-banhquy', min: 5 },
+      { t: 'Luật chơi Ma Sói cơ bản cho người mới', cat: 'Luật chơi', ex: 'Chia vai, đêm và ngày, cách thắng: đọc xong là làm quản trò được.', cv: 'cv-masoi', chi: '', stk: 's-boiroi', min: 5 },
+      { t: 'Đi hẹn hò chơi board game gì cho đỡ ngại?', cat: 'Hẹn hò', ex: 'Những game 2 người dễ chơi, vừa vui vừa có chuyện để nói.', cv: 'b-leu', chi: '', stk: 's-capdoi', min: 4 },
+      { t: '10 board game cho nhóm 4 người dễ chơi', cat: 'Gợi ý game', ex: 'Từ nhẹ nhàng tới đấu trí, nhóm 4 người chơi cả buổi không chán.', cv: 'cv-catan', chi: '', stk: 's-choigame', min: 6 },
+      { t: 'Cách chơi Mèo Nổ trong 3 phút', cat: 'Luật chơi', ex: 'Rút bài, né mèo nổ, chơi xấu bạn bè đúng luật.', cv: 'cv-meono', chi: '', stk: 's-matsao', min: 3 },
+      { t: 'Codenames: chia 2 đội đoán từ cực vui', cat: 'Gợi ý game', ex: 'Game đội nhóm hợp lớp, hợp hội bạn đông người.', cv: 'cv-codenames', chi: '', stk: 's-docsach', min: 4 },
+      { t: 'Ngồi bệt, ngồi bàn hay lều: chọn phòng nào?', cat: 'Tin Lenna', ex: 'So nhanh 3 kiểu phòng của Lenna để chọn đúng cho nhóm mình.', cv: 'b-bet', chi: '', stk: 's-chanhong', min: 3 },
+      { t: 'Dixit: game kể chuyện cho nhóm thích sáng tạo', cat: 'Gợi ý game', ex: 'Lá bài đẹp như tranh, đoán ý nhau là chính.', cv: 'cv-dixit', chi: '', stk: 's-vietbai', min: 4 },
+      { t: 'Ưu đãi tháng này ở Lenna', cat: 'Tin Lenna', ex: 'Đặt lịch trước để nhận ưu đãi theo dịp lễ trong tháng.', cv: 'b-royal', chi: 'c-royal', stk: 's-vua', min: 2 }
+    ];
+  }
+  renderVals() {
+    const PILL = { 'Luật chơi': ['#e3ecff', '#2f6bff'], 'Gợi ý game': ['#efe7ff', '#7c4ddb'], 'Hẹn hò': ['#ffe3ec', '#e0336b'], 'Nhóm bạn': ['#dff5e8', '#1f7a45'], 'Tin Lenna': ['#ffc83d', '#173a8a'] };
+    const cat = this.state.cat;
+    const list = this.posts().filter((p) => cat === 'all' || p.cat === cat).map((p) => Object.assign({}, p, { pb: PILL[p.cat][0], pc: PILL[p.cat][1], mins: p.min + ' phút đọc' }));
+    const ICON = { 'Luật chơi': 's-docsach', 'Gợi ý game': 's-nhaymat', 'Hẹn hò': 's-capdoi', 'Nhóm bạn': 's-horeo', 'Tin Lenna': 's-batngo' };
+    const CATS = [['all', 'Tất cả'], ['Luật chơi', 'Luật chơi'], ['Gợi ý game', 'Gợi ý game'], ['Hẹn hò', 'Hẹn hò'], ['Nhóm bạn', 'Nhóm bạn'], ['Tin Lenna', 'Tin Lenna']];
+    return {
+      cats: CATS.map(([v, label]) => ({ label, s: ICON[v] || '', w: ICON[v] ? '28px' : '0px', m: ICON[v] ? '4px' : '0px', pick: () => this.setState({ cat: v }), bg: cat === v ? '#173a8a' : '#ffffff', fg: cat === v ? '#ffffff' : '#173a8a', bd: cat === v ? '#173a8a' : '#d6e4ff' })),
+      featured: list.slice(0, 1),
+      rest: list.slice(1),
+      count: list.length
+    };
+  }
+}
+</script>
+</body>
+</html>

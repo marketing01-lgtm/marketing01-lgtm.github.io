@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Menu Lenna Board Game – điện thoại</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2f6bff}a:hover{color:#173a8a}
+.chi{background-repeat:no-repeat;background-size:contain;background-position:center bottom}
+.c-cheerful{background-image:url(/_blob/134aab7d4a5cef7d6afe26533ecd3b45)}
+.c-capture{background-image:url(/_blob/b3b2caa8c85f0e898443b930a8a22909)}
+.c-cool{background-image:url(/_blob/9a94b55240e445712710227c073d7cdf)}
+.c-sad{background-image:url(/_blob/46172119ce30ce5cd88f453a12113077)}
+.c-lovely{background-image:url(/_blob/a713daca726764e2d9fd3cd8d8e477df)}
+.c-royal{background-image:url(/_blob/355744ab91a3ecb5ae5758c77bbdc13e)}
+.c-serious{background-image:url(/_blob/2a2d77665863fd3c9400018157e93e9e)}
+.c-music{background-image:url(/_blob/5967a115e52caa1b63efc70831c7ad26)}
+.c-chef{background-image:url(/_blob/c4e929238ad0840eb04349089f4f6521)}
+.heart{animation:hb 2.8s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(6deg)}}
+.caro{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.7) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.7) 1.5px,transparent 1.5px);background-size:28px 28px}
+.stage{transition:opacity .28s ease,transform .28s ease;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.stage.out{opacity:0;transform:scale(.9) translateY(16px)}
+.word{transition:opacity .3s ease}
+.glass{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 24px rgba(23,58,138,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.plate{background:linear-gradient(180deg,#ffffff 0%,#e9edf3 45%,#c9d0db 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.18)}
+.clay{box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -4px 8px rgba(23,58,138,.18),0 10px 18px rgba(23,58,138,.18)}
+.card3d{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px rgba(23,58,138,.14),0 4px 10px rgba(23,58,138,.06)}
+.btn{transition:transform .15s ease}
+.btn:active{transform:scale(.96)}
+.gloss{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 55%)}
+.twinkle{animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.05)}}
+.float{animation:fl 3.6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.rail{scrollbar-width:none;scroll-snap-type:x mandatory}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{scroll-snap-align:start}
+.dot-run{offset-path:path('M60 0 C60 46 330 34 330 80');animation:run 2.6s ease-in-out infinite}
+.dot-run2{offset-path:path('M330 0 C330 46 60 34 60 80');animation:run 2.6s ease-in-out infinite}
+@keyframes run{0%{offset-distance:0%;opacity:0}15%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.ring{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.stk{background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 6px 10px rgba(23,58,138,.16))}
+.s-vuitim{background-image:url(/_blob/064c6e7a3f9c9095565595b748ee8ad8)}
+.s-thacmac{background-image:url(/_blob/52692893d2a2a0019701697e663efa4d)}
+.s-khoc{background-image:url(/_blob/51cfbd976b71e203d79c384bd72bd820)}
+.s-cuoitit{background-image:url(/_blob/e7066522f47edea3d22089b85b54509e)}
+.s-nguvo{background-image:url(/_blob/fb7594efb4a53718714f79060c1a0bc7)}
+.s-kem{background-image:url(/_blob/d7984b01b7b9ab22c32cd2ce24109217)}
+.s-omtim{background-image:url(/_blob/1fd384fdd8136002adc3442c32eb0c74)}
+.s-mulen{background-image:url(/_blob/fcc65eb3d744d714ec01799caa881060)}
+.s-nhaymat{background-image:url(/_blob/9e080157885b5dd95ed6f0bbad4e61f7)}
+.s-kinhram{background-image:url(/_blob/d0654e36892b0ada4f731a4935d6bc61)}
+.s-khunglong{background-image:url(/_blob/21822868c03dd5a24398055997ebc495)}
+.s-matsao{background-image:url(/_blob/1964c797ffd583c28b06d46480358b37)}
+.s-trasua{background-image:url(/_blob/f2865b35ae3e4ddf5ba69a52502205bb)}
+.s-boiroi{background-image:url(/_blob/09192ff7001d432765f1882d5e9a85eb)}
+.s-chanhong{background-image:url(/_blob/1075fed9b6569e302a661317c26eb4f8)}
+.s-gian{background-image:url(/_blob/2399e60d4c123b07926d6db2d16ede62)}
+.s-horeo{background-image:url(/_blob/03de1b9706ac7623b432c992ec9658ad)}
+.s-omca{background-image:url(/_blob/8cfe053f743ce261f7d5a324d90e482d)}
+.s-rungrung{background-image:url(/_blob/6d99c9463938ad1a75ce3686f5a084f3)}
+.s-banhquy{background-image:url(/_blob/07521653d5e9199f519390988453093a)}
+.s-tainghe{background-image:url(/_blob/c9f1ae26055f90f500792896af14aef0)}
+.s-thuythu{background-image:url(/_blob/132ed2e6a4a338ef47de928032eae142)}
+.s-namngu{background-image:url(/_blob/8beb51433aaf64a785f3616ad15d81ca)}
+.s-mayanh{background-image:url(/_blob/2383fb83784a47c8aa310a944560b017)}
+.s-haohung{background-image:url(/_blob/88904cd385d7c832db872c7fc65483c6)}
+.s-vua{background-image:url(/_blob/31a668bbbb87277a1a0cef8ab98b0c30)}
+.s-aomua{background-image:url(/_blob/929f24584d87ddea52120472b288e50a)}
+.s-truottuyet{background-image:url(/_blob/7f1117346688c51dd9bc3f6cce54701e)}
+.s-nohong{background-image:url(/_blob/fc0d6ccaebc2e009ffd61557fe75b519)}
+.s-batngo{background-image:url(/_blob/30e351d699941b2391f041983ee68b47)}
+.s-khantim{background-image:url(/_blob/dbda5b51fcba58f4aa4a0c82aecea5bb)}
+.s-ngumu{background-image:url(/_blob/cd92d18adf2fca2d6a30845d1b0c8107)}
+.s-docsach{background-image:url(/_blob/5af1510a08370dd5695497610a712704)}
+.s-caphe{background-image:url(/_blob/17fc1892d611d066da9773b8f9fcb8fb)}
+.s-banhquy2{background-image:url(/_blob/55b3ef483827ad4696b1b642068f91bf)}
+.s-omtim2{background-image:url(/_blob/0456d5bcfeff159447fbe0f829d0b80e)}
+.s-tainghe2{background-image:url(/_blob/6d5b171e5fe048a018be52b8c3d5591c)}
+.s-vietbai{background-image:url(/_blob/7053c71af6d16eb5f35fe4adae1895a8)}
+.s-omsach{background-image:url(/_blob/51ef416166514b65f2e2ce9cfd62e8e1)}
+.s-chantim{background-image:url(/_blob/184a5c9277165d4c3368c6afb21f0658)}
+.s-choigame{background-image:url(/_blob/dc6c7a843fff44048ba0d4c3e9e8facf)}
+.s-nhaymua{background-image:url(/_blob/f6ec670b02418328bc2fdfb42c527cbf)}
+.s-oxanh{background-image:url(/_blob/21599f9def54a16bde8b233465efbfe4)}
+.s-ngaingung{background-image:url(/_blob/152a1ba4b1294d2b8863a22227ab7641)}
+.s-horeo2{background-image:url(/_blob/dac36042cced6dc26ea16be43c15456c)}
+.s-matna{background-image:url(/_blob/3ddd511515be20d8949bd66e2c45f404)}
+.s-lycaphe{background-image:url(/_blob/ce6c14263f2a3ab949b1d24c93ff99a0)}
+.s-laptop{background-image:url(/_blob/e95a075f36dba45568147293f3da817f)}
+.s-sokehoach{background-image:url(/_blob/6a5ed4fbb805b91d51b21f4cdabbb363)}
+.s-capdoi{background-image:url(/_blob/850f01f3e1d1300225b3c81361d25c2f)}
+.s-muadong{background-image:url(/_blob/6b34622723b69618a76f61184a0ae30f)}
+.s-bohoa{background-image:url(/_blob/e054537bd0daab1d052acef59c3019c1)}
+.s-balo{background-image:url(/_blob/cd9ef06d721217a5f2941313699ea778)}
+.s-ngungon{background-image:url(/_blob/edfa2db2fd2f0500a0c51573b42f21e2)}
+.mon-rail{scrollbar-width:none;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.mon-rail::-webkit-scrollbar{display:none}
+.mon-rail > *{scroll-snap-align:start}
+.mon{flex:none;position:relative;overflow:hidden;box-shadow:0 14px 30px rgba(23,58,138,.14)}
+</style>
+</helmet>
+<div style="width: 390px; background: #f4f7fd; font-family: 'Be Vietnam Pro', system-ui, sans-serif; color: #14213d; overflow-x: clip">
+
+  <section style="position: relative; height: 520px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #fde08e 0%, #feecb8 56%, #fff7df 100%); box-shadow: 0 24px 50px rgba(23,58,138,.16)">
+    <svg width="390" height="520" viewBox="0 0 390 520" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.75"><defs><pattern id="g-menu-m" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-width="1.4"></path></pattern></defs><rect width="390" height="520" fill="url(#g-menu-m)"></rect></svg>
+    <div style="position: absolute; left: 18px; right: 18px; top: 16px; z-index: 5; display: flex; align-items: center; justify-content: space-between">
+      <img src="/_blob/c2442ec9eff7fdd0f5be400ddf2f82ce" alt="Lenna Board Game" style="width: 100px; height: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.1))">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="color: #173a8a; font-weight: 700; font-size: 12px; line-height: 1.25; text-align: right">Đói bụng hả?<br>Gọi Chisu nè!</span>
+        <button aria-label="Mở menu" class="btn glass" style="width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#173a8a" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 86px; z-index: 1; text-align: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 132px; line-height: .9; letter-spacing: -.01em; color: rgba(255,255,255,.66); transform: skewX(-7deg); white-space: nowrap; text-shadow: 0 6px 24px rgba(255,255,255,.35)">MENU</div>
+    <svg class="twinkle" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 200px; z-index: 1"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 36px; top: 222px; z-index: 1; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 58px; top: 410px; z-index: 1; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: 150px; width: 330px; height: 330px; margin-left: -165px; z-index: 1; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.75), rgba(255,255,255,0))"></div>
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: 464px; width: 250px; height: 30px; margin-left: -125px; z-index: 1; border-radius: 999px; background: radial-gradient(closest-side, rgba(40,30,20,.3), rgba(40,30,20,0))"></div>
+    <div role="img" aria-label="Chisu đầu bếp" style="position: absolute; left: 50%; top: 144px; width: 290px; height: 336px; margin-left: -145px; z-index: 2">
+      <div class="chi c-chef" style="position: absolute; inset: 0; filter: drop-shadow(0 18px 18px rgba(40,30,20,.18))"></div>
+      <div class="plate" style="position: absolute; left: 50%; bottom: 14px; width: 140px; height: 24px; margin-left: -70px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; padding: 0 7px; box-sizing: border-box"><span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; color: #4a3a2c; white-space: nowrap">Chef Chisu</span><span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span></div>
+    </div>
+  </section>
+
+  <section style="position: relative; padding: 24px 22px 6px; display: flex; flex-direction: column; gap: 14px">
+    <div class="card3d" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; background: #ffffff; padding: 7px 14px 7px 7px; border-radius: 999px; font-size: 13px; font-weight: 700">
+      <span class="clay" style="width: 30px; height: 30px; border-radius: 10px; background: linear-gradient(160deg, #5b8cff, #2f6bff); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 7.5 8 3l5.5 4.5V13a.5.5 0 0 1-.5.5H9.5V10h-3v3.5H3a.5.5 0 0 1-.5-.5z" fill="#ffffff"></path></svg></span>
+      <a href="#" style="color: #66718a; text-decoration: none">Trang chủ</a><span style="color: #9aa6c0" aria-hidden="true">›</span><span style="color: #173a8a" aria-current="page">Menu</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 38px; line-height: 1.02; color: #173a8a">Vừa chơi vừa nhâm nhi</h1>
+    <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3d4a66">Đồ uống pha tại quầy, ăn vặt nóng giòn. Anh chị gọi món ngay trong phòng bằng mã QR nha.</p>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+      <div class="card3d" style="background: #ffffff; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #66718a">Đồ uống pha</span><strong style="font-family: 'Baloo 2', sans-serif; font-size: 20px; color: #173a8a">từ 30K</strong></div>
+      <div class="card3d" style="background: #ffffff; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #66718a">Ăn vặt</span><strong style="font-family: 'Baloo 2', sans-serif; font-size: 20px; color: #173a8a">từ 15K</strong></div>
+      <div class="card3d" style="background: #ffffff; border-radius: 18px; padding: 10px; display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; color: #66718a">Combo chiên</span><strong style="font-family: 'Baloo 2', sans-serif; font-size: 20px; color: #173a8a">từ 125K</strong></div>
+    </div>
+  </section>
+
+  <div style="position: relative; width: 390px; height: 80px" aria-hidden="true">
+    <svg width="390" height="80" viewBox="0 0 390 80" style="position: absolute; inset: 0"><path d="M60 0 C60 46 330 34 330 80" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"></path></svg>
+    <span class="dot-run" style="position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 5px rgba(47,107,255,.18), 0 0 14px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section id="menu" style="display: flex; flex-direction: column; gap: 12px">
+    <div style="padding: 0 22px; display: flex; flex-direction: column; gap: 6px">
+      <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Hôm nay uống gì, ăn gì?</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #66718a">Chạm vào từng nhóm để xem món và giá.</p>
+    </div>
+    <div class="rail" style="display: flex; gap: 8px; overflow-x: auto; padding: 4px 22px 12px">
+      <sc-for list="{{tabs}}" as="tb" hint-placeholder-count="8">
+        <button class="btn" onClick="{{tb.pick}}" style="flex: none; height: 42px; padding: 0 16px; border-radius: 999px; border: none; background: {{tb.bg}}; color: {{tb.fg}}; font-family: inherit; font-weight: 700; font-size: 14px; box-shadow: 0 6px 14px rgba(23,58,138,.12); cursor: pointer; white-space: nowrap">{{tb.name}}</button>
+      </sc-for>
+    </div>
+    <div class="card3d" style="position: relative; isolation: isolate; margin: 0 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #fde08e 0%, #feecb8 55%, #fff7df 100%); padding: 18px 14px 14px">
+      <div class="caro" aria-hidden="true"></div>
+      <svg class="twinkle" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 22px; top: 18px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 18px; bottom: 22px; animation-delay: 1s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+      <div style="display: flex; align-items: center; gap: 12px; padding: 0 4px 12px">
+        <span class="clay" style="flex: none; width: 46px; height: 46px; border-radius: 15px; background: linear-gradient(160deg, {{cur.g1}}, {{cur.g2}}); display: flex; align-items: center; justify-content: center"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{cur.icon}}"></path></svg></span>
+        <div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 25px; line-height: 1; color: #173a8a">{{cur.name}}</strong><span style="font-size: 13px; color: #4a5470">{{cur.count}} · {{cur.note}}</span></div>
+        <span class="stk {{cur.stk}}" aria-hidden="true" style="margin-left: auto; flex: none; width: 72px; height: 72px; margin-top: -10px; margin-bottom: -10px; transform: rotate(6deg)"></span>
+      </div>
+      <div style="background: rgba(255,255,255,.92); border-radius: 22px; padding: 4px 14px; min-height: 506px; box-sizing: border-box; box-shadow: inset 0 1px 0 #ffffff, 0 10px 24px rgba(120,80,10,.08)">
+        <sc-for list="{{items}}" as="it" hint-placeholder-count="5">
+          <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px dashed #e3ebff">
+            <span class="clay" style="flex: none; width: 38px; height: 38px; border-radius: 12px; background: linear-gradient(160deg, {{it.g1}}, {{it.g2}}); display: flex; align-items: center; justify-content: center"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{it.icon}}"></path></svg></span>
+            <span style="flex: 1; min-width: 0; font-size: 14px; font-weight: 600; line-height: 1.35; color: #173a8a">{{it.name}}<span style="display: {{it.ex}}; margin-left: 6px; vertical-align: 1px; font-size: 11px; font-weight: 700; color: #137a74; background: #dcf5f2; padding: 2px 8px; border-radius: 999px">Món thêm</span></span>
+            <strong style="font-size: 15px; color: #173a8a; white-space: nowrap">{{it.price}}</strong>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <div style="position: relative; width: 390px; height: 80px" aria-hidden="true">
+    <svg width="390" height="80" viewBox="0 0 390 80" style="position: absolute; inset: 0"><path d="M330 0 C330 46 60 34 60 80" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"></path></svg>
+    <span class="dot-run2" style="position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 5px rgba(47,107,255,.18), 0 0 14px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section style="position: relative; display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px">
+    <span class="stk s-trasua" aria-hidden="true" style="position: absolute; right: 18px; top: -16px; width: 66px; height: 70px; transform: rotate(8deg); z-index: 2"></span>
+    <div style="padding: 0 22px; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">MÓN NGON NÊN THỬ</span>
+      <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 29px; line-height: 1.05; color: #173a8a">Nhìn là muốn gọi liền</h2>
+      <span style="font-size: 13px; font-weight: 600; color: #66718a">Lướt để xem thêm →</span>
+    </div>
+    <div class="mon-rail" style="display: flex; gap: 12px; overflow-x: auto; padding: 6px 22px 16px">
+        <div class="mon" role="img" aria-label="Ảnh món Trà sữa trân châu (sẽ thay ảnh thật)" style="width: 166px; height: 232px; clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #f6e6d2 0%, #e8c49d 100%)"><div style="position: absolute; left: 10px; right: 38px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 10px; right: 38px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Trà sữa trân châu</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">35.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Trà đào (sẽ thay ảnh thật)" style="margin-left: -35px; width: 166px; height: 232px; clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #ffe6d2 0%, #ffc49e 100%)"><div style="position: absolute; left: 38px; right: 10px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 38px; right: 10px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Trà đào</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">35.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Sữa chua dâu (sẽ thay ảnh thật)" style="width: 166px; height: 232px; clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #ffe2ea 0%, #ffbccd 100%)"><div style="position: absolute; left: 10px; right: 38px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 10px; right: 38px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Sữa chua dâu</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">35.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Cà phê sữa đá (sẽ thay ảnh thật)" style="margin-left: -35px; width: 166px; height: 232px; clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #efe1d3 0%, #d4b192 100%)"><div style="position: absolute; left: 38px; right: 10px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 38px; right: 10px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Cà phê sữa đá</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">30.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Khoai tây lắc phô mai (sẽ thay ảnh thật)" style="width: 166px; height: 232px; clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #fff3c4 0%, #ffd96e 100%)"><div style="position: absolute; left: 10px; right: 38px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 10px; right: 38px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Khoai tây lắc phô mai</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">39.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Gà viên chiên (sẽ thay ảnh thật)" style="margin-left: -35px; width: 166px; height: 232px; clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #ffe9c7 0%, #ffc77a 100%)"><div style="position: absolute; left: 38px; right: 10px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 38px; right: 10px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Gà viên chiên</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">45.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Phô mai que (sẽ thay ảnh thật)" style="width: 166px; height: 232px; clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #fff5cf 0%, #ffe08a 100%)"><div style="position: absolute; left: 10px; right: 38px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 10px; right: 38px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Phô mai que</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">42.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Combo thập cẩm (3–4 người) (sẽ thay ảnh thật)" style="margin-left: -35px; width: 166px; height: 232px; clip-path: polygon(0 0, 100% 0, 100% 100%, 30px 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #ffe6cf 0%, #ffbf86 100%)"><div style="position: absolute; left: 38px; right: 10px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 38px; right: 10px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Combo thập cẩm (3–4 người)</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">125.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Mì trộn Siu Cay (sẽ thay ảnh thật)" style="width: 166px; height: 232px; clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #ffe1d6 0%, #ffab8f 100%)"><div style="position: absolute; left: 10px; right: 38px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 10px; right: 38px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Mì trộn Siu Cay</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">45.000đ</span></div></div>
+        <div class="mon" role="img" aria-label="Ảnh món Bánh tráng trộn sa tế (sẽ thay ảnh thật)" style="margin-left: -35px; width: 166px; height: 232px; clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%); background: linear-gradient(rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(90deg, rgba(255,255,255,.45) 1.5px, transparent 1.5px) 0 0 / 24px 24px, linear-gradient(160deg, #ffe9d9 0%, #ffc29c 100%)"><div style="position: absolute; left: 38px; right: 10px; top: 30%; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="width: 46px; height: 46px; border-radius: 999px; background: rgba(255,255,255,.32); border: 1.5px dashed rgba(255,255,255,.9); display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l1.6-2.4h6.8L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="13" r="3.6"></circle></svg></span><span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,.95); letter-spacing: .04em; text-shadow: 0 1px 4px rgba(120,60,20,.25)">Ảnh món thật</span></div><div class="glass" style="position: absolute; left: 38px; right: 10px; bottom: 12px; background: rgba(255,255,255,.78); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 13px; line-height: 1.2; color: #173a8a">Bánh tráng trộn sa tế</strong><span style="font-size: 13px; font-weight: 700; color: #2f6bff">25.000đ</span></div></div>
+    </div>
+    <span class="stk s-banhquy" aria-hidden="true" style="position: absolute; right: 4px; bottom: -18px; width: 60px; height: 64px; transform: rotate(-8deg); z-index: 2"></span>
+  </section>
+
+  <section style="position: relative; isolation: isolate; margin: 0 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #dce8ff 0%, #f3f7ff 100%); padding: 22px 14px 16px; display: flex; flex-direction: column; gap: 12px" class="card3d">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 26px; top: 24px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 22px; top: 96px; animation-delay: .9s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div style="padding: 0 6px; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CHƯA BIẾT GỌI GÌ?</span>
+      <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 29px; line-height: 1.05; color: #173a8a">Gợi ý cho nhóm 4 người<span class="stk s-horeo" aria-hidden="true" style="display: inline-block; vertical-align: middle; width: 58px; height: 58px; margin-left: 8px; transform: rotate(8deg)"></span></h2>
+    </div>
+    <div class="card3d lift" style="background: #ffffff; border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px"><strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; color: #173a8a">Nhóm 4 người</strong><span style="font-size: 13px; color: #66718a">Đồ uống + ăn chung</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #d6e4ff; font-size: 14px"><span style="color: #3d4a66">4 ly Trà sữa trân châu</span><strong style="color: #173a8a; white-space: nowrap">140.000đ</strong></div><div style="display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #d6e4ff; font-size: 14px"><span style="color: #3d4a66">1 Combo thập cẩm (3–4 người)</span><strong style="color: #173a8a; white-space: nowrap">125.000đ</strong></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px"><span style="font-size: 13px; color: #66718a">Khoảng 66.000đ mỗi người</span><span class="clay gloss" style="background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; padding: 2px 14px; border-radius: 14px">265.000đ</span></div>
+        </div>
+    <div class="card3d lift" style="background: #ffffff; border-radius: 22px; padding: 18px; display: flex; flex-direction: column; gap: 6px">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px"><strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; color: #173a8a">Cặp đôi</strong><span style="font-size: 13px; color: #66718a">2 ly + 1 món</span></div>
+          <div style="display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #d6e4ff; font-size: 14px"><span style="color: #3d4a66">2 ly Trà đào</span><strong style="color: #173a8a; white-space: nowrap">70.000đ</strong></div><div style="display: flex; justify-content: space-between; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #d6e4ff; font-size: 14px"><span style="color: #3d4a66">1 Khoai tây lắc phô mai</span><strong style="color: #173a8a; white-space: nowrap">39.000đ</strong></div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px"><span style="font-size: 13px; color: #66718a">Hẹn hò nhẹ nhàng</span><span class="clay gloss" style="background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; padding: 2px 14px; border-radius: 14px">109.000đ</span></div>
+        </div>
+    <p style="margin: 0; padding: 0 6px; font-size: 12px; line-height: 1.45; color: #66718a">Giá món chưa gồm vé phòng. Ưu đãi áp dụng theo trang Ưu đãi.</p>
+  </section>
+
+  <section class="card3d" style="margin: 22px 16px 0; background: #ffffff; border-radius: 26px; padding: 18px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; gap: 14px; align-items: flex-start"><span class="clay" style="flex: none; width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(160deg, #8fb0ff, #2f6bff); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l-1.2 14.5a2 2 0 0 1-2 1.5h-3.6a2 2 0 0 1-2-1.5zM7.6 8h8.8" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px; color: #173a8a">Ly thủy tinh tại quán</strong><span style="font-size: 13px; line-height: 1.5; color: #66718a">Tại quán dùng ly thủy tinh; mang về có ly giấy nắp kín.</span></div></div><div style="display: flex; gap: 14px; align-items: flex-start"><span class="clay" style="flex: none; width: 44px; height: 44px; border-radius: 14px; background: linear-gradient(160deg, #ffe08a, #ffc83d); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h2v2M20 14v6h-6" fill="none" stroke="#173a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><div style="display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px; color: #173a8a">Gọi món bằng mã QR</strong><span style="font-size: 13px; line-height: 1.5; color: #66718a">Gọi món bằng mã QR trong phòng, món cộng vào bàn, thanh toán 1 lần khi về.</span></div></div>
+  </section>
+
+
+  <section id="dat-lich" class="card3d" style="position: relative; isolation: isolate; margin: 34px 12px 30px; padding: 22px 16px 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #ffcadb 0%, #ffe2eb 55%, #fff2f6 100%); display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 60px; top: 112px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 22px; top: 92px; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 300px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="heart" width="26" height="24" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; left: 22px; top: 26px"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+    <svg class="heart" width="20" height="18" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 30px; top: 40px; animation-delay: .9s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff9db5"></path></svg>
+    <svg class="heart" width="16" height="14" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 70px; top: 170px; animation-delay: 1.6s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+    <div style="position: relative; width: 100%; height: 210px">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 10px; width: 240px; height: 200px; margin-left: -120px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0))"></div>
+      <div aria-hidden="true" class="clay" style="position: absolute; left: 22px; bottom: 26px; width: 66px; height: 70px; border-radius: 14px; background: #ffffff; transform: rotate(-10deg); overflow: hidden">
+        <div style="height: 20px; background: linear-gradient(180deg, #ff9db5, #ff6f93)"></div>
+        <svg width="26" height="24" viewBox="0 0 24 22" style="display: block; margin: 12px auto 0"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+      </div>
+      <div aria-hidden="true" class="clay" style="position: absolute; right: 26px; top: 46px; width: 50px; height: 44px; border-radius: 14px 14px 14px 4px; background: #ffffff; display: flex; align-items: center; justify-content: center; transform: rotate(8deg)"><svg width="22" height="20" viewBox="0 0 24 22"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff5c86"></path></svg></div>
+      <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 200px; height: 22px; margin-left: -100px; border-radius: 999px; background: radial-gradient(closest-side, rgba(200,60,100,.25), rgba(200,60,100,0))"></div>
+      <div class="chi c-lovely float" role="img" aria-label="Chisu ôm trái tim" style="position: absolute; left: 50%; bottom: 6px; width: 190px; height: 200px; margin-left: -95px; filter: drop-shadow(0 14px 14px rgba(200,60,100,.18))"></div>
+    </div>
+    <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Nhắn là giữ phòng,<br><span style="color: #ff4f7b">không cần cọc</span></h2>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4a5470">Dạ, Lenna gọi xác nhận trước giờ hẹn 1 tiếng và giữ phòng 15 phút cho anh chị.</p>
+    <a href="#" class="btn gloss" style="width: 100%; height: 52px; border-radius: 999px; background-color: #ff4f7b; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 12px 24px rgba(255,79,123,.38), inset 0 1px 0 rgba(255,255,255,.45)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>
+      Đặt lịch qua form →
+    </a>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%">
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.4 2 2 6.1 2 11.5c0 3 1.4 5.6 3.7 7.3V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.6 0 10-4.1 10-9.5S17.6 2 12 2z" fill="#2f6bff"></path><path d="m6.5 14 3.6-3.9 2.2 2.2 3.4-2.2-3.6 3.9-2.2-2.2z" fill="#ffffff"></path></svg>Messenger</a>
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><span style="background: #2f6bff; color: #ffffff; font-size: 8px; font-weight: 800; padding: 3px 4px; border-radius: 5px">Zalo</span>Zalo</a>
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#2f6bff"></path></svg>Gọi</a>
+    </div>
+    <div style="width: 100%; box-sizing: border-box; background: rgba(255,255,255,.85); border-radius: 20px; padding: 6px 12px; display: flex; flex-direction: column; text-align: left; box-shadow: inset 0 1px 0 #ffffff, 0 8px 20px rgba(200,60,100,.08)">
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffe0e8">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ff4f7b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Xác nhận trước 1 tiếng</strong><span style="font-size: 12px; color: #66718a">Lenna gọi lại trước giờ hẹn</span></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffe0e8">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2.5" fill="#ff4f7b"></rect><path d="M6.5 9V6.5a3.5 3.5 0 0 1 7 0V9" fill="none" stroke="#ff4f7b" stroke-width="2"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Giữ phòng 15 phút</strong><span style="font-size: 12px; color: #66718a">Tới trễ chút vẫn còn phòng</span></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="20" height="18" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff4f7b"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Không cần cọc</strong><span style="font-size: 12px; color: #66718a">Chỉ cần nhắn đặt lịch</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position: relative; overflow: hidden; border-radius: 34px 34px 0 0; background: linear-gradient(180deg, #5b8cff 0%, #2f6bff 60%, #2559e0 100%); color: #ffffff; padding: 28px 22px 0; display: flex; flex-direction: column; gap: 16px">
+    <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 112px; height: auto; display: block">
+    <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px">
+      <span style="font-size: 12px; opacity: .8">Trang</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px"><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Phòng chơi</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Board game</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Menu</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Ưu đãi</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Giới thiệu</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Blog</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px; font-size: 14px; line-height: 1.45">
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg>Mở cửa 14:00 – 23:00 mỗi ngày</span>
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5a6 6 0 0 0-6 6c0 4.5 6 11 6 11s6-6.5 6-11a6 6 0 0 0-6-6z" fill="#ffffff"></path><circle cx="10" cy="7.5" r="2.2" fill="#2f6bff"></circle></svg>[Địa chỉ], TP. Thủ Đức</span>
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#ffffff"></path></svg>[Hotline]</span>
+    </div>
+    <div aria-hidden="true" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 98px; line-height: .8; letter-spacing: -.01em; color: rgba(255,255,255,.16); margin: 8px 0 0; padding-bottom: 92px; text-align: center; white-space: nowrap">LENNA</div>
+  </footer>
+
+  <div style="position: sticky; bottom: 14px; z-index: 20; padding: 0 16px 14px; display: flex; justify-content: center; margin-top: -84px">
+    <a href="#dat-lich" class="btn gloss" style="width: 100%; height: 54px; border-radius: 999px; background-color: #ffc83d; color: #173a8a; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 12px 28px rgba(23,58,138,.3), inset 0 1px 0 rgba(255,255,255,.6)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#173a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>
+      Đặt lịch giữ phòng
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":4201}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { t: 0 };
+  }
+  cats() {
+    return [{"name": "Trà sữa", "note": "Món quen của cả nhóm", "g1": "#d8a77a", "g2": "#a8683a", "icon": "M6 8h12l-1.4 11.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8zM5 8h14M12.5 8l2-5.5", "items": [["Trà sữa olong", "35.000đ"], ["Trà sữa trân châu", "35.000đ"], ["Trà sữa khoai môn", "35.000đ"], ["Trà sữa socola", "35.000đ"], ["Trà sữa kem trứng", "40.000đ"]]}, {"name": "Trà trái cây", "note": "Thanh mát, dễ uống", "g1": "#ffb3c4", "g2": "#ff7d9c", "icon": "M6 8h12l-1.4 11.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8zM5 8h14M12.5 8l2-5.5", "items": [["Trà đào", "35.000đ"], ["Trà vải", "35.000đ"], ["Trà ổi hồng", "35.000đ"]]}, {"name": "Sữa chua", "note": "Chua ngọt, mát lạnh", "g1": "#c3a8ff", "g2": "#8b5cf6", "icon": "M6 8h12l-1.4 11.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8zM5 8h14M12.5 8l2-5.5", "items": [["Sữa chua chanh dây", "35.000đ"], ["Sữa chua dâu", "35.000đ"], ["Sữa chua việt quất", "35.000đ"]]}, {"name": "Cà phê", "note": "Tỉnh táo cả buổi chơi", "g1": "#b98a66", "g2": "#6f4a2f", "icon": "M6 8h12l-1.4 11.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8zM5 8h14M12.5 8l2-5.5", "items": [["Cà phê sữa đá", "30.000đ"], ["Cà phê sữa tươi", "30.000đ"]]}, {"name": "Nước chai", "note": "Lon, chai tiện lợi", "g1": "#8fb0ff", "g2": "#2f6bff", "icon": "M10 2.5h4v3l2 3V20a1.5 1.5 0 0 1-1.5 1.5h-5A1.5 1.5 0 0 1 8 20V8.5l2-3zM8 13h8", "items": [["Nước suối Aquafina 500ml", "15.000đ"], ["Pepsi", "25.000đ"], ["7up", "25.000đ"], ["Sting", "25.000đ"], ["Red Bull", "25.000đ"]]}, {"name": "Đồ chiên", "note": "Chiên nóng, ăn chung cả nhóm", "g1": "#ffe08a", "g2": "#ffb020", "icon": "M5 11h14l-2 10H7zM8 11 7 4M11 11V3M14 11l1-7M17 11l1-4.5", "items": [["Khoai tây lắc phô mai", "39.000đ"], ["Khoai lang lắc phô mai", "39.000đ"], ["Cá viên chiên", "39.000đ"], ["Gà viên chiên", "45.000đ"], ["Phô mai que", "42.000đ"], ["Combo thập cẩm (3–4 người)", "125.000đ"], ["Combo thập cẩm (5–6 người)", "170.000đ"]]}, {"name": "Ăn vặt đóng gói", "note": "Đói bụng giữa ván", "g1": "#ffb37a", "g2": "#ff7a3c", "icon": "M6.5 3h11l-1 3 1 3-1 12h-9l-1-12 1-3zM9 13.5h6", "items": [["Bánh tráng trộn sa tế", "25.000đ"], ["Bánh tráng trộn mỡ hành", "25.000đ"], ["Mì ly Omachi", "30.000đ"], ["Mì ly Hảo Hảo", "30.000đ"], ["Mì trộn Kool BBQ", "45.000đ"], ["Mì trộn Siu Cay", "45.000đ"], ["Snack Oishi", "15.000đ"], ["Snack Poca", "20.000đ"], ["Snack Lay's", "25.000đ"]]}, {"name": "Topping", "note": "Thêm vào ly nào cũng được", "g1": "#9fe0d8", "g2": "#1fb5ad", "icon": "M8 7a2 2 0 1 0 .01 0M15.5 8a2 2 0 1 0 .01 0M11.5 13a2 2 0 1 0 .01 0M7 17.5a1.6 1.6 0 1 0 .01 0M16.5 16.5a1.6 1.6 0 1 0 .01 0", "extra": true, "items": [["Trân châu đen", "8.000đ"], ["Trân châu trắng", "8.000đ"], ["Trân châu hoàng kim", "8.000đ"], ["Thạch dừa", "8.000đ"], ["Thạch dừa vị đào", "8.000đ"], ["Thạch dừa trái cây", "8.000đ"], ["Kem trứng", "10.000đ"], ["Kem cheese", "10.000đ"], ["Kem muối", "10.000đ"]]}];
+  }
+  renderVals() {
+    const C = this.cats(), t = this.state.t, c = C[t];
+    return {
+      tabs: C.map((x, i) => ({ name: x.name, count: x.items.length, bg: i === t ? '#173a8a' : '#ffffff', fg: i === t ? '#ffffff' : '#173a8a', sub: i === t ? 'rgba(255,255,255,.7)' : '#8a97b4', pick: () => this.setState({ t: i }) })),
+      cur: { stk: { 'Trà sữa': 's-trasua', 'Trà trái cây': 's-lycaphe', 'Sữa chua': 's-kem', 'Cà phê': 's-caphe', 'Nước chai': 's-kinhram', 'Đồ chiên': 's-banhquy', 'Ăn vặt đóng gói': 's-banhquy2', 'Topping': 's-kem' }[c.name], name: c.name, count: c.items.length + ' món', note: c.note, g1: c.g1, g2: c.g2, icon: c.icon },
+      items: c.items.map((it) => ({ name: it[0], price: it[1], g1: c.g1, g2: c.g2, icon: c.icon, ex: c.extra ? 'inline-flex' : 'none' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

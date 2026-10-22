@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Ưu đãi Lenna Board Game – điện thoại</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2f6bff}a:hover{color:#173a8a}
+.chi{background-repeat:no-repeat;background-size:contain;background-position:center bottom}
+.c-cheerful{background-image:url(/_blob/134aab7d4a5cef7d6afe26533ecd3b45)}
+.c-capture{background-image:url(/_blob/b3b2caa8c85f0e898443b930a8a22909)}
+.c-cool{background-image:url(/_blob/9a94b55240e445712710227c073d7cdf)}
+.c-sad{background-image:url(/_blob/46172119ce30ce5cd88f453a12113077)}
+.c-lovely{background-image:url(/_blob/a713daca726764e2d9fd3cd8d8e477df)}
+.c-royal{background-image:url(/_blob/355744ab91a3ecb5ae5758c77bbdc13e)}
+.c-serious{background-image:url(/_blob/2a2d77665863fd3c9400018157e93e9e)}
+.c-music{background-image:url(/_blob/5967a115e52caa1b63efc70831c7ad26)}
+.c-chef{background-image:url(/_blob/c4e929238ad0840eb04349089f4f6521)}
+.heart{animation:hb 2.8s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(6deg)}}
+.caro{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.7) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.7) 1.5px,transparent 1.5px);background-size:28px 28px}
+.stage{transition:opacity .28s ease,transform .28s ease;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.stage.out{opacity:0;transform:scale(.9) translateY(16px)}
+.word{transition:opacity .3s ease}
+.glass{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 24px rgba(23,58,138,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.plate{background:linear-gradient(180deg,#ffffff 0%,#e9edf3 45%,#c9d0db 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.18)}
+.clay{box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -4px 8px rgba(23,58,138,.18),0 10px 18px rgba(23,58,138,.18)}
+.card3d{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px rgba(23,58,138,.14),0 4px 10px rgba(23,58,138,.06)}
+.btn{transition:transform .15s ease}
+.btn:active{transform:scale(.96)}
+.gloss{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 55%)}
+.twinkle{animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.05)}}
+.float{animation:fl 3.6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.rail{scrollbar-width:none;scroll-snap-type:x mandatory}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{scroll-snap-align:start}
+.dot-run{offset-path:path('M60 0 C60 46 330 34 330 80');animation:run 2.6s ease-in-out infinite}
+.dot-run2{offset-path:path('M330 0 C330 46 60 34 60 80');animation:run 2.6s ease-in-out infinite}
+@keyframes run{0%{offset-distance:0%;opacity:0}15%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.ring{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.stk{background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 6px 10px rgba(23,58,138,.16))}
+.s-vuitim{background-image:url(/_blob/064c6e7a3f9c9095565595b748ee8ad8)}
+.s-thacmac{background-image:url(/_blob/52692893d2a2a0019701697e663efa4d)}
+.s-khoc{background-image:url(/_blob/51cfbd976b71e203d79c384bd72bd820)}
+.s-cuoitit{background-image:url(/_blob/e7066522f47edea3d22089b85b54509e)}
+.s-nguvo{background-image:url(/_blob/fb7594efb4a53718714f79060c1a0bc7)}
+.s-kem{background-image:url(/_blob/d7984b01b7b9ab22c32cd2ce24109217)}
+.s-omtim{background-image:url(/_blob/1fd384fdd8136002adc3442c32eb0c74)}
+.s-mulen{background-image:url(/_blob/fcc65eb3d744d714ec01799caa881060)}
+.s-nhaymat{background-image:url(/_blob/9e080157885b5dd95ed6f0bbad4e61f7)}
+.s-kinhram{background-image:url(/_blob/d0654e36892b0ada4f731a4935d6bc61)}
+.s-khunglong{background-image:url(/_blob/21822868c03dd5a24398055997ebc495)}
+.s-matsao{background-image:url(/_blob/1964c797ffd583c28b06d46480358b37)}
+.s-trasua{background-image:url(/_blob/f2865b35ae3e4ddf5ba69a52502205bb)}
+.s-boiroi{background-image:url(/_blob/09192ff7001d432765f1882d5e9a85eb)}
+.s-chanhong{background-image:url(/_blob/1075fed9b6569e302a661317c26eb4f8)}
+.s-gian{background-image:url(/_blob/2399e60d4c123b07926d6db2d16ede62)}
+.s-horeo{background-image:url(/_blob/03de1b9706ac7623b432c992ec9658ad)}
+.s-omca{background-image:url(/_blob/8cfe053f743ce261f7d5a324d90e482d)}
+.s-rungrung{background-image:url(/_blob/6d99c9463938ad1a75ce3686f5a084f3)}
+.s-banhquy{background-image:url(/_blob/07521653d5e9199f519390988453093a)}
+.s-tainghe{background-image:url(/_blob/c9f1ae26055f90f500792896af14aef0)}
+.s-thuythu{background-image:url(/_blob/132ed2e6a4a338ef47de928032eae142)}
+.s-namngu{background-image:url(/_blob/8beb51433aaf64a785f3616ad15d81ca)}
+.s-mayanh{background-image:url(/_blob/2383fb83784a47c8aa310a944560b017)}
+.s-haohung{background-image:url(/_blob/88904cd385d7c832db872c7fc65483c6)}
+.s-vua{background-image:url(/_blob/31a668bbbb87277a1a0cef8ab98b0c30)}
+.s-aomua{background-image:url(/_blob/929f24584d87ddea52120472b288e50a)}
+.s-truottuyet{background-image:url(/_blob/7f1117346688c51dd9bc3f6cce54701e)}
+.s-nohong{background-image:url(/_blob/fc0d6ccaebc2e009ffd61557fe75b519)}
+.s-batngo{background-image:url(/_blob/30e351d699941b2391f041983ee68b47)}
+.s-khantim{background-image:url(/_blob/dbda5b51fcba58f4aa4a0c82aecea5bb)}
+.s-ngumu{background-image:url(/_blob/cd92d18adf2fca2d6a30845d1b0c8107)}
+.s-docsach{background-image:url(/_blob/5af1510a08370dd5695497610a712704)}
+.s-caphe{background-image:url(/_blob/17fc1892d611d066da9773b8f9fcb8fb)}
+.s-banhquy2{background-image:url(/_blob/55b3ef483827ad4696b1b642068f91bf)}
+.s-omtim2{background-image:url(/_blob/0456d5bcfeff159447fbe0f829d0b80e)}
+.s-tainghe2{background-image:url(/_blob/6d5b171e5fe048a018be52b8c3d5591c)}
+.s-vietbai{background-image:url(/_blob/7053c71af6d16eb5f35fe4adae1895a8)}
+.s-omsach{background-image:url(/_blob/51ef416166514b65f2e2ce9cfd62e8e1)}
+.s-chantim{background-image:url(/_blob/184a5c9277165d4c3368c6afb21f0658)}
+.s-choigame{background-image:url(/_blob/dc6c7a843fff44048ba0d4c3e9e8facf)}
+.s-nhaymua{background-image:url(/_blob/f6ec670b02418328bc2fdfb42c527cbf)}
+.s-oxanh{background-image:url(/_blob/21599f9def54a16bde8b233465efbfe4)}
+.s-ngaingung{background-image:url(/_blob/152a1ba4b1294d2b8863a22227ab7641)}
+.s-horeo2{background-image:url(/_blob/dac36042cced6dc26ea16be43c15456c)}
+.s-matna{background-image:url(/_blob/3ddd511515be20d8949bd66e2c45f404)}
+.s-lycaphe{background-image:url(/_blob/ce6c14263f2a3ab949b1d24c93ff99a0)}
+.s-laptop{background-image:url(/_blob/e95a075f36dba45568147293f3da817f)}
+.s-sokehoach{background-image:url(/_blob/6a5ed4fbb805b91d51b21f4cdabbb363)}
+.s-capdoi{background-image:url(/_blob/850f01f3e1d1300225b3c81361d25c2f)}
+.s-muadong{background-image:url(/_blob/6b34622723b69618a76f61184a0ae30f)}
+.s-bohoa{background-image:url(/_blob/e054537bd0daab1d052acef59c3019c1)}
+.s-balo{background-image:url(/_blob/cd9ef06d721217a5f2941313699ea778)}
+.s-ngungon{background-image:url(/_blob/edfa2db2fd2f0500a0c51573b42f21e2)}
+</style>
+</helmet>
+<div style="width: 390px; background: #f4f7fd; font-family: 'Be Vietnam Pro', system-ui, sans-serif; color: #14213d; overflow-x: clip">
+
+  <section style="position: relative; height: 520px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #e3b557 0%, #f6db94 56%, #fef3d6 100%); box-shadow: 0 24px 50px rgba(23,58,138,.16)">
+    <svg width="390" height="520" viewBox="0 0 390 520" aria-hidden="true" style="position: absolute; inset: 0; opacity: 0.22"><defs><pattern id="g-uudai-m" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#ffffff" stroke-width="1.4"></path></pattern></defs><rect width="390" height="520" fill="url(#g-uudai-m)"></rect></svg>
+    <div style="position: absolute; left: 18px; right: 18px; top: 16px; z-index: 5; display: flex; align-items: center; justify-content: space-between">
+      <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 100px; height: auto; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,.1))">
+      <div style="display: flex; align-items: center; gap: 10px">
+        <span style="color: #ffffff; font-weight: 700; font-size: 12px; line-height: 1.25; text-align: right">Ghé Lenna<br>là có quà!</span>
+        <button aria-label="Mở menu" class="btn glass" style="width: 44px; height: 44px; border-radius: 999px; display: flex; align-items: center; justify-content: center; padding: 0">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"></path></svg>
+        </button>
+      </div>
+    </div>
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; top: 86px; z-index: 1; text-align: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 92px; line-height: .9; letter-spacing: -.01em; color: rgba(255,255,255,.66); transform: skewX(-7deg); white-space: nowrap; text-shadow: 0 6px 24px rgba(255,255,255,.35)">ƯU ĐÃI</div>
+    <svg class="twinkle" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 200px; z-index: 1"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 36px; top: 222px; z-index: 1; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 58px; top: 410px; z-index: 1; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: 150px; width: 330px; height: 330px; margin-left: -165px; z-index: 1; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.75), rgba(255,255,255,0))"></div>
+    <svg width="390" height="520" viewBox="0 0 390 520" aria-hidden="true" style="position: absolute; inset: 0; z-index: 1"><g fill="none" stroke="#ffffff" stroke-width="1.5" opacity=".7"><circle class="ring" cx="195" cy="470" r="80"></circle><circle class="ring" cx="195" cy="470" r="125" style="animation-delay: .6s"></circle><circle class="ring" cx="195" cy="470" r="170" style="animation-delay: 1.2s"></circle><circle class="ring" cx="195" cy="470" r="215" style="animation-delay: 1.8s"></circle></g></svg>
+    <div aria-hidden="true" style="position: absolute; left: 50%; top: 464px; width: 250px; height: 30px; margin-left: -125px; z-index: 1; border-radius: 999px; background: radial-gradient(closest-side, rgba(40,30,20,.3), rgba(40,30,20,0))"></div>
+    <div role="img" aria-label="Chisu vua board game" style="position: absolute; left: 50%; top: 144px; width: 290px; height: 336px; margin-left: -145px; z-index: 2">
+      <div class="chi c-royal" style="position: absolute; inset: 0; filter: drop-shadow(0 18px 18px rgba(40,30,20,.18))"></div>
+      <div class="plate" style="position: absolute; left: 50%; bottom: 14px; width: 140px; height: 24px; margin-left: -70px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; padding: 0 7px; box-sizing: border-box"><span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 13px; color: #4a3a2c; white-space: nowrap">Royal Chisu</span><span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span></div>
+    </div>
+  </section>
+
+  <section style="position: relative; padding: 24px 22px 6px; display: flex; flex-direction: column; gap: 14px">
+    <div class="card3d" style="align-self: flex-start; display: flex; align-items: center; gap: 8px; background: #ffffff; padding: 7px 14px 7px 7px; border-radius: 999px; font-size: 13px; font-weight: 700">
+      <span class="clay" style="width: 30px; height: 30px; border-radius: 10px; background: linear-gradient(160deg, #5b8cff, #2f6bff); display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 7.5 8 3l5.5 4.5V13a.5.5 0 0 1-.5.5H9.5V10h-3v3.5H3a.5.5 0 0 1-.5-.5z" fill="#ffffff"></path></svg></span>
+      <a href="#" style="color: #66718a; text-decoration: none">Trang chủ</a><span style="color: #9aa6c0" aria-hidden="true">›</span><span style="color: #173a8a" aria-current="page">Ưu đãi</span>
+    </div>
+    <h1 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 38px; line-height: 1.02; color: #173a8a">Ghé Lenna lúc nào cũng có quà</h1>
+    <p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3d4a66">Ưu đãi cả năm không cần đặt lịch. Ưu đãi tháng dành riêng cho anh chị đặt lịch trước nha.</p>
+  </section>
+
+  <section style="padding: 18px 16px 0; display: flex; flex-direction: column; gap: 12px">
+    <div style="padding: 0 6px; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">KHÔNG CẦN ĐẶT LỊCH</span>
+      <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Ưu đãi cả năm</h2>
+    </div>
+    <div class="card3d" style="position: relative; background: #ffffff; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span class="stk s-kinhram" aria-hidden="true" style="position: absolute; right: 12px; top: 8px; width: 70px; height: 70px; transform: rotate(6deg)"></span>
+        <span class="clay gloss" style="align-self: flex-start; display: flex; align-items: center; gap: 6px; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; padding: 0 14px; border-radius: 14px">-10%</span>
+        <strong style="font-size: 17px; color: #173a8a">Giờ vàng</strong>
+        <span style="font-size: 14px; line-height: 1.45; color: #3d4a66">14:00 – 17:00, thứ 2 – thứ 6 · giảm 10% tổng hóa đơn</span>
+        <div style="border-top: 1px dashed #d6e4ff; padding-top: 10px; display: flex; flex-direction: column; gap: 7px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CÁCH NHẬN</span>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Ghé Lenna trong khung 14:00 – 17:00, thứ 2 – thứ 6</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Nhân viên mở bàn trong khung giờ vàng</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Giảm 10% tổng hóa đơn khi thanh toán</span></div>
+        </div>
+      </div><div class="card3d" style="position: relative; background: #ffffff; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span class="stk s-sokehoach" aria-hidden="true" style="position: absolute; right: 12px; top: 8px; width: 70px; height: 70px; transform: rotate(-6deg)"></span>
+        <span class="clay gloss" style="align-self: flex-start; display: flex; align-items: center; gap: 6px; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; padding: 0 14px; border-radius: 14px">3 lần</span>
+        <strong style="font-size: 17px; color: #173a8a">Thẻ tích điểm</strong>
+        <span style="font-size: 14px; line-height: 1.45; color: #3d4a66">Ghé 3 lần/tháng tặng 4 ly nước + 1 phần ăn vặt</span>
+        <div style="border-top: 1px dashed #d6e4ff; padding-top: 10px; display: flex; flex-direction: column; gap: 7px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CÁCH NHẬN</span>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Mỗi lần ghé, bấm "Tích điểm hôm nay" trên app bằng số điện thoại</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Nhân viên xác nhận, mỗi ngày tích 1 lần</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Đủ 3 lần trong tháng nhận quà, mỗi số 1 lần/tháng</span></div>
+        </div>
+      </div><div class="card3d" style="position: relative; background: #ffffff; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span class="stk s-bohoa" aria-hidden="true" style="position: absolute; right: 12px; top: 8px; width: 70px; height: 70px; transform: rotate(6deg)"></span>
+        <span class="clay gloss" style="align-self: flex-start; display: flex; align-items: center; gap: 6px; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; padding: 0 14px; border-radius: 14px">Sinh nhật</span>
+        <strong style="font-size: 17px; color: #173a8a">Sinh nhật</strong>
+        <span style="font-size: 14px; line-height: 1.45; color: #3d4a66">Miễn phí giờ chơi + 1 ly nước cho người có sinh nhật</span>
+        <div style="border-top: 1px dashed #d6e4ff; padding-top: 10px; display: flex; flex-direction: column; gap: 7px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CÁCH NHẬN</span>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Ghé Lenna đúng ngày sinh nhật</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Xuất trình CCCD cho nhân viên</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Được miễn phí giờ chơi + 1 ly nước</span></div>
+        </div>
+      </div><div class="card3d" style="position: relative; background: #ffffff; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span class="stk s-mayanh" aria-hidden="true" style="position: absolute; right: 12px; top: 8px; width: 70px; height: 70px; transform: rotate(-6deg)"></span>
+        <span class="clay gloss" style="align-self: flex-start; display: flex; align-items: center; gap: 6px; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; padding: 0 14px; border-radius: 14px">-5%</span>
+        <strong style="font-size: 17px; color: #173a8a">Đánh giá Google Maps</strong>
+        <span style="font-size: 14px; line-height: 1.45; color: #3d4a66">Cả nhóm giảm 5% hóa đơn khi số đánh giá bằng số người</span>
+        <div style="border-top: 1px dashed #d6e4ff; padding-top: 10px; display: flex; flex-direction: column; gap: 7px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CÁCH NHẬN</span>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Mỗi người đánh giá Lenna trên Google Maps</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Số đánh giá bằng số người trong nhóm</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Gửi ảnh chụp đánh giá qua app để Chisu xác nhận</span></div>
+        </div>
+      </div><div class="card3d" style="position: relative; background: #ffffff; border-radius: 22px; padding: 16px; display: flex; flex-direction: column; gap: 10px">
+        <span class="stk s-omsach" aria-hidden="true" style="position: absolute; right: 12px; top: 8px; width: 70px; height: 70px; transform: rotate(6deg)"></span>
+        <span class="clay gloss" style="align-self: flex-start; display: flex; align-items: center; gap: 6px; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; padding: 0 14px; border-radius: 14px"><svg width="30" height="30" viewBox="0 0 44 44" aria-hidden="true"><rect x="5" y="5" width="34" height="34" rx="10" fill="#ffc83d" transform="rotate(-10 22 22)"></rect><circle cx="16" cy="17" r="3" fill="#173a8a"></circle><circle cx="22" cy="22" r="3" fill="#173a8a"></circle><circle cx="28" cy="27" r="3" fill="#173a8a"></circle></svg>Quà</span>
+        <strong style="font-size: 17px; color: #173a8a">Tặng 1 board game Lenna</strong>
+        <span style="font-size: 14px; line-height: 1.45; color: #3d4a66">Khi hóa đơn trung bình 1 khách trên 150.000đ</span>
+        <div style="border-top: 1px dashed #d6e4ff; padding-top: 10px; display: flex; flex-direction: column; gap: 7px">
+          <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CÁCH NHẬN</span>
+          <div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Gọi nước, ăn vặt thoải mái cho cả nhóm</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Lenna kiểm tra hóa đơn khi thanh toán</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 22px; height: 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Nhận 1 board game Lenna mang về</span></div>
+        </div>
+      </div>
+  </section>
+
+  <div style="position: relative; width: 390px; height: 80px" aria-hidden="true">
+    <svg width="390" height="80" viewBox="0 0 390 80" style="position: absolute; inset: 0"><path d="M60 0 C60 46 330 34 330 80" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"></path></svg>
+    <span class="dot-run" style="position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 5px rgba(47,107,255,.18), 0 0 14px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section class="card3d" style="position: relative; isolation: isolate; margin: 0 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #dce8ff 0%, #f3f7ff 100%); padding: 22px 14px 16px; display: flex; flex-direction: column; gap: 14px">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 24px; top: 22px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 20px; top: 150px; animation-delay: .9s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <div style="padding: 0 6px; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CHỈ CHO KHÁCH ĐẶT LỊCH TRƯỚC</span>
+      <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Ưu đãi tháng</h2>
+      <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #4a5470">Mỗi tháng 1 chương trình theo ngày lễ. Chọn tháng để xem nha.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px">
+      <sc-for list="{{chips}}" as="c" hint-placeholder-count="12">
+        <button class="btn" onClick="{{c.pick}}" style="height: 38px; border-radius: 12px; border: none; background: {{c.bg}}; color: {{c.fg}}; font-family: inherit; font-weight: 700; font-size: 13px; box-shadow: 0 4px 10px rgba(23,58,138,.1); cursor: pointer">{{c.label}}</button>
+      </sc-for>
+    </div>
+    <div class="card3d" style="position: relative; background: #ffffff; border-radius: 24px; padding: 18px 16px; display: flex; flex-direction: column; gap: 12px; overflow: hidden">
+      <span class="stk {{cur.stk}}" aria-hidden="true" style="position: absolute; right: 4px; top: 8px; width: 84px; height: 84px; transform: rotate(6deg)"></span>
+      <div style="display: flex; align-items: center; gap: 12px; padding-right: 76px">
+        <span class="clay gloss" style="flex: none; width: 54px; height: 54px; border-radius: 16px; background-color: #ffc83d; color: #173a8a; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; display: flex; align-items: center; justify-content: center">{{cur.num}}</span>
+        <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 12px; font-weight: 700; color: #2f6bff">{{cur.month}}</span><strong style="font-size: 17px; line-height: 1.25; color: #173a8a">{{cur.name}}</strong></div>
+      </div>
+      <div style="display: flex; gap: 8px; align-items: center; font-size: 13px; color: #4a5470"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#2f6bff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="4" width="14" height="13" rx="3"></rect><path d="M3 8h14M7 2.5v3M13 2.5v3"></path></svg>{{cur.time}}</div>
+      <div style="background: #fff6d6; border: 1px solid #ffe08a; border-radius: 16px; padding: 12px 14px; font-size: 15px; font-weight: 700; line-height: 1.45; color: #173a8a">{{cur.gift}}</div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #2f6bff">CÁCH NHẬN</span>
+        <div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 24px; height: 24px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">1</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Đặt lịch trước qua fanpage, Zalo hoặc hotline</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><span style="flex: none; width: 24px; height: 24px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">2</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">Đăng ảnh check-in công khai, gắn thẻ Lenna Board Game + {{cur.tag}}</span></div><div style="display: {{cur.exDisp}}; gap: 10px; align-items: flex-start"><span style="flex: none; width: 24px; height: 24px; border-radius: 999px; background: #173a8a; color: #ffffff; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center">3</span><span style="font-size: 13px; line-height: 1.45; color: #3d4a66">{{cur.extra}}</span></div>
+      </div>
+      <span style="align-self: flex-start; font-size: 13px; font-weight: 700; color: #173a8a; border: 1.5px solid #c9d9ff; padding: 5px 12px; border-radius: 999px">{{cur.tag}}</span>
+    </div>
+  </section>
+
+  <section class="card3d" style="position: relative; isolation: isolate; margin: 22px 16px 0; border-radius: 26px; overflow: hidden; background: linear-gradient(180deg, #fde08e 0%, #feecb8 55%, #fff7df 100%); padding: 18px; display: flex; gap: 14px; align-items: center">
+    <div class="caro" aria-hidden="true"></div>
+    <svg width="64" height="56" viewBox="0 0 60 52" aria-hidden="true"><ellipse cx="30" cy="40" rx="22" ry="8" fill="#e0a514"></ellipse><rect x="8" y="30" width="44" height="10" fill="#e0a514"></rect><ellipse cx="30" cy="30" rx="22" ry="8" fill="#ffc83d"></ellipse><ellipse cx="30" cy="26" rx="22" ry="8" fill="#e0a514"></ellipse><rect x="8" y="16" width="44" height="10" fill="#e0a514"></rect><ellipse cx="30" cy="16" rx="22" ry="8" fill="#ffd866"></ellipse><ellipse cx="30" cy="16" rx="12" ry="4" fill="none" stroke="#e0a514" stroke-width="2"></ellipse></svg>
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #173a8a; opacity: .8">TUẦN ĐẦU KHAI TRƯƠNG</span>
+      <strong style="font-size: 17px; line-height: 1.3; color: #173a8a">Nhóm đặt lịch trước tặng 5 xu</strong>
+      <span style="font-size: 13px; line-height: 1.45; color: #4a5470">Chơi khu gắp gấu, hết xu anh chị mua thêm tại quầy nha.</span>
+    </div>
+      <span class="stk s-batngo" aria-hidden="true" style="margin-left: auto; flex: none; width: 64px; height: 64px; transform: rotate(8deg)"></span>
+  </section>
+
+  <div style="position: relative; width: 390px; height: 80px" aria-hidden="true">
+    <svg width="390" height="80" viewBox="0 0 390 80" style="position: absolute; inset: 0"><path d="M330 0 C330 46 60 34 60 80" fill="none" stroke="#b9cdff" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 7"></path></svg>
+    <span class="dot-run2" style="position: absolute; left: 0; top: 0; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 999px; background: #2f6bff; box-shadow: 0 0 0 5px rgba(47,107,255,.18), 0 0 14px rgba(47,107,255,.6)"></span>
+  </div>
+
+  <section class="card3d" style="position: relative; isolation: isolate; margin: 0 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(160deg, #2f6bff 0%, #173a8a 100%); color: #ffffff; padding: 24px 18px 20px; display: flex; flex-direction: column; gap: 14px">
+    <div class="caro" aria-hidden="true" style="background-image: linear-gradient(rgba(255,255,255,.12) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(255,255,255,.12) 1.5px, transparent 1.5px)"></div>
+    <svg class="twinkle" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 24px; top: 24px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 22px; top: 190px; animation-delay: .9s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <span style="font-size: 12px; font-weight: 700; letter-spacing: .06em; color: #ffc83d">CUỘC THI MỖI THÁNG</span>
+    <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 32px; line-height: 1.05">Review Lenna<br>nhận thưởng</h2>
+    <div style="position: relative; height: 170px">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 10px; width: 200px; height: 160px; margin-left: -100px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.35), rgba(255,255,255,0))"></div>
+      <span class="stk s-matsao" aria-hidden="true" style="position: absolute; left: 0px; bottom: 6px; width: 76px; height: 76px; transform: rotate(-8deg)"></span>
+      <div class="chi c-capture float" role="img" aria-label="Chisu quay video review" style="position: absolute; left: 50%; bottom: 0; width: 160px; height: 170px; margin-left: -80px; filter: drop-shadow(0 14px 14px rgba(0,0,0,.25))"></div>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: flex-end">
+      <div class="" style="flex: 1; height: 92px; border-radius: 16px; background: rgba(255,255,255,.16); color: #ffffff; border: 1px solid rgba(255,255,255,.35); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; padding: 12px 6px; box-sizing: border-box; text-align: center">
+            <span style="font-size: 11px; font-weight: 700; opacity: .85">Giải nhì</span>
+            <strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; line-height: 1">3.000.000đ</strong>
+          </div>
+      <div class="clay gloss" style="flex: 1; height: 118px; border-radius: 16px; background-color: #ffc83d; color: #173a8a; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; padding: 12px 6px; box-sizing: border-box; text-align: center">
+            <span style="font-size: 11px; font-weight: 700; opacity: .85">Giải nhất</span>
+            <strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; line-height: 1">5.000.000đ</strong>
+          </div>
+      <div class="" style="flex: 1; height: 78px; border-radius: 16px; background: rgba(255,255,255,.16); color: #ffffff; border: 1px solid rgba(255,255,255,.35); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 2px; padding: 12px 6px; box-sizing: border-box; text-align: center">
+            <span style="font-size: 11px; font-weight: 700; opacity: .85">Giải ba</span>
+            <strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; line-height: 1">1.000.000đ</strong>
+          </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 9px"><div style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex: none"><circle cx="10" cy="10" r="9" fill="#ffc83d"></circle><path d="m6 10.2 2.6 2.6L14.2 7" fill="none" stroke="#173a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 14px; line-height: 1.45">Kênh từ 5.000 người theo dõi</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex: none"><circle cx="10" cy="10" r="9" fill="#ffc83d"></circle><path d="m6 10.2 2.6 2.6L14.2 7" fill="none" stroke="#173a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 14px; line-height: 1.45">Video từ 5.000 lượt xem</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex: none"><circle cx="10" cy="10" r="9" fill="#ffc83d"></circle><path d="m6 10.2 2.6 2.6L14.2 7" fill="none" stroke="#173a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 14px; line-height: 1.45">Xếp hạng theo tổng xem + tim + lưu + bình luận + chia sẻ</span></div><div style="display: flex; gap: 10px; align-items: flex-start"><svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="flex: none"><circle cx="10" cy="10" r="9" fill="#ffc83d"></circle><path d="m6 10.2 2.6 2.6L14.2 7" fill="none" stroke="#173a8a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path></svg><span style="font-size: 14px; line-height: 1.45">Gửi link qua nút "Gửi video dự thi" trên app</span></div></div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap"><span class="glass" style="font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px">#LennaBoardGame</span><span class="glass" style="font-size: 13px; font-weight: 700; padding: 5px 12px; border-radius: 999px">#LennaReview</span></div>
+    <a href="#" class="btn gloss" style="height: 50px; border-radius: 999px; background-color: #ffc83d; color: #173a8a; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 22px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.6)">Gửi video dự thi</a>
+  </section>
+
+
+
+  <section id="dat-lich" class="card3d" style="position: relative; isolation: isolate; margin: 34px 12px 30px; padding: 22px 16px 16px; border-radius: 30px; overflow: hidden; background: linear-gradient(180deg, #ffcadb 0%, #ffe2eb 55%, #fff2f6 100%); display: flex; flex-direction: column; gap: 12px; align-items: center; text-align: center">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 60px; top: 112px"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 22px; top: 92px; animation-delay: .8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 300px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="heart" width="26" height="24" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; left: 22px; top: 26px"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+    <svg class="heart" width="20" height="18" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 30px; top: 40px; animation-delay: .9s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff9db5"></path></svg>
+    <svg class="heart" width="16" height="14" viewBox="0 0 24 22" aria-hidden="true" style="position: absolute; right: 70px; top: 170px; animation-delay: 1.6s"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+    <div style="position: relative; width: 100%; height: 210px">
+      <div aria-hidden="true" style="position: absolute; left: 50%; top: 10px; width: 240px; height: 200px; margin-left: -120px; border-radius: 999px; background: radial-gradient(closest-side, rgba(255,255,255,.95), rgba(255,255,255,0))"></div>
+      <div aria-hidden="true" class="clay" style="position: absolute; left: 22px; bottom: 26px; width: 66px; height: 70px; border-radius: 14px; background: #ffffff; transform: rotate(-10deg); overflow: hidden">
+        <div style="height: 20px; background: linear-gradient(180deg, #ff9db5, #ff6f93)"></div>
+        <svg width="26" height="24" viewBox="0 0 24 22" style="display: block; margin: 12px auto 0"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff7d9c"></path></svg>
+      </div>
+      <div aria-hidden="true" class="clay" style="position: absolute; right: 26px; top: 46px; width: 50px; height: 44px; border-radius: 14px 14px 14px 4px; background: #ffffff; display: flex; align-items: center; justify-content: center; transform: rotate(8deg)"><svg width="22" height="20" viewBox="0 0 24 22"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff5c86"></path></svg></div>
+      <div aria-hidden="true" style="position: absolute; left: 50%; bottom: 0; width: 200px; height: 22px; margin-left: -100px; border-radius: 999px; background: radial-gradient(closest-side, rgba(200,60,100,.25), rgba(200,60,100,0))"></div>
+      <div class="chi c-lovely float" role="img" aria-label="Chisu ôm trái tim" style="position: absolute; left: 50%; bottom: 6px; width: 190px; height: 200px; margin-left: -95px; filter: drop-shadow(0 14px 14px rgba(200,60,100,.18))"></div>
+    </div>
+    <h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 31px; line-height: 1.05; color: #173a8a">Nhắn là giữ phòng,<br><span style="color: #ff4f7b">không cần cọc</span></h2>
+    <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #4a5470">Dạ, Lenna gọi xác nhận trước giờ hẹn 1 tiếng và giữ phòng 15 phút cho anh chị.</p>
+    <a href="#" class="btn gloss" style="width: 100%; height: 52px; border-radius: 999px; background-color: #ff4f7b; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 12px 24px rgba(255,79,123,.38), inset 0 1px 0 rgba(255,255,255,.45)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>
+      Đặt lịch qua form →
+    </a>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; width: 100%">
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.4 2 2 6.1 2 11.5c0 3 1.4 5.6 3.7 7.3V22l3.4-1.9c.9.3 1.9.4 2.9.4 5.6 0 10-4.1 10-9.5S17.6 2 12 2z" fill="#2f6bff"></path><path d="m6.5 14 3.6-3.9 2.2 2.2 3.4-2.2-3.6 3.9-2.2-2.2z" fill="#ffffff"></path></svg>Messenger</a>
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><span style="background: #2f6bff; color: #ffffff; font-size: 8px; font-weight: 800; padding: 3px 4px; border-radius: 5px">Zalo</span>Zalo</a>
+      <a href="#" class="btn card3d" style="height: 46px; border-radius: 999px; background: #ffffff; color: #14213d; font-weight: 700; font-size: 13px; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#2f6bff"></path></svg>Gọi</a>
+    </div>
+    <div style="width: 100%; box-sizing: border-box; background: rgba(255,255,255,.85); border-radius: 20px; padding: 6px 12px; display: flex; flex-direction: column; text-align: left; box-shadow: inset 0 1px 0 #ffffff, 0 8px 20px rgba(200,60,100,.08)">
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffe0e8">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#ff4f7b" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Xác nhận trước 1 tiếng</strong><span style="font-size: 12px; color: #66718a">Lenna gọi lại trước giờ hẹn</span></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid #ffe0e8">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="9" width="12" height="9" rx="2.5" fill="#ff4f7b"></rect><path d="M6.5 9V6.5a3.5 3.5 0 0 1 7 0V9" fill="none" stroke="#ff4f7b" stroke-width="2"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Giữ phòng 15 phút</strong><span style="font-size: 12px; color: #66718a">Tới trễ chút vẫn còn phòng</span></div>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: center; padding: 10px 0">
+        <span style="flex: none; width: 38px; height: 38px; border-radius: 999px; background: #ffe6ee; display: flex; align-items: center; justify-content: center"><svg width="20" height="18" viewBox="0 0 24 22" aria-hidden="true"><path d="M12 21 3 12.5A5.5 5.5 0 0 1 12 5a5.5 5.5 0 0 1 9 7.5z" fill="#ff4f7b"></path></svg></span>
+        <div style="display: flex; flex-direction: column"><strong style="font-size: 14px; color: #173a8a">Không cần cọc</strong><span style="font-size: 12px; color: #66718a">Chỉ cần nhắn đặt lịch</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="position: relative; overflow: hidden; border-radius: 34px 34px 0 0; background: linear-gradient(180deg, #5b8cff 0%, #2f6bff 60%, #2559e0 100%); color: #ffffff; padding: 28px 22px 0; display: flex; flex-direction: column; gap: 16px">
+    <img src="/_blob/18b9fcf89bae9942f7d8d06cab1d0dbe" alt="Lenna Board Game" style="width: 112px; height: auto; display: block">
+    <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px">
+      <span style="font-size: 12px; opacity: .8">Trang</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px"><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Phòng chơi</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Board game</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Menu</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Ưu đãi</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Giới thiệu</span><span class="glass" style="font-size: 13px; padding: 6px 12px; border-radius: 999px">Blog</span></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; border-top: 1px solid rgba(255,255,255,.25); padding-top: 14px; font-size: 14px; line-height: 1.45">
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="10" r="7.5"></circle><path d="M10 6v4l3 2"></path></svg>Mở cửa 14:00 – 23:00 mỗi ngày</span>
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5a6 6 0 0 0-6 6c0 4.5 6 11 6 11s6-6.5 6-11a6 6 0 0 0-6-6z" fill="#ffffff"></path><circle cx="10" cy="7.5" r="2.2" fill="#2f6bff"></circle></svg>[Địa chỉ], TP. Thủ Đức</span>
+      <span style="display: flex; align-items: center; gap: 8px"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z" fill="#ffffff"></path></svg>[Hotline]</span>
+    </div>
+    <div aria-hidden="true" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 98px; line-height: .8; letter-spacing: -.01em; color: rgba(255,255,255,.16); margin: 8px 0 0; padding-bottom: 92px; text-align: center; white-space: nowrap">LENNA</div>
+  </footer>
+
+  <div style="position: sticky; bottom: 14px; z-index: 20; padding: 0 16px 14px; display: flex; justify-content: center; margin-top: -84px">
+    <a href="#dat-lich" class="btn gloss" style="width: 100%; height: 54px; border-radius: 999px; background-color: #ffc83d; color: #173a8a; font-weight: 700; font-size: 16px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; box-shadow: 0 12px 28px rgba(23,58,138,.3), inset 0 1px 0 rgba(255,255,255,.6)">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#173a8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="13" height="12" rx="3"></rect><path d="M2.5 7.5h13M6 2v3M12 2v3"></path></svg>
+      Đặt lịch giữ phòng
+    </a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":5214}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { m: 9 };
+  }
+  months() {
+    return [{"name": "Ngày Học sinh – Sinh viên 9/1", "time": "06/1 – 12/1", "gift": "Giảm 10% tổng hóa đơn, tối đa 50.000đ", "extra": "Nhóm từ 4 người có thẻ học sinh, sinh viên", "tag": "#LennaHSSV"}, {"name": "Tết Nguyên đán – Khai xuân", "time": "Ngày mở cửa lại sau Tết đến mùng 10", "gift": "Bốc 1 bao lì xì may mắn: phiếu 10.000đ – 500.000đ trừ thẳng vào hóa đơn", "extra": "Mỗi nhóm bốc 1 bao lì xì", "tag": "#KhaiXuanLenna"}, {"name": "Quốc tế Phụ nữ 8/3", "time": "06/3 – 08/3", "gift": "Mỗi khách nữ tặng 1 ly nước (tối đa 4 ly/nhóm)", "extra": "1 khách nữ trong nhóm đăng ảnh check-in góc hoa", "tag": "#Lenna83"}, {"name": "Giỗ Tổ Hùng Vương", "time": "Các ngày nghỉ lễ Giỗ Tổ", "gift": "Giảm 10% tổng hóa đơn, tối đa 50.000đ", "extra": "", "tag": "#NghiLeLenna"}, {"name": "Lễ 30/4 – 1/5", "time": "Các ngày nghỉ lễ 30/4 – 1/5", "gift": "Giảm 10% tổng hóa đơn (tối đa 50.000đ) + mỗi người 1 móc khóa cờ Việt Nam", "extra": "", "tag": "#NghiLeLenna"}, {"name": "Quốc tế Thiếu nhi 1/6", "time": "01/6 – 07/6", "gift": "Giảm 10% tổng hóa đơn, tối đa 50.000đ", "extra": "", "tag": "#TuoiThoOLenna"}, {"name": "Nghỉ hè cùng Lenna", "time": "01/7 – 31/7", "gift": "Tặng 2 ly nước mỗi nhóm", "extra": "Mỗi nhóm 1 lần/ngày", "tag": "#LennaMuaHe"}, {"name": "Lễ Thất tịch", "time": "3 ngày quanh 7/7 âm lịch", "gift": "Cặp đôi tặng 1 gấu bông nhỏ", "extra": "Đi 2 người", "tag": "#HenHoOLenna"}, {"name": "Quốc khánh 2/9", "time": "Các ngày nghỉ lễ Quốc khánh", "gift": "Giảm 10% tổng hóa đơn, tối đa 50.000đ", "extra": "", "tag": "#NghiLeLenna"}, {"name": "Phụ nữ Việt Nam 20/10", "time": "18/10 – 20/10", "gift": "Mỗi khách nữ tặng 1 ly nước (tối đa 4 ly/nhóm)", "extra": "1 khách nữ trong nhóm đăng ảnh check-in góc hoa", "tag": "#Lenna2010"}, {"name": "Nhà giáo Việt Nam 20/11", "time": "10/11 – 20/11", "gift": "Nhóm lớp từ 6 người tặng 4 ly nước", "extra": "Ghi tên lớp khi đặt lịch", "tag": "#LopMinhOLenna"}, {"name": "Giáng sinh – Tết Dương lịch", "time": "24/12 – 01/01", "gift": "Tặng 1 gấu bông tuần lộc mỗi nhóm", "extra": "Mỗi nhóm 1 gấu", "tag": "#NoelLenna"}];
+  }
+  renderVals() {
+    const L = this.months(), m = this.state.m, x = L[m];
+    return {
+      chips: L.map((y, i) => ({ label: 'T' + (i + 1), bg: i === m ? '#173a8a' : '#ffffff', fg: i === m ? '#ffffff' : '#173a8a', pick: () => this.setState({ m: i }) })),
+      cur: Object.assign({}, x, { stk: ['s-balo', 's-vuitim', 's-bohoa', 's-horeo2', 's-horeo', 's-khunglong', 's-kem', 's-capdoi', 's-horeo2', 's-nohong', 's-docsach', 's-truottuyet'][m], num: String(m + 1), month: 'Tháng ' + (m + 1), exDisp: x.extra ? 'flex' : 'none' })
+    };
+  }
+}
+</script>
+</body>
+</html>

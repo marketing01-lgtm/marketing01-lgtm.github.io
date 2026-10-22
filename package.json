@@ -1,0 +1,11 @@
+{
+  "name": "lenna-website",
+  "private": true,
+  "description": "Website Lenna Board Game (lennaboardgame.com): dựng từ bản thiết kế + dữ liệu Google Sheet",
+  "scripts": {
+    "sync": "node tools/sync.js",
+    "build": "node src/build.js",
+    "test": "node test/booking_test.js",
+    "dev": "node src/build.js && node tools/serve.js"
+  }
+}

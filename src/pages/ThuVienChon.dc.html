@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Chisu chọn dùm 1 game – điện thoại</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&amp;family=Be+Vietnam+Pro:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#2f6bff}a:hover{color:#173a8a}
+.chi{background-repeat:no-repeat;background-size:contain;background-position:center bottom}
+.c-cheerful{background-image:url(/_blob/134aab7d4a5cef7d6afe26533ecd3b45)}
+.c-capture{background-image:url(/_blob/b3b2caa8c85f0e898443b930a8a22909)}
+.c-cool{background-image:url(/_blob/9a94b55240e445712710227c073d7cdf)}
+.c-sad{background-image:url(/_blob/46172119ce30ce5cd88f453a12113077)}
+.c-lovely{background-image:url(/_blob/a713daca726764e2d9fd3cd8d8e477df)}
+.c-royal{background-image:url(/_blob/355744ab91a3ecb5ae5758c77bbdc13e)}
+.c-serious{background-image:url(/_blob/2a2d77665863fd3c9400018157e93e9e)}
+.c-music{background-image:url(/_blob/5967a115e52caa1b63efc70831c7ad26)}
+.c-chef{background-image:url(/_blob/c4e929238ad0840eb04349089f4f6521)}
+.heart{animation:hb 2.8s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:translateY(0) rotate(-8deg)}50%{transform:translateY(-8px) rotate(6deg)}}
+.caro{position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.7) 1.5px,transparent 1.5px),linear-gradient(90deg,rgba(255,255,255,.7) 1.5px,transparent 1.5px);background-size:28px 28px}
+.stage{transition:opacity .28s ease,transform .28s ease;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.stage.out{opacity:0;transform:scale(.9) translateY(16px)}
+.word{transition:opacity .3s ease}
+.glass{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.55);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 8px 24px rgba(23,58,138,.12);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.plate{background:linear-gradient(180deg,#ffffff 0%,#e9edf3 45%,#c9d0db 100%);box-shadow:inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.12),0 3px 8px rgba(0,0,0,.18)}
+.clay{box-shadow:inset 0 2px 0 rgba(255,255,255,.65),inset 0 -4px 8px rgba(23,58,138,.18),0 10px 18px rgba(23,58,138,.18)}
+.card3d{box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 18px 40px rgba(23,58,138,.14),0 4px 10px rgba(23,58,138,.06)}
+.btn{transition:transform .15s ease}
+.btn:active{transform:scale(.96)}
+.gloss{background-image:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,0) 55%)}
+.twinkle{animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.35;transform:scale(.8)}50%{opacity:1;transform:scale(1.05)}}
+.float{animation:fl 3.6s ease-in-out infinite}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.rail{scrollbar-width:none;scroll-snap-type:x mandatory}
+.rail::-webkit-scrollbar{display:none}
+.rail > *{scroll-snap-align:start}
+.dot-run{offset-path:path('M60 0 C60 46 330 34 330 80');animation:run 2.6s ease-in-out infinite}
+.dot-run2{offset-path:path('M330 0 C330 46 60 34 60 80');animation:run 2.6s ease-in-out infinite}
+@keyframes run{0%{offset-distance:0%;opacity:0}15%{opacity:1}85%{opacity:1}100%{offset-distance:100%;opacity:0}}
+.ring{animation:pulse 4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+.stk{background-repeat:no-repeat;background-size:contain;background-position:center;filter:drop-shadow(0 6px 10px rgba(23,58,138,.16))}
+.s-vuitim{background-image:url(/_blob/064c6e7a3f9c9095565595b748ee8ad8)}
+.s-thacmac{background-image:url(/_blob/52692893d2a2a0019701697e663efa4d)}
+.s-khoc{background-image:url(/_blob/51cfbd976b71e203d79c384bd72bd820)}
+.s-cuoitit{background-image:url(/_blob/e7066522f47edea3d22089b85b54509e)}
+.s-nguvo{background-image:url(/_blob/fb7594efb4a53718714f79060c1a0bc7)}
+.s-kem{background-image:url(/_blob/d7984b01b7b9ab22c32cd2ce24109217)}
+.s-omtim{background-image:url(/_blob/1fd384fdd8136002adc3442c32eb0c74)}
+.s-mulen{background-image:url(/_blob/fcc65eb3d744d714ec01799caa881060)}
+.s-nhaymat{background-image:url(/_blob/9e080157885b5dd95ed6f0bbad4e61f7)}
+.s-kinhram{background-image:url(/_blob/d0654e36892b0ada4f731a4935d6bc61)}
+.s-khunglong{background-image:url(/_blob/21822868c03dd5a24398055997ebc495)}
+.s-matsao{background-image:url(/_blob/1964c797ffd583c28b06d46480358b37)}
+.s-trasua{background-image:url(/_blob/f2865b35ae3e4ddf5ba69a52502205bb)}
+.s-boiroi{background-image:url(/_blob/09192ff7001d432765f1882d5e9a85eb)}
+.s-chanhong{background-image:url(/_blob/1075fed9b6569e302a661317c26eb4f8)}
+.s-gian{background-image:url(/_blob/2399e60d4c123b07926d6db2d16ede62)}
+.s-horeo{background-image:url(/_blob/03de1b9706ac7623b432c992ec9658ad)}
+.s-omca{background-image:url(/_blob/8cfe053f743ce261f7d5a324d90e482d)}
+.s-rungrung{background-image:url(/_blob/6d99c9463938ad1a75ce3686f5a084f3)}
+.s-banhquy{background-image:url(/_blob/07521653d5e9199f519390988453093a)}
+.s-tainghe{background-image:url(/_blob/c9f1ae26055f90f500792896af14aef0)}
+.s-thuythu{background-image:url(/_blob/132ed2e6a4a338ef47de928032eae142)}
+.s-namngu{background-image:url(/_blob/8beb51433aaf64a785f3616ad15d81ca)}
+.s-mayanh{background-image:url(/_blob/2383fb83784a47c8aa310a944560b017)}
+.s-haohung{background-image:url(/_blob/88904cd385d7c832db872c7fc65483c6)}
+.s-vua{background-image:url(/_blob/31a668bbbb87277a1a0cef8ab98b0c30)}
+.s-aomua{background-image:url(/_blob/929f24584d87ddea52120472b288e50a)}
+.s-truottuyet{background-image:url(/_blob/7f1117346688c51dd9bc3f6cce54701e)}
+.s-nohong{background-image:url(/_blob/fc0d6ccaebc2e009ffd61557fe75b519)}
+.s-batngo{background-image:url(/_blob/30e351d699941b2391f041983ee68b47)}
+.s-khantim{background-image:url(/_blob/dbda5b51fcba58f4aa4a0c82aecea5bb)}
+.s-ngumu{background-image:url(/_blob/cd92d18adf2fca2d6a30845d1b0c8107)}
+.s-docsach{background-image:url(/_blob/5af1510a08370dd5695497610a712704)}
+.s-caphe{background-image:url(/_blob/17fc1892d611d066da9773b8f9fcb8fb)}
+.s-banhquy2{background-image:url(/_blob/55b3ef483827ad4696b1b642068f91bf)}
+.s-omtim2{background-image:url(/_blob/0456d5bcfeff159447fbe0f829d0b80e)}
+.s-tainghe2{background-image:url(/_blob/6d5b171e5fe048a018be52b8c3d5591c)}
+.s-vietbai{background-image:url(/_blob/7053c71af6d16eb5f35fe4adae1895a8)}
+.s-omsach{background-image:url(/_blob/51ef416166514b65f2e2ce9cfd62e8e1)}
+.s-chantim{background-image:url(/_blob/184a5c9277165d4c3368c6afb21f0658)}
+.s-choigame{background-image:url(/_blob/dc6c7a843fff44048ba0d4c3e9e8facf)}
+.s-nhaymua{background-image:url(/_blob/f6ec670b02418328bc2fdfb42c527cbf)}
+.s-oxanh{background-image:url(/_blob/21599f9def54a16bde8b233465efbfe4)}
+.s-ngaingung{background-image:url(/_blob/152a1ba4b1294d2b8863a22227ab7641)}
+.s-horeo2{background-image:url(/_blob/dac36042cced6dc26ea16be43c15456c)}
+.s-matna{background-image:url(/_blob/3ddd511515be20d8949bd66e2c45f404)}
+.s-lycaphe{background-image:url(/_blob/ce6c14263f2a3ab949b1d24c93ff99a0)}
+.s-laptop{background-image:url(/_blob/e95a075f36dba45568147293f3da817f)}
+.s-sokehoach{background-image:url(/_blob/6a5ed4fbb805b91d51b21f4cdabbb363)}
+.s-capdoi{background-image:url(/_blob/850f01f3e1d1300225b3c81361d25c2f)}
+.s-muadong{background-image:url(/_blob/6b34622723b69618a76f61184a0ae30f)}
+.s-bohoa{background-image:url(/_blob/e054537bd0daab1d052acef59c3019c1)}
+.s-balo{background-image:url(/_blob/cd9ef06d721217a5f2941313699ea778)}
+.s-ngungon{background-image:url(/_blob/edfa2db2fd2f0500a0c51573b42f21e2)}
+.cover{background-size:cover;background-position:center;background-repeat:no-repeat}
+.cv-masoi{background-image:url(/_blob/595830c27aa270b6fdf8b1774d0c4201)}
+.cv-uno{background-image:url(/_blob/c946c29a781d87633120d1f55a708a0f)}
+.cv-meono{background-image:url(/_blob/098d0322431a8fb535e112c235e9eea7)}
+.cv-codenames{background-image:url(/_blob/35401c66104070d53cce1c4e58c4174d)}
+.cv-dixit{background-image:url(/_blob/73e3f186729f08cc9b48be33c654e20e)}
+.cv-catan{background-image:url(/_blob/1b16a8389fa6f0704d4d0dbfabf6cb30)}
+.cv-splendor{background-image:url(/_blob/566399c5a197742aae997f2e231795d5)}
+.cv-tickettoride{background-image:url(/_blob/2422c3a4f75e74f44282f789ceea7fbc)}
+.b-anxong{background-image:url(/_blob/911e790cf259392bcdf8bc1435f0b193);background-position:center 30%}
+.b-leu{background-image:url(/_blob/73d5ee55ce87b785c1ead527838c3555)}
+.b-bet{background-image:url(/_blob/6ba80b546249fe53da64ad0f97091600)}
+.b-royal{background-image:linear-gradient(160deg,#ffe08a 0%,#ffc83d 100%)}
+.chiprail{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.chiprail::-webkit-scrollbar{display:none}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ell{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip{transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+.gcard{cursor:pointer}
+.sheet{animation:up .28s ease}
+.pop{animation:pop .35s ease}
+.spin{animation:roll .8s ease-in-out}
+@keyframes up{from{opacity:0;transform:translateY(28px)}}
+@keyframes pop{from{opacity:0;transform:scale(.92)}}
+@keyframes roll{to{transform:rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){.sheet,.pop,.spin{animation:none}}
+.prose p{margin:0}
+.cv-avalon{background-image:url(/_blob/0bd7b0c44b0a09981d50a61b97ccbb2a)}
+.cv-azul{background-image:url(/_blob/48239e504f07eee7eb210a3096696751)}
+.cv-bang{background-image:url(/_blob/920ee2469d67b5767f4600de846c245c)}
+.cv-battleline{background-image:url(/_blob/1125c478109587de66bca298fc90a0bf)}
+.cv-bloodbound{background-image:url(/_blob/a57cee6ad12850d0f3bdc9df252fd4f9)}
+.cv-buzzed{background-image:url(/_blob/b5f73e779ee30509f87eabac8034a9cb)}
+.cv-carcassonne{background-image:url(/_blob/6a977fb178351d8fd07c395691c445a9)}
+.cv-carnivoredidit{background-image:url(/_blob/1c80c100398c6d42650acb767bc90dfe)}
+.cv-cashacatch{background-image:url(/_blob/5ba046bfb95be8b98e25be1044fd72cf)}
+.cv-cashflow{background-image:url(/_blob/0a6b7edbf5119755ad2dd5833087fcd9)}
+.cv-catan{background-image:url(/_blob/3bb3967caf4f37cccbd6819ca18d9f3e)}
+.cv-century{background-image:url(/_blob/a94b0ddae2f7382930fc3818f9163bf1)}
+.cv-citadels{background-image:url(/_blob/fb6d5632db904e7dd5c987c56e971de5)}
+.cv-cockroach{background-image:url(/_blob/151cb8135fcecdeb5a1d4cdbcc52f498)}
+.cv-codenames{background-image:url(/_blob/50aaca7d8a5a03aa6510b223b0c55338)}
+.cv-cotyphu{background-image:url(/_blob/233d201ea589c9086a356713c434ef08)}
+.cv-coup{background-image:url(/_blob/7349f6d6af60bb3aa59cc36c092f1379)}
+.cv-coupg54{background-image:url(/_blob/4256138299c8fa51a38ef70859d83fc2)}
+.cv-cuocduasaochoi{background-image:url(/_blob/b2191e1bb43b7fef3ab8209f19e9a5b9)}
+.cv-danceofibexes{background-image:url(/_blob/74f6f2af3e4775f40ba73a98e5b9178a)}
+.cv-deception{background-image:url(/_blob/2cb2dbf31c56bad86d10e74da33aeca0)}
+.cv-dixit{background-image:url(/_blob/eb373ec6a317df47f936ae9365dda97f)}
+.cv-draculasfeast{background-image:url(/_blob/c5742bd0216fe6942bd4fe03b7339a51)}
+.cv-dungeonmayhem{background-image:url(/_blob/72cdf9e78fc6b15c1a1c56fbc490fd63)}
+.cv-explodingkittens{background-image:url(/_blob/2f08cc4cbe472843313683812d903b24)}
+.cv-flip7{background-image:url(/_blob/2290a3d4f322eb8600e9dd96be27967a)}
+.cv-getonboard{background-image:url(/_blob/e91a5fb6822eb04198ee63b5c5149cd9)}
+.cv-ghostblitz{background-image:url(/_blob/3ffa972d12f92814b5a4864dc8054c4e)}
+.cv-goodcopbadcop{background-image:url(/_blob/65e124d23ff0f0b7445585b92bb8817a)}
+.cv-halligalli{background-image:url(/_blob/d4b097324c6a94de2a8ac0972b78bd9c)}
+.cv-heretoslay{background-image:url(/_blob/518d1c2ee58baafc2f9aace610732a99)}
+.cv-hotstreak{background-image:url(/_blob/5549e468ec408963dc404414a53aae79)}
+.cv-jaipur{background-image:url(/_blob/8cab7a8699542915c5ec3dde787500ba)}
+.cv-junglespeed{background-image:url(/_blob/9ca81fe12484ef1c03d4e3b5eb42862c)}
+.cv-justone{background-image:url(/_blob/4ff33379573d5d0f3f4c9ca6b1477982)}
+.cv-kingdomino{background-image:url(/_blob/62bb167cd7b2f6fabb22d076b83a1b7f)}
+.cv-kingoftokyo{background-image:url(/_blob/5a1b838673d16d61d1511dd803f94aa3)}
+.cv-kiriai{background-image:url(/_blob/23a2f2d98586738817dd76dbe36fe793)}
+.cv-lightspeedarena{background-image:url(/_blob/870cc967459dede69d3c14e4bee1368b)}
+.cv-loot{background-image:url(/_blob/0a9d6621747bedc209fa8278e43a3615)}
+.cv-loveletter{background-image:url(/_blob/b9c3999e66ef9910a7198588dd5dee51)}
+.cv-machikoro{background-image:url(/_blob/d9300c42985fbe8e7300b58c8e135e4a)}
+.cv-magicalathlete{background-image:url(/_blob/ebd31676aa834dcd82d68ca14ec17b06)}
+.cv-mascarade{background-image:url(/_blob/b48d670ad642d0c2ad1c02f3654c8980)}
+.cv-masoi{background-image:url(/_blob/cebee028d0385fbf6b29dd7284f8af12)}
+.cv-meodaigia{background-image:url(/_blob/ff49494fa430e933ec56975f630348d8)}
+.cv-meono{background-image:url(/_blob/3eafe129c81e51a25744d89b6e4ab4db)}
+.cv-missionredplanet{background-image:url(/_blob/9828d2e7f2d85d2b81f2d03ef1b97014)}
+.cv-munchkin{background-image:url(/_blob/5079cd9ffa2ab86bdfd14d916521d771)}
+.cv-nasilemak{background-image:url(/_blob/ae3ccfc8d10669edefa9a2152fcaec67)}
+.cv-patchwork{background-image:url(/_blob/55955bc7f5ed497e45815e9f7bc226d2)}
+.cv-pentoscow{background-image:url(/_blob/48cb132457bf6d8afdd35b79569275a5)}
+.cv-phase10{background-image:url(/_blob/ea84933d3493fae14cc14e3d065c1075)}
+.cv-saboteur{background-image:url(/_blob/d148cf3c1bb0b97fc8f0b349b318dec7)}
+.cv-sevenwonders{background-image:url(/_blob/64b57a2a4edc2e084af04334158540fa)}
+.cv-shadowhunters{background-image:url(/_blob/f8f6f16a4345497150b386b220a301e4)}
+.cv-shogunate{background-image:url(/_blob/960a72784e891e0e52b89d34b08f1f2b)}
+.cv-sieuthunganha{background-image:url(/_blob/926c8bde2c27b61a6c542326662214e8)}
+.cv-skull{background-image:url(/_blob/9f52bcb03c3830409b0ad70d41ac3120)}
+.cv-smallworld{background-image:url(/_blob/dabe9087fba19fd5268e58a4b4f5bc37)}
+.cv-smashup{background-image:url(/_blob/ab3699ae67f692949dcc12179e6ee3c0)}
+.cv-splendor{background-image:url(/_blob/87354dc8b199e4caf10eacfc20343c53)}
+.cv-sushigo{background-image:url(/_blob/6f98131ff44cbc18326004f5202e4999)}
+.cv-sweetspicy{background-image:url(/_blob/d040a7c248adaa92cba016e75036ee20)}
+.cv-tacocat{background-image:url(/_blob/724681b8c2ac2c4acdeb16b2627ade52)}
+.cv-tamquocsat{background-image:url(/_blob/3593358df875e387ea3e1d4f6157e45d)}
+.cv-themind{background-image:url(/_blob/25f8af5fce75a39b1712039f328f19e5)}
+.cv-thiencandiachu{background-image:url(/_blob/2d93a5b7d96367d8f9addd7ccae3df8a)}
+.cv-thingsinrings{background-image:url(/_blob/914a0dbea141e87b6857fd8f27038f41)}
+.cv-tickettoride{background-image:url(/_blob/7d08bfc8336cd8147002ed41cbd4c0c6)}
+.cv-unicorns{background-image:url(/_blob/3438591e7907895dae79d1a9b3bdcdf8)}
+.cv-uno{background-image:url(/_blob/4a292ad2e6214ba472283558a987efe9)}
+.cv-unoinfinity{background-image:url(/_blob/bdee47d919823a1ef8469aca327d1699)}
+.cv-valeofeternity{background-image:url(/_blob/b7ce808122f8e267313474a335c08345)}
+.cv-witcher{background-image:url(/_blob/01dd139ce602f025bbc9eede62396e94)}
+.cv-yokaicarnival{background-image:url(/_blob/88749a42017c7139efa4312194f28ef2)}
+.hero-tv-img{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 80%,transparent 100%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 80%,transparent 100%),linear-gradient(90deg,transparent 0,#000 13%,#000 87%,transparent 100%);mask-composite:intersect}
+.btn3d{transition:transform .12s ease,box-shadow .12s ease}
+.btn3d:active{transform:translateY(4px);box-shadow:0 2px 0 #d99a00,0 8px 16px rgba(255,176,32,.35),inset 0 2px 0 rgba(255,255,255,.6)}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; min-height: 900px; background: #f4f7fd; font-family: 'Be Vietnam Pro', system-ui, sans-serif; color: #14213d; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; inset: 0; overflow: hidden"><div style="height: 150px; background: linear-gradient(180deg, #c2a9ef 0%, #d0bef0 60%, #f5ecfa 100%); position: relative"><div style="position: absolute; left: 0; right: 0; top: 50px; text-align: center; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 96px; line-height: .9; color: rgba(255,255,255,.62); transform: skewX(-7deg)">GAME</div></div><div style="padding: 20px 22px 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px"><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-masoi" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-uno" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-meono" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-codenames" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-dixit" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-catan" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-splendor" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-tickettoride" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-masoi" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-uno" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-meono" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-codenames" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-dixit" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-catan" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-splendor" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-tickettoride" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-masoi" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-uno" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-meono" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-codenames" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-dixit" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-catan" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-splendor" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div><div style="background: #ffffff; border-radius: 20px; overflow: hidden"><div class="cover cv-tickettoride" style="aspect-ratio: 1 / 1"></div><div style="height: 58px"></div></div></div><div style="position: absolute; inset: 0; background: rgba(20,33,61,.52)"></div></div>
+  <div role="dialog" aria-modal="true" aria-label="Chisu chọn dùm 1 game" class="card3d" style="position: relative; z-index: 2; isolation: isolate; margin: 70px 12px 60px; border-radius: 30px; overflow: hidden; background: linear-gradient(160deg, #cdb8f6 0%, #e6dbfc 55%, #fbf8ff 100%); padding: 20px 16px 18px; display: flex; flex-direction: column; gap: 14px">
+    <div class="caro" aria-hidden="true"></div>
+    <svg class="twinkle" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 20px; top: 26px; animation-delay: 0s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; right: 70px; top: 150px; animation-delay: 0.8s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <svg class="twinkle" width="14" height="14" viewBox="0 0 24 24" aria-hidden="true" style="position: absolute; left: 30px; top: 300px; animation-delay: 1.4s"><path d="M12 0 C13 8 16 11 24 12 C16 13 13 16 12 24 C11 16 8 13 0 12 C8 11 11 8 12 0Z" fill="#ffffff"></path></svg>
+    <a href="ThuVien.dc.html" aria-label="Đóng" class="btn" style="position: absolute; right: 12px; top: 12px; z-index: 3; width: 40px; height: 40px; border-radius: 999px; background: #eef3ff; display: flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#173a8a" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8"></path></svg></a>
+    <div aria-hidden="true" style="position: relative; height: 160px"><div style="position: absolute; left: 50%; bottom: 0; width: 228px; height: 26px; margin-left: -114px; border-radius: 999px; background: radial-gradient(closest-side, rgba(59,42,122,.28), rgba(59,42,122,0))"></div><span class="stk s-horeo" aria-hidden="true" style="position: absolute; left: 0px; bottom: 4px; width: 140px; height: 140px"></span><div style="position: absolute; right: 34px; top: 0px"><svg class="die3d" width="92" height="92" viewBox="0 0 100 100" aria-hidden="true" style="transform: rotate(-24deg); filter: drop-shadow(0 10px 10px rgba(59,42,122,.25)); "><g stroke-linejoin="round" stroke-width="7"><polygon points="50,8 90,28 50,48 10,28" fill="#ffffff" stroke="#ffffff"></polygon><polygon points="10,28 50,48 50,92 10,72" fill="#eceffa" stroke="#eceffa"></polygon><polygon points="50,48 90,28 90,72 50,92" fill="#d6dcf2" stroke="#d6dcf2"></polygon></g><ellipse cx="50" cy="28" rx="7" ry="4" fill="#ff5c86"></ellipse><ellipse cx="22" cy="47" rx="4.4" ry="5.6" transform="rotate(-27 22 47)" fill="#173a8a"></ellipse><ellipse cx="38" cy="73" rx="4.4" ry="5.6" transform="rotate(-27 38 73)" fill="#173a8a"></ellipse><ellipse cx="60" cy="54" rx="4.4" ry="5.6" transform="rotate(27 60 54)" fill="#173a8a"></ellipse><ellipse cx="70" cy="60" rx="4.4" ry="5.6" transform="rotate(27 70 60)" fill="#173a8a"></ellipse><ellipse cx="80" cy="66" rx="4.4" ry="5.6" transform="rotate(27 80 66)" fill="#173a8a"></ellipse></svg></div><div style="position: absolute; right: 2px; top: 106px"><svg class="die3d" width="44" height="44" viewBox="0 0 100 100" aria-hidden="true" style="transform: rotate(30deg); filter: drop-shadow(0 10px 10px rgba(59,42,122,.25)); "><g stroke-linejoin="round" stroke-width="7"><polygon points="50,8 90,28 50,48 10,28" fill="#ffffff" stroke="#ffffff"></polygon><polygon points="10,28 50,48 50,92 10,72" fill="#eceffa" stroke="#eceffa"></polygon><polygon points="50,48 90,28 90,72 50,92" fill="#d6dcf2" stroke="#d6dcf2"></polygon></g><ellipse cx="50" cy="28" rx="7" ry="4" fill="#ff5c86"></ellipse><ellipse cx="22" cy="47" rx="4.4" ry="5.6" transform="rotate(-27 22 47)" fill="#173a8a"></ellipse><ellipse cx="38" cy="73" rx="4.4" ry="5.6" transform="rotate(-27 38 73)" fill="#173a8a"></ellipse><ellipse cx="60" cy="54" rx="4.4" ry="5.6" transform="rotate(27 60 54)" fill="#173a8a"></ellipse><ellipse cx="70" cy="60" rx="4.4" ry="5.6" transform="rotate(27 70 60)" fill="#173a8a"></ellipse><ellipse cx="80" cy="66" rx="4.4" ry="5.6" transform="rotate(27 80 66)" fill="#173a8a"></ellipse></svg></div><svg width="44" height="32" viewBox="0 0 60 44" aria-hidden="true" style="position: absolute; right: 128px; top: 6px; transform: rotate(-20deg)"><path d="M6 8h28M14 22h40M6 36h24" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity=".85"></path></svg></div>
+    <div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #5b3fc4">CHISU CHỌN DÙM</span><h2 style="margin: 0; font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 34px; line-height: 1; color: #33246e">Chisu chọn dùm nè!</h2><span style="font-size: 14px; line-height: 1.5; color: #4a3d7a">Hợp nhóm 4 người, luật dễ, vào là chơi liền nha.</span></div>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 700; color: #5a4a8f">Đang lọc:</span><span style="font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.88); color: #33246e; white-space: nowrap">4 người</span><span style="font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.88); color: #33246e; white-space: nowrap">Dễ</span><span style="font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: rgba(255,255,255,.88); color: #33246e; white-space: nowrap">Mọi thể loại</span></div>
+    <div class="card3d" style="position: relative; background: #ffffff; border-radius: 26px; padding: 14px; display: flex; flex-direction: column; gap: 12px"><div style="display: flex; gap: 14px; align-items: center"><div class="cover cv-codenames" role="img" aria-label="Bìa hộp Codenames" style="background-color: #eef3ff; flex: none; width: 108px; height: 108px; border-radius: 22px; box-shadow: 0 10px 22px rgba(23,58,138,.16)"></div><div style="min-width: 0; display: flex; flex-direction: column; gap: 6px"><span style="font-size: 11px; font-weight: 700; letter-spacing: .08em; color: #5b3fc4">CHISU CHỌN</span><strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 22px; line-height: 1.02; color: #173a8a">Codenames (Mật Danh)</strong><div style="display: flex; flex-wrap: wrap; gap: 6px"><span style="font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: #eef3ff; color: #173a8a; white-space: nowrap">4–8+ người</span><span style="font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: #eef3ff; color: #173a8a; white-space: nowrap">~15 phút</span><span style="font-size: 12px; font-weight: 700; padding: 5px 11px; border-radius: 999px; background: #dff5e8; color: #1f7a45; white-space: nowrap">Dễ</span></div></div></div><p style="margin: 0; font-size: 14px; line-height: 1.55; color: #2b3a5c">Codenames, Mật Danh: hai đội điệp viên đoán từ chỉ nhờ một gợi ý duy nhất!</p></div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px"><a href="ThuVienGame.dc.html" class="btn" style="height: 50px; padding: 0 22px; border-radius: 999px; background: #173a8a; color: #ffffff; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 22px rgba(23,58,138,.25); white-space: nowrap">Xem cách chơi</a><a href="ThuVien.dc.html#chon-dum" class="btn" style="height: 50px; padding: 0 20px; border-radius: 999px; border: 1.5px solid #d6e4ff; background: #ffffff; color: #173a8a; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; white-space: nowrap"><svg width="20" height="20" viewBox="0 0 44 44" aria-hidden="true"><rect x="5" y="5" width="34" height="34" rx="10" fill="#ffc83d" transform="rotate(-10 22 22)"></rect><circle cx="16" cy="17" r="3" fill="#173a8a"></circle><circle cx="22" cy="22" r="3" fill="#173a8a"></circle><circle cx="28" cy="27" r="3" fill="#173a8a"></circle></svg>Lắc lại</a></div>
+    <a href="ThuVien.dc.html#dat-lich" class="btn gloss" style="height: 52px; padding: 0 22px; border-radius: 999px; background-color: #ffc83d; color: #173a8a; font-weight: 700; font-size: 15px; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 10px 22px rgba(255,176,32,.35), inset 0 1px 0 rgba(255,255,255,.6); white-space: nowrap">Đặt lịch chơi game này</a>
+    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px"><span style="font-size: 12px; font-weight: 700; color: #5a4a8f">Lần trước Chisu chọn:</span><span style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.85); padding: 4px 10px 4px 4px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #33246e"><div class="cover cv-uno" role="img" aria-label="Bìa hộp Uno" style="background-color: #eef3ff; width: 26px; height: 26px; border-radius: 8px"></div>Uno</span><span style="display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.85); padding: 4px 10px 4px 4px; border-radius: 999px; font-size: 12px; font-weight: 700; color: #33246e"><div class="cover cv-catan" role="img" aria-label="Bìa hộp Catan" style="background-color: #eef3ff; width: 26px; height: 26px; border-radius: 8px"></div>Catan</span></div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

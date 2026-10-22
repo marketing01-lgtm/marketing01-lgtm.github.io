@@ -1,0 +1,42 @@
+# Dựng website từ mã + dữ liệu Google Sheet rồi đăng lên GitHub Pages.
+# Chạy khi có thay đổi mã, mỗi giờ một lần (lấy lại dữ liệu từ Sheet), hoặc bấm tay ở tab Actions.
+name: Dựng và đăng website
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Lấy dữ liệu từ Google Sheet (nếu đã có link Apps Script)
+        run: node tools/sync.js
+      - name: Kiểm thử
+        run: node test/booking_test.js
+      - name: Dựng website
+        run: node src/build.js
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

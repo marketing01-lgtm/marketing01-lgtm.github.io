@@ -23,5 +23,12 @@ Tất cả nội dung website nằm trong file **Lenna Board Game – Marketing*
 ## Quy tắc nội dung (từ MoTa)
 Không ghi số phòng, số bàn khi chưa chốt mặt bằng; chỉ nói "riêng" cho ngồi bệt và lều; viết "không giới hạn giờ chơi"; không so giá với quán khác, không "rẻ nhất"; số game ghi "hơn 100"; địa chỉ, hotline, Zalo, Google Maps để trống đến khi có (website tự ẩn hoặc ghi "sắp cập nhật").
 
+## Đăng website
+Công cụ `gh` (GitHub CLI) tải vào thư mục tạm, đăng nhập bằng `gh auth login --web` (anh Ân duyệt mã 1 lần). Đăng lần đầu và cập nhật: `GH=<đường dẫn gh> node tools/publish-github.js` (không cần git). Kho: `marketing01-lgtm/marketing01-lgtm.github.io`, website: https://marketing01-lgtm.github.io/ (Pages đăng bằng Actions: `.github/workflows/deploy.yml`, tự dựng lại mỗi giờ để lấy dữ liệu mới từ Sheet khi đã có link `dat_lich_api`).
+Nối tên miền lennaboardgame.com: ở DNS Squarespace thêm 4 bản ghi A cho `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) và CNAME `www` về `marketing01-lgtm.github.io`, giữ nguyên bản ghi email (MX, TXT); rồi đặt tên miền trong cài đặt Pages của kho. Khi duyệt ra mắt: đổi `cho_google_tim` thành Có trong tab Web – Cấu hình.
+
+## Đặt lịch + Zalo
+Xem `apps-script/HUONG-DAN.md`.
+
 ## Còn làm
-Các trang còn lại (Phòng chơi, Giới thiệu, Board game, Menu, Ưu đãi, Blog), form Đặt lịch ghi vào Sheet, nối nội dung từ Sheet, SEO chi tiết, đo lường, đưa lên mạng.
+Nối chữ, menu, ưu đãi, game, blog từ Google Sheet vào các trang (hiện dùng nội dung thiết kế); ảnh thật thay ảnh 3D; chính sách dữ liệu cần người có chuyên môn duyệt; mã đo lường (GA4, Meta Pixel, TikTok Pixel) khi có.

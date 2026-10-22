@@ -101,7 +101,7 @@ function transform(src, name) {
 /* màn hình chờ khi mở trang và khi bấm sang trang khác: logo Lenna hiện lên, vệt sáng chạy qua logo (site.js ẩn nó khi trang sẵn sàng) */
 const LOADER = (() => { // logo xanh trên nền trắng, tia sáng vàng nhạt chạy dọc viền các chữ (nét vẽ lại từ chính đường nét của logo)
   const raw = fs.readFileSync(path.join(ASSETS, assetFile[LOGO_BLUE]), 'utf8'), ds = [...raw.matchAll(/<path d="([^"]*)"/g)].map(m => m[1]);
-  const html = () => '<div id="lenna-loader" aria-hidden="true"><div class="ld-logo"><img src="/assets/' + assetFile[LOGO_BLUE] + '" alt=""><svg class="ld-svg" viewBox="0 0 577 194"><g class="ld-run">' + ds.map(d => '<path pathLength="100" d="' + d + '"></path>').join('') + '</g></svg></div></div>\n<noscript><style>#lenna-loader{display:none}</style></noscript>\n<script>window.__ld0=Date.now()</script>\n';
+  const html = () => '<div id="lenna-loader" aria-hidden="true"><div class="ld-logo"><img src="/assets/' + assetFile[LOGO_BLUE] + '" alt=""><svg class="ld-svg" viewBox="0 0 577 194"><g class="ld-run"><path pathLength="100" d="' + ds.join(' ') + '"></path></g></svg></div></div>\n<noscript><style>#lenna-loader{display:none}</style></noscript>\n<script>window.__ld0=Date.now()</script>\n';
   return html;
 })();
 

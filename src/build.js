@@ -18,7 +18,7 @@ try { const t = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/turntable.json'
 /* ---------- ảnh ---------- */
 const assetFile = {};
 fs.readdirSync(ASSETS).forEach(f => { const m = /^([a-f0-9]{32})\.(\w+)$/.exec(f); if (m) assetFile[m[1]] = f; });
-const used = new Set([LOGO_WHITE, LOGO_BLUE, OG_IMG, CHISU_LOVE]), missing = new Set();
+const used = new Set([LOGO_WHITE, LOGO_BLUE, OG_IMG, CHISU_LOVE, 'e0f8bdca5297c8db1d8c6017c3c649eb', 'f7445975cb60257728e50ac8fa150013']), missing = new Set(); // + 2 ảnh Chisu 2D mới: Chiến Binh và trượt ván
 const remap = s => s.replace(/\/_blob\/([a-f0-9]{32})/g, (_, id) => { if (!assetFile[id]) { missing.add(id); return '/assets/missing-' + id; } used.add(id); return '/assets/' + assetFile[id]; });
 
 /* ---------- dữ liệu dùng chung (từ tab Web – Cấu hình) ---------- */

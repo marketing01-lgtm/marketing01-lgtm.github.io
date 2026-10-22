@@ -116,7 +116,8 @@ module.exports = {
       ['<div style="flex: 1 1 300px; max-width: 340px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">', '<div style="flex: 1 1 0; min-width: 0; max-width: 460px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">'],
       ['font-size: 46px; line-height: 1; color: #173a8a; width: 418px">{{k.line}}</h1>', 'font-size: clamp(32px, 3.2vw, 46px); line-height: 1.04; color: #173a8a">{{k.line}}</h1>'],
       ['<div style="position: relative; flex: 0 1 540px; height: 600px">', '<div style="position: relative; flex: 0 1 480px; min-width: 380px; height: clamp(380px, calc(100vh - 250px), 560px)">'],
-      ['<div style="flex: 1 1 280px; max-width: 320px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">', '<div style="flex: 0 0 270px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">']
+      ['<div style="flex: 1 1 280px; max-width: 320px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">', '<div style="flex: 0 0 270px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">'],
+      ['<strong style="font-size: 14px; line-height: 1.2; color: #173a8a">{{t.name}}</strong>', '<strong style="font-size: 14px; line-height: 1.2; color: #173a8a; min-height: 34px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{t.name}}</strong>'],
     ],
     // thẻ chi tiết game: trên canvas thẻ mở cạnh game được bấm; ở website thật: điện thoại trượt lên từ đáy, máy tính mở giữa màn hình
     ThuVien: [

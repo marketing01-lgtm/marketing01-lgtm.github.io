@@ -101,6 +101,7 @@ function doGet(e) {
   if (a !== 'data') return json_({ ok: false, error: 'Dùng ?a=data' });
   const m = SpreadsheetApp.openById(MARKETING_ID), out = { ok: true, at: new Date().toISOString() };
   out.config = {}; tab_(m, 'Web – Cấu hình', ['Khóa', 'Giá trị']).forEach(r => { out.config[r['Khóa']] = r['Giá trị']; });
+  Object.keys(out.config).forEach(k => { if (/_so_luong$|^email|token|secret|mat_khau/i.test(k)) delete out.config[k]; });   // số phòng, bàn là thông tin nội bộ chưa được công bố
   out.content = tab_(m, 'Web – Nội dung', ['Mã', 'Nội dung chính']).map(r => ({ trang: r['Trang'], khoi: r['Khối'], ma: r['Mã'], chinh: r['Nội dung chính'], phu: r['Nội dung phụ'], so: r['Số liệu · giá'], anh: r['Ảnh · link'], tt: +r['Thứ tự'] || 0, hien: r['Hiện'] !== 'Không' }));
   out.menu = tab_(m, 'Web – Menu', ['Mã', 'Tên món']).map(r => ({ nhom: r['Nhóm'], ma: r['Mã'], ten: r['Tên món'], gia: r['Giá'], mota: r['Mô tả'], anh: r['Ảnh'], noibat: +r['Nổi bật'] || 0, tt: +r['Thứ tự'] || 0, hien: r['Hiện'] !== 'Không' }));
   out.uudai = tab_(m, 'Chương trình ưu đãi', ['Chương trình', 'Ưu đãi']);

@@ -99,11 +99,7 @@ function transform(src, name) {
 }
 
 /* màn hình chờ khi mở trang và khi bấm sang trang khác: logo Lenna hiện lên, vệt sáng chạy qua logo (site.js ẩn nó khi trang sẵn sàng) */
-const LOADER = (() => { // logo xanh trên nền trắng, tia sáng vàng nhạt chạy dọc viền các chữ (nét vẽ lại từ chính đường nét của logo)
-  const raw = fs.readFileSync(path.join(ASSETS, assetFile[LOGO_BLUE]), 'utf8'), ds = [...raw.matchAll(/<path d="([^"]*)"/g)].map(m => m[1]);
-  const html = () => '<div id="lenna-loader" aria-hidden="true"><div class="ld-logo"><img src="/assets/' + assetFile[LOGO_BLUE] + '" alt=""><svg class="ld-svg" viewBox="0 0 577 194"><g class="ld-run"><path pathLength="100" d="' + ds.join(' ') + '"></path></g></svg></div></div>\n<noscript><style>#lenna-loader{display:none}</style></noscript>\n<script>window.__ld0=Date.now()</script>\n';
-  return html;
-})();
+const LOADER = () => '<div id="lenna-loader" aria-hidden="true"><div class="ld-logo"><img src="/assets/' + assetFile[LOGO_BLUE] + '" alt=""></div></div>\n<noscript><style>#lenna-loader{display:none}</style></noscript>\n<script>window.__ld0=Date.now()</script>\n'; // màn hình chờ: nền trắng, logo hiện lên rồi nhún lên xuống
 
 /* ---------- ghi file ---------- */
 const write = (rel, data) => { const f = path.join(DIST, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, data); };

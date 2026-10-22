@@ -14,7 +14,7 @@
   if (ld) {
     var t0 = window.__ld0 || Date.now();
     var hideLd = function () { ld.classList.remove('in'); ld.classList.add('out'); };
-    var readyLd = function () { setTimeout(hideLd, Math.max(0, 1250 - (Date.now() - t0))); };
+    var readyLd = function () { setTimeout(hideLd, Math.max(0, 1100 - (Date.now() - t0))); };
     if (document.readyState === 'complete') readyLd(); else window.addEventListener('load', readyLd);
     window.addEventListener('pageshow', function (e) { if (e.persisted) hideLd(); });
     document.addEventListener('click', function (e) {

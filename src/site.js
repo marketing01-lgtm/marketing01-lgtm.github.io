@@ -9,6 +9,24 @@
   var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
   var $ = function (s, r) { return (r || document).querySelector(s); };
 
+  /* ---------- màn hình chờ (logo + vệt sáng): hiện khi mở trang và khi bấm sang trang khác ---------- */
+  var ld = document.getElementById('lenna-loader');
+  if (ld) {
+    var t0 = window.__ld0 || Date.now();
+    var hideLd = function () { ld.classList.remove('in'); ld.classList.add('out'); };
+    var readyLd = function () { setTimeout(hideLd, Math.max(0, 750 - (Date.now() - t0))); };
+    if (document.readyState === 'complete') readyLd(); else window.addEventListener('load', readyLd);
+    window.addEventListener('pageshow', function (e) { if (e.persisted) hideLd(); });
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a'); if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var h = a.getAttribute('href') || ''; if (!h || h.charAt(0) === '#' || a.target === '_blank' || a.hasAttribute('download') || /^(mailto:|tel:|javascript:)/i.test(h)) return;
+      var u; try { u = new URL(a.href, location.href); } catch (x) { return; }
+      if (u.origin !== location.origin || (u.pathname === location.pathname && u.search === location.search)) return;
+      e.preventDefault(); ld.classList.remove('out'); ld.classList.add('in');
+      setTimeout(function () { location.href = u.href; }, 330);
+    });
+  }
+
   /* ---------- đo lường: chỉ chạy khi có mã trong tab Web – Cấu hình ---------- */
   function track(ev, data) {
     try {
@@ -254,6 +272,11 @@
     if (show) { bar.style.background = 'rgba(' + heroRgb(app) + ',.95)'; bar.classList.add('on'); } else bar.classList.remove('on');
   }
   addEventListener('scroll', sticky, { passive: true }); addEventListener('resize', sticky);
+
+  /* khung video Drive: dựng ở cỡ 360 rộng rồi thu theo bề rộng khung (xem .vid-frame trong site.css) */
+  function fitVideo(f) { var b = f.parentElement; if (!b) return; f.style.transform = 'scale(' + (b.clientWidth / 360).toFixed(4) + ')'; f.__spin = true; }
+  new MutationObserver(function (ms) { ms.forEach(function (m) { m.addedNodes.forEach(function (n) { if (n.nodeType === 1) { var f = n.matches && n.matches('.vid-frame') ? n : n.querySelector && n.querySelector('.vid-frame'); if (f) fitVideo(f); } }); }); }).observe(document.body, { childList: true, subtree: true });
+  window.addEventListener('resize', function () { var f = document.querySelector('.vid-frame'); if (f) fitVideo(f); });
 
   /* ---------- phóng to video hướng dẫn ---------- */
   function fullVideo(btn) {

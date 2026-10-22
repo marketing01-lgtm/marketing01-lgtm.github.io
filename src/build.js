@@ -9,7 +9,7 @@ const PAGES = JSON.parse(fs.readFileSync(path.join(__dirname, 'pages.json'), 'ut
 const STATIC = require('./static-pages.js'), PATCH = require('./patches.js');
 const BUILD = Date.now().toString(36); // đưa vào địa chỉ tệp để điện thoại không giữ bản cũ
 const BREAK = 900; // từ 900px trở lên dùng bản máy tính
-const LOGO_BLUE = 'c2442ec9eff7fdd0f5be400ddf2f82ce', OG_IMG = '2a31ccd2124fc5e3e14f3eb2213280cf', CHISU_LOVE = 'a713daca726764e2d9fd3cd8d8e477df';
+const LOGO_WHITE = '18b9fcf89bae9942f7d8d06cab1d0dbe', LOGO_BLUE = 'c2442ec9eff7fdd0f5be400ddf2f82ce', OG_IMG = '2a31ccd2124fc5e3e14f3eb2213280cf', CHISU_LOVE = 'a713daca726764e2d9fd3cd8d8e477df';
 
 /* ---------- bộ ảnh xoay các góc của Chisu (tùy chọn): data/turntable.json = { "c-royal": { "n": 36, "ext": "webp" } }, ảnh ở assets-src/turn/c-royal/00.webp … ---------- */
 const TURN = {};
@@ -18,7 +18,7 @@ try { const t = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/turntable.json'
 /* ---------- ảnh ---------- */
 const assetFile = {};
 fs.readdirSync(ASSETS).forEach(f => { const m = /^([a-f0-9]{32})\.(\w+)$/.exec(f); if (m) assetFile[m[1]] = f; });
-const used = new Set([LOGO_BLUE, OG_IMG, CHISU_LOVE]), missing = new Set();
+const used = new Set([LOGO_WHITE, LOGO_BLUE, OG_IMG, CHISU_LOVE]), missing = new Set();
 const remap = s => s.replace(/\/_blob\/([a-f0-9]{32})/g, (_, id) => { if (!assetFile[id]) { missing.add(id); return '/assets/missing-' + id; } used.add(id); return '/assets/' + assetFile[id]; });
 
 /* ---------- dữ liệu dùng chung (từ tab Web – Cấu hình) ---------- */
@@ -79,6 +79,7 @@ function transform(src, name) {
   src = src.replace(/\s*<div style="display: flex; flex-wrap: wrap; gap: 8px 18px">\s*(?:<a href="[^"]*\.dc\.html"[^>]*>Xem màn hình[^<]*<\/a>\s*)+<\/div>/g, '');
   // số game: ghi "hơn 100" (quy tắc nội dung), không ghi số đang có trong thư viện
   src = src.replace(/>76 board game/g, '>Hơn 100 board game').replace(/76 board game/g, 'hơn 100 board game');
+  src = src.replace(/>76<\/span>/g, '>100+</span>'); // con số nổi bật: 100+ thay vì 76
   // thanh menu máy tính: thêm "Trang chủ" ở đầu (trang chủ được đánh dấu đang xem)
   src = src.replace(/(<nav class="nav[^"]*"[^>]*>\s*)(<a )/, (m, a, b) => a + '<a href="#"' + (name === 'Desktop' ? ' aria-current="page" style="font-weight: 800; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px"' : '') + '>Trang chủ</a>' + b);
   src = src.replace(/<a\s([^>]*?)href="([^"]*)"([^>]*)>([\s\S]*?)<\/a>/g, (m, a, href, b, inner) => {
@@ -96,6 +97,9 @@ function transform(src, name) {
   src = src.split('[Địa chỉ], TP. Thủ Đức').join('{{cfg.dia_chi_dong}}').split('[Hotline]').join('{{cfg.hotline_hien}}');
   return src;
 }
+
+/* màn hình chờ khi mở trang và khi bấm sang trang khác: logo Lenna hiện lên, vệt sáng chạy qua logo (site.js ẩn nó khi trang sẵn sàng) */
+const LOADER = () => '<div id="lenna-loader" aria-hidden="true"><div class="ld-grid"></div><div class="ld-logo" style="--logo:url(/assets/' + assetFile[LOGO_WHITE] + ')"><img src="/assets/' + assetFile[LOGO_WHITE] + '" alt=""></div><div class="ld-bar"><i></i></div></div>\n<noscript><style>#lenna-loader{display:none}</style></noscript>\n<script>window.__ld0=Date.now()</script>\n';
 
 /* ---------- ghi file ---------- */
 const write = (rel, data) => { const f = path.join(DIST, rel); fs.mkdirSync(path.dirname(f), { recursive: true }); fs.writeFileSync(f, data); };
@@ -154,7 +158,7 @@ for (const p of ALL) {
   const force = '<script>(function(){var m=/[?&]v=(m|pc)\\b/.exec(location.search);if(m){document.getElementById("css-m").media=m[1]==="m"?"all":"not all";document.getElementById("css-pc").media=m[1]==="pc"?"all":"not all";if(m[1]==="pc")document.getElementById("app").setAttribute("data-force","pc")}})();</script>';
   const html = '<!doctype html>\n<html lang="vi"><head>' + head(p, fonts + '\n<link rel="stylesheet" href="/site.css?v=' + BUILD + '">\n') + base +
     '\n<style id="css-m" media="' + mqM + '">' + M.css + '</style>\n<style id="css-pc" media="' + mqP + '">' + P.css + '</style>\n' +
-    '</head><body>\n<div id="app" data-ssr="m">' + ssr + '</div>\n' + force + '\n<script src="/dc-lite.js?v=' + BUILD + '"></script>\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + ',turn:' + q(TURN) + '};</script>\n<script src="/site.js?v=' + BUILD + '" defer></script>\n<script>' + boot + '</script>\n</body></html>\n';
+    '</head><body>\n' + LOADER() + '<div id="app" data-ssr="m">' + ssr + '</div>\n' + force + '\n<script src="/dc-lite.js?v=' + BUILD + '"></script>\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + ',turn:' + q(TURN) + '};</script>\n<script src="/site.js?v=' + BUILD + '" defer></script>\n<script>' + boot + '</script>\n</body></html>\n';
   write((p.path === '/' ? '' : p.path.replace(/^\//, '') + '/') + 'index.html', html);
   if (!p.noindex) sitemap.push(ORIGIN + p.path);
 }
@@ -163,7 +167,7 @@ for (const p of ALL) {
 const statics = STATIC(CFG, { logo: '/assets/' + assetFile[LOGO_BLUE], chisu: '/assets/' + assetFile[CHISU_LOVE] });
 for (const s of statics) {
   const html = '<!doctype html>\n<html lang="vi"><head>' + head(s, '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Be+Vietnam+Pro:wght@400;600;700&display=swap">\n<link rel="stylesheet" href="/site.css?v=' + BUILD + '">\n') +
-    '</head><body style="margin:0">\n' + s.body + '\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + '};</script>\n<script src="/site.js?v=' + BUILD + '" defer></script>\n</body></html>\n';
+    '</head><body style="margin:0">\n' + LOADER() + s.body + '\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + '};</script>\n<script src="/site.js?v=' + BUILD + '" defer></script>\n</body></html>\n';
   write(s.file, html);
   if (s.sitemap) sitemap.push(ORIGIN + s.path);
 }

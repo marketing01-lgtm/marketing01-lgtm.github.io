@@ -60,6 +60,10 @@ const gioiThieu = [
 ];
 
 /* Chisu chọn dùm: khung kết quả cao cố định 112px ở cả 3 trạng thái (chờ, đang lắc, đã chọn) nên không giật to nhỏ khi tên game đổi */
+const heroSame = [
+  ['<div style="position: relative; flex: 0 1 520px; height: 470px">', '<div style="position: relative; flex: 0 1 500px; height: 480px">'],
+  ['bottom: 28px; width: 220px; height: 36px', 'bottom: 22px; width: 220px; height: 36px']
+];
 const pickSlot = [
   [/(<div style="border: 2px dashed rgba\(91,63,196,\.35\); border-radius: 22px;)/, '$1 height: 112px; box-sizing: border-box;'],
   [/(<div aria-live="polite" style="background: #ffffff; border-radius: 22px; )padding: 18px; (font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: \d+px;)/, '$1height: 112px; box-sizing: border-box; padding: 0 18px; display: flex; align-items: center; justify-content: center; overflow: hidden; line-height: 1.15; $2'],
@@ -108,8 +112,11 @@ module.exports = {
     Desktop: [
       ['min-height: 840px; overflow: hidden;', 'min-height: 0; overflow: hidden;'],
       ['box-shadow: 0 30px 60px rgba(23,58,138,.16); padding: 0 40px 60px">', 'box-shadow: 0 30px 60px rgba(23,58,138,.16); padding: 0 40px 34px">'],
-      ['padding-top: 150px; display: flex; flex-wrap: wrap; align-items: flex-end;', 'padding-top: 92px; display: flex; flex-wrap: wrap; align-items: flex-end;'],
-      ['<div style="position: relative; flex: 0 1 540px; height: 600px">', '<div style="position: relative; flex: 0 1 540px; height: clamp(380px, calc(100vh - 250px), 560px)">']
+      ['<div style="position: relative; z-index: 3; max-width: 1240px; margin: 0 auto; padding-top: 150px; display: flex; flex-wrap: wrap; align-items: flex-end;', '<div class="hero-row" style="position: relative; z-index: 3; max-width: 1240px; margin: 0 auto; padding-top: 92px; display: flex; flex-wrap: nowrap; align-items: flex-end;'],
+      ['<div style="flex: 1 1 300px; max-width: 340px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">', '<div style="flex: 1 1 0; min-width: 0; max-width: 460px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">'],
+      ['font-size: 46px; line-height: 1; color: #173a8a; width: 418px">{{k.line}}</h1>', 'font-size: clamp(32px, 3.2vw, 46px); line-height: 1.04; color: #173a8a">{{k.line}}</h1>'],
+      ['<div style="position: relative; flex: 0 1 540px; height: 600px">', '<div style="position: relative; flex: 0 1 480px; min-width: 380px; height: clamp(380px, calc(100vh - 250px), 560px)">'],
+      ['<div style="flex: 1 1 280px; max-width: 320px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">', '<div style="flex: 0 0 270px; display: flex; flex-direction: column; gap: 16px; padding-bottom: 30px">']
     ],
     // thẻ chi tiết game: trên canvas thẻ mở cạnh game được bấm; ở website thật: điện thoại trượt lên từ đáy, máy tính mở giữa màn hình
     ThuVien: [
@@ -123,7 +130,7 @@ module.exports = {
       ['position: absolute; left: 50%; top: {{d.top}}; width: 860px; margin-left: -430px; z-index: 41; max-height: 720px;', 'position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(860px, 94vw); z-index: 41; max-height: 90vh;'],
       // banner Board game: ảnh Chisu Chiến Binh thu nhỏ cho bằng linh vật các trang khác (cao khoảng 450px), nền tím liền với ảnh
       [/<section style="position: relative; min-height: 880px; overflow: hidden; border-radius: 0 0 44px 44px; background: #cdb8f2 url\([^)]*\) center top \/ cover no-repeat;/, '<section style="position: relative; min-height: 640px; overflow: hidden; border-radius: 0 0 44px 44px; background: linear-gradient(180deg, #c2a9ef 0%, #d0bef0 55%, #f5ecfa 100%);'],
-      [/<span role="img" aria-label="Chisu Chiến Binh[^"]*" style="[^"]*"><\/span>/, m => '<img data-spin="tilt" src="/assets/a4e4d6b3e3835795c95dca47dfa1122d.webp" alt="Chisu Chiến Binh cầm kiếm và khiên đứng trên bệ, chữ BOARD GAME phía sau" style="position: absolute; right: -2%; bottom: 0; width: min(980px, 68vw); height: auto; z-index: 2; -webkit-mask-image: radial-gradient(ellipse 66% 64% at 58% 56%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 66% 64% at 58% 56%, #000 55%, transparent 100%)">'],
+      [/<span role="img" aria-label="Chisu Chiến Binh[^"]*" style="[^"]*"><\/span>/, m => '<img data-spin="tilt" src="/assets/a4e4d6b3e3835795c95dca47dfa1122d.webp" alt="Chisu Chiến Binh cầm kiếm và khiên đứng trên bệ, chữ BOARD GAME phía sau" style="position: absolute; right: -2%; bottom: 0; width: min(940px, 64vw); height: auto; z-index: 2; -webkit-mask-image: radial-gradient(ellipse 66% 64% at 58% 56%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 66% 64% at 58% 56%, #000 55%, transparent 100%)">'],
       ['max-width: 1240px; margin: 0 auto; padding-top: 262px">', 'max-width: 1240px; margin: 0 auto; padding-top: 110px">'],
       ...videoBox, ['<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px">', videoLink + '<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px">']
     ],
@@ -139,10 +146,25 @@ module.exports = {
     // điện thoại: số tiền giải thưởng nhỏ lại để giải ba không tràn ra ngoài khung
     UuDai: [bo5xu, ...podium({ 'nhì': [84, 98], 'nhất': [106, 124], 'ba': [76, 90] }, 104), [/font-size: 19px; line-height: 1">(\d\.000\.000đ)/g, 'font-size: 15px; line-height: 1; white-space: nowrap">$1']],
     UuDaiPC: [bo5xu, ...podium({ 'nhì': [124, 146], 'nhất': [160, 184], 'ba': [116, 136] }, 150)],
-    GioiThieu: gioiThieu,
-    GioiThieuPC: gioiThieu,
+    // Giới thiệu: 4 giá trị mỗi hàng 1 dòng tiêu đề (PC lưới 2x2, điện thoại 1 cột); banner dùng cùng kiểu bệ + bảng tên như các trang khác
+    GioiThieu: [...gioiThieu,
+      ['grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 10px; padding-top: 14px', 'grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 40px; padding-top: 30px'],
+      [/(<strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 19px; line-height: 1.1; color: #[0-9a-f]{6}")>(Vị trí thuận tiện|Cơ sở vật chất|Trải nghiệm khách hàng|Board game xịn xò)</g, '$1 white-space: nowrap;">$2<'.replace(' white-space: nowrap;">','; white-space: nowrap">')],
+      [/<img src="\/assets\/a254d224[^"]*" alt="Chisu đội mũ len đỏ trượt ván" class="float" style="[^"]*">/, '<div role="img" aria-label="Chisu trà sữa vẫy chào" style="position: absolute; left: 50%; top: 126px; width: 280px; height: 316px; margin-left: -140px; z-index: 2"><div class="chi c-cheerful" style="position: absolute; inset: 0; filter: drop-shadow(0 18px 18px rgba(15,77,58,.2))"></div><div class="plate" style="position: absolute; left: 50%; bottom: 14px; width: 140px; height: 24px; margin-left: -70px; border-radius: 8px; display: flex; align-items: center; justify-content: space-between; padding: 0 7px; box-sizing: border-box"><span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span><span style="font-family: \'Baloo 2\', sans-serif; font-weight: 700; font-size: 13px; color: #4a3a2c; white-space: nowrap">Cheerful Chisu</span><span style="width: 7px; height: 7px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span></div></div>']
+    ],
+    GioiThieuPC: [...gioiThieu,
+      ['isolation: isolate; min-height: 800px; overflow: hidden;', 'isolation: isolate; min-height: 620px; overflow: hidden;'],
+      ['box-shadow: 0 30px 60px rgba(15,77,58,.16); padding: 0 40px 60px">', 'box-shadow: 0 30px 60px rgba(15,77,58,.16); padding: 0 40px 40px">'],
+      ['max-width: 1240px; margin: 0 auto; padding-top: 150px; display: flex; flex-wrap: wrap; align-items: center;', 'max-width: 1240px; margin: 0 auto; padding-top: 70px; display: flex; flex-wrap: wrap; align-items: center;'],
+      ['grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; padding-top: 20px', 'grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px 24px; padding-top: 52px'],
+      [/(<strong style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 26px; line-height: 1.1; color: #[0-9a-f]{6}")>(Vị trí thuận tiện|Cơ sở vật chất|Trải nghiệm khách hàng|Board game xịn xò)</g, '$1 white-space: nowrap;">$2<'.replace(' white-space: nowrap;">','; white-space: nowrap">')],
+      ['<div style="flex: 0 1 600px; position: relative; height: 560px">', '<div style="flex: 0 1 500px; position: relative; height: 480px">'],
+      ['left: 70px; bottom: 6px; width: 440px; height: 46px;', 'left: 50%; bottom: 4px; width: 400px; height: 44px; margin-left: -200px;'],
+      [/<img src="\/assets\/a254d224[^"]*" alt="Chisu đội mũ len đỏ trượt ván" class="float" style="[^"]*">/, '<div role="img" aria-label="Chisu trà sữa vẫy chào" style="position: absolute; left: 0; right: 0; top: 0; bottom: 16px"><div class="chi c-cheerful" style="position: absolute; inset: 0; filter: drop-shadow(0 26px 24px rgba(15,77,58,.2))"></div><div class="plate" style="position: absolute; left: 50%; bottom: 28px; width: 220px; height: 36px; margin-left: -110px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; box-sizing: border-box"><span style="width: 10px; height: 10px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span><span style="font-family: \'Baloo 2\', sans-serif; font-weight: 700; font-size: 19px; color: #4a3a2c; white-space: nowrap">Cheerful Chisu</span><span style="width: 10px; height: 10px; border-radius: 999px; background: radial-gradient(circle at 35% 35%, #ffffff, #8c96a6)"></span></div></div>']
+    ],
     Blog: blogTpl,
-    BlogPC: blogTpl,
+    BlogPC: [...blogTpl, ...heroSame],
+    PhongChoiPC: heroSame,
     BaiViet: baiViet,
     BaiVietPC: baiViet
   },

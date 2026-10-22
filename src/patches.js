@@ -163,8 +163,12 @@ module.exports = {
       ['left: 70px; bottom: 6px; width: 440px; height: 46px;', 'left: 50%; bottom: 4px; width: 400px; height: 44px; margin-left: -200px;'],
       [/<img src="\/assets\/a254d224[^"]*" alt="Chisu đội mũ len đỏ trượt ván" class="float" style="[^"]*">/, '<img data-spin="tilt" src="/assets/f7445975cb60257728e50ac8fa150013.webp" alt="Chisu đội mũ len đỏ trượt ván" class="float" style="position: absolute; left: 50%; bottom: 14px; width: 440px; height: auto; margin-left: -220px; filter: drop-shadow(0 24px 24px rgba(15,77,58,.24))">']
     ],
-    Blog: blogTpl,
+    Blog: [...blogTpl, ['position: relative; height: 520px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #92b463', 'position: relative; height: 544px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #92b463']], // hero cao thêm 24px: bong bóng thoại không đè nhãn "Kéo thử Chisu nè"
     BlogPC: [...blogTpl, ...heroSame],
+    // Phòng chơi (điện thoại): hero cao thêm 24px để bong bóng thoại (neo đáy) không đè nhãn "Kéo thử Chisu nè"
+    PhongChoi: [
+      ['position: relative; height: 520px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #7fabd6', 'position: relative; height: 544px; overflow: hidden; border-radius: 0 0 34px 34px; background: linear-gradient(180deg, #7fabd6']
+    ],
     PhongChoiPC: heroSame,
     BaiViet: baiViet,
     BaiVietPC: baiViet

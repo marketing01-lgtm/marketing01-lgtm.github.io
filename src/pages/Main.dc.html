@@ -417,9 +417,10 @@ class Component extends DCLogic {
   }
   renderVals() {
     const L = this.list(), n = L.length, c = this.state.c, k = L[c];
-    const fs = Math.min(132, Math.floor(372 / (k.word.length * 0.66)));
+    const len = k.word.length * 0.66, fs = Math.min(132, Math.floor(372 / len));
+    // cỡ chữ theo chiều rộng màn hình (ở 390px đúng như thiết kế; hẹp hơn thì thu nhỏ, rộng hơn thì nở tới 1,43 lần)
     return {
-      k: Object.assign({}, k, { fs: fs + 'px' }),
+      k: Object.assign({}, k, { fs: 'min(' + (95.38 / len).toFixed(2) + 'vw, 33.85vw, ' + Math.floor(fs * 1.43) + 'px)' }),
       stageCls: 'stage' + (this.state.fade ? ' out' : ''),
       thumbs: [1, 2, 3].map((d) => { const i = (c + d) % n; return { cls: L[i].cls, label: 'Xem ' + L[i].name, pick: () => this.goTo(i) }; }),
       dots: L.map((x, i) => ({ w: i === c ? '20px' : '7px', c: i === c ? '#ffffff' : 'rgba(255,255,255,.5)' })),

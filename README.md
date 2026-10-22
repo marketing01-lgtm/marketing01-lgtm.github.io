@@ -25,7 +25,7 @@ Không ghi số phòng, số bàn khi chưa chốt mặt bằng; chỉ nói "ri�
 
 ## Đăng website
 Công cụ `gh` (GitHub CLI) tải vào thư mục tạm, đăng nhập bằng `gh auth login --web` (anh Ân duyệt mã 1 lần). Đăng lần đầu và cập nhật: `GH=<đường dẫn gh> node tools/publish-github.js` (không cần git). Kho: `marketing01-lgtm/marketing01-lgtm.github.io`, website: https://marketing01-lgtm.github.io/ (Pages đăng bằng Actions: `.github/workflows/deploy.yml`, tự dựng lại mỗi giờ để lấy dữ liệu mới từ Sheet khi đã có link `dat_lich_api`).
-Nối tên miền lennaboardgame.com: ở DNS Squarespace thêm 4 bản ghi A cho `@` (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153) và CNAME `www` về `marketing01-lgtm.github.io`, giữ nguyên bản ghi email (MX, TXT); rồi đặt tên miền trong cài đặt Pages của kho. Khi duyệt ra mắt: đổi `cho_google_tim` thành Có trong tab Web – Cấu hình.
+Tên miền lennaboardgame.com ĐÃ nối (22/10/2026): DNS Squarespace có 4 bản ghi A cho `@` (185.199.108.153, .109.153, .110.153, .111.153) và CNAME `www` về `marketing01-lgtm.github.io`, giữ nguyên bản ghi email (MX, SPF, DKIM); tên miền đã đặt trong cài đặt Pages (`gh api -X PUT repos/<kho>/pages -f cname=lennaboardgame.com`), HTTPS ép bật. `cho_google_tim` = Có, sitemap đã gửi ở Google Search Console (property https://lennaboardgame.com/). Chứng chỉ Pages hiện chỉ có tên miền gốc, `www` có thể báo lỗi chứng chỉ cho tới khi GitHub cấp lại.
 
 ## Đặt lịch + Zalo
 Xem `apps-script/HUONG-DAN.md`.

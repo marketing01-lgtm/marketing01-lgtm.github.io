@@ -95,6 +95,16 @@ function transform(src, name) {
     return m;
   });
   src = src.split('[Địa chỉ], TP. Thủ Đức').join('{{cfg.dia_chi_dong}}').split('[Hotline]').join('{{cfg.hotline_hien}}');
+  // bản điện thoại thiết kế trên khung cố định 390px: cho co giãn theo màn hình (320–560px), rộng hơn thì căn giữa
+  src = src.replace(/position: relative; width: 390px; height: 80px/g, 'position: relative; width: 390px; left: 50%; margin-left: -195px; height: 80px'); // dải sóng trang trí vẽ theo toạ độ 390: giữ nguyên, căn giữa
+  src = src.replace(/(["; ])width: 390px(?!; left: 50%)/g, '$1width: 100%; max-width: 560px; margin-left: auto; margin-right: auto');
+  // thẻ ảnh "Ăn xong đi đâu nhỉ?": khoá 358×430 theo khung 390px -> co giãn theo chiều rộng thẻ, giữ tỉ lệ
+  src = src.replace('height: 430px; border-radius: 30px; overflow: hidden; background: #dbe9b9', 'border-radius: 30px; overflow: hidden; background: #dbe9b9').replace('width: 358px; height: 430px; display: block; object-fit: cover', 'width: 100%; height: auto; aspect-ratio: 358 / 430; display: block; object-fit: cover');
+  // nền lưới của hero vẽ theo khung 390px: cho phủ hết chiều ngang; vòng sóng quanh linh vật (trang Ưu đãi) giữ 390px và căn giữa
+  src = src.replace(/<svg width="390" height="(\d+)" viewBox="0 0 390 \d+"( aria-hidden="true" style="position: absolute; inset: 0; opacity: [^"]*"><defs><pattern[\s\S]*?<rect) width="390" height="\d+"/g, '<svg width="100%" height="100%"$2 width="100%" height="100%"');
+  src = src.replace(/(<svg width="390" height="\d+" viewBox="0 0 390 \d+" aria-hidden="true" style="position: absolute; )inset: 0(; z-index: 1">)/g, '$1top: 0; left: 50%; margin-left: -195px$2');
+  // chữ lớn ở đầu trang (cỡ cố định theo khung 390px): theo chiều rộng màn hình, ở 390px đúng như thiết kế, tối đa 1,43 lần
+  if (/max-width: 560px; margin-left: auto/.test(src)) src = src.replace(/font-size: (\d+)px; line-height: \.9; letter-spacing: -\.01em/g, (m, n) => +n >= 80 && +n <= 140 ? 'font-size: min(' + (n / 3.9).toFixed(2) + 'vw, ' + Math.round(n * 1.436) + 'px); line-height: .9; letter-spacing: -.01em' : m);
   return src;
 }
 

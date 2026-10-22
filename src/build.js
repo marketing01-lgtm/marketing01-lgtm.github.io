@@ -10,6 +10,10 @@ const STATIC = require('./static-pages.js'), PATCH = require('./patches.js');
 const BREAK = 900; // từ 900px trở lên dùng bản máy tính
 const LOGO_BLUE = 'c2442ec9eff7fdd0f5be400ddf2f82ce', OG_IMG = '2a31ccd2124fc5e3e14f3eb2213280cf', CHISU_LOVE = 'a713daca726764e2d9fd3cd8d8e477df';
 
+/* ---------- bộ ảnh xoay các góc của Chisu (tùy chọn): data/turntable.json = { "c-royal": { "n": 36, "ext": "webp" } }, ảnh ở assets-src/turn/c-royal/00.webp … ---------- */
+const TURN = {};
+try { const t = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/turntable.json'), 'utf8')); for (const [pose, c] of Object.entries(t)) { if (fs.existsSync(path.join(ROOT, 'assets-src/turn', pose))) TURN[pose] = { n: c.n, ext: c.ext || 'webp', dir: '/assets/turn/' + pose + '/' }; } } catch (e) { }
+
 /* ---------- ảnh ---------- */
 const assetFile = {};
 fs.readdirSync(ASSETS).forEach(f => { const m = /^([a-f0-9]{32})\.(\w+)$/.exec(f); if (m) assetFile[m[1]] = f; });
@@ -149,7 +153,7 @@ for (const p of ALL) {
   const force = '<script>(function(){var m=/[?&]v=(m|pc)\\b/.exec(location.search);if(m){document.getElementById("css-m").media=m[1]==="m"?"all":"not all";document.getElementById("css-pc").media=m[1]==="pc"?"all":"not all";if(m[1]==="pc")document.getElementById("app").setAttribute("data-force","pc")}})();</script>';
   const html = '<!doctype html>\n<html lang="vi"><head>' + head(p, fonts + '\n<link rel="stylesheet" href="/site.css">\n') + base +
     '\n<style id="css-m" media="' + mqM + '">' + M.css + '</style>\n<style id="css-pc" media="' + mqP + '">' + P.css + '</style>\n' +
-    '</head><body>\n<div id="app" data-ssr="m">' + ssr + '</div>\n' + force + '\n<script src="/dc-lite.js"></script>\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + '};</script>\n<script src="/site.js" defer></script>\n<script>' + boot + '</script>\n</body></html>\n';
+    '</head><body>\n<div id="app" data-ssr="m">' + ssr + '</div>\n' + force + '\n<script src="/dc-lite.js"></script>\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + ',turn:' + q(TURN) + '};</script>\n<script src="/site.js" defer></script>\n<script>' + boot + '</script>\n</body></html>\n';
   write((p.path === '/' ? '' : p.path.replace(/^\//, '') + '/') + 'index.html', html);
   if (!p.noindex) sitemap.push(ORIGIN + p.path);
 }
@@ -166,6 +170,7 @@ for (const s of statics) {
 write('dc-lite.js', fs.readFileSync(path.join(__dirname, 'dc-lite.js')));
 write('site.css', fs.readFileSync(path.join(__dirname, 'site.css')));
 write('site.js', fs.readFileSync(path.join(__dirname, 'site.js'), 'utf8').replace('/assets/logo-blue.svg', '/assets/' + assetFile[LOGO_BLUE]));
+Object.keys(TURN).forEach(pose => { fs.cpSync(path.join(ROOT, 'assets-src/turn', pose), path.join(DIST, 'assets/turn', pose), { recursive: true }); });
 used.forEach(id => { fs.mkdirSync(path.join(DIST, 'assets'), { recursive: true }); fs.copyFileSync(path.join(ASSETS, assetFile[id]), path.join(DIST, 'assets', assetFile[id])); });
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sitemap.map(u => '  <url><loc>' + u + '</loc></url>').join('\n') + '\n</urlset>\n');
 write('robots.txt', 'User-agent: *\n' + (INDEXABLE ? 'Allow: /\n' + (ORIGIN ? 'Sitemap: ' + ORIGIN + '/sitemap.xml\n' : '') : 'Disallow: /\n'));

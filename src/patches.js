@@ -24,6 +24,9 @@ const monRound = (w, h, s, r) => [/clip-path: polygon\((?:[^()]|\([^()]*\))*\)/g
   return "clip-path: path('" + roundedPath(pts, r) + "')";
 }];
 
+/* nhãn tên món + giá trên dải hình thang: cao bằng nhau, tên cắt gọn 2 dòng */
+const monLabel = h => [/(<div class="glass" style="position: absolute; left: \d+px; right: \d+px; bottom: 12px; background: rgba\(255,255,255,\.78\); border-radius: 14px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px)(">)<strong style="([^"]*)">/g, '$1; height: ' + h + 'px; box-sizing: border-box; justify-content: space-between$2<strong class="clamp2" style="$3">'];
+
 /* Cuộc thi review: mỗi giải có 1 Chisu 3D đứng trên bục (cùng kiểu 3D, cùng bộ 8 tư thế) */
 const PODIUM = {
   'nhì': ['c-cool', 'Chisu đeo kính nhận giải nhì', 0],
@@ -40,13 +43,17 @@ const podium = (sz, top) => [
 /* bỏ khối "Tuần đầu khai trương – tặng 5 xu" (chưa chốt) cùng đường nối phía sau nó */
 const bo5xu = [/<section[^>]*>(?:(?!<\/section>)[\s\S])*?TUẦN ĐẦU KHAI TRƯƠNG[\s\S]*?<\/section>\s*(?:<div[^>]*height: \d+px[^>]*>[\s\S]*?<\/span>\s*<\/div>\s*)?/, ''];
 
-/* Giới thiệu: sứ mệnh, 4 giá trị cốt lõi (mỗi giá trị 2 từ, là điểm khác biệt của Lenna), bỏ nút "Xem thêm" */
+/* Giới thiệu: sứ mệnh, 4 giá trị cốt lõi (anh Ân chốt 22/10/2026: Vị trí thuận tiện, Cơ sở vật chất, Trải nghiệm khách hàng, Board game xịn xò), bỏ nút "Xem thêm" */
 const gioiThieu = [
   ['Cho mỗi nhóm bạn một chỗ để gặp nhau, chơi cùng nhau và cười thật nhiều, không ai phải ngồi lướt điện thoại một mình.', 'Mang lại niềm vui, trải nghiệm mới và sự gắn kết, để mỗi lần đến Lenna là một kỷ niệm đáng nhớ của khách hàng.'],
-  ['>Vui vẻ</strong>', '>Thả ga</strong>'], ['Anh chị đến là để cười, thắng thua gì cũng vui.', 'Vé tính theo người, không giới hạn giờ chơi, anh chị ngồi bao lâu cũng được.'],
-  ['>Gắn kết</strong>', '>Gắn kết</strong>'], ['Anh chị với hội bạn có thêm kỷ niệm sau mỗi ván.', 'Điện thoại để qua một bên, cả nhóm nhìn nhau mà chơi và có thêm kỷ niệm sau mỗi ván.'],
-  ['>Tận tình</strong>', '>Chisu dạy</strong>'], ['Chỉ luật tới khi anh chị chơi được mới thôi.', 'Game nào cũng có video Chisu chỉ luật, vào phòng quét mã QR là chơi được liền.'],
-  ['>Thoải mái</strong>', '>Trọn vẹn</strong>'], ['Vé tính theo người, anh chị ngồi bao lâu cũng được.', 'Phòng chơi, board game, đồ uống, ăn vặt và khu gắp gấu có đủ trong một chỗ.'],
+  [/class="stk s-vuitim"( aria-hidden="true" style="position: absolute; left: \d+px; top: -\d+px[^"]*"><\/span>\s*<strong[^>]*>)Vui vẻ/, 'class="stk s-balo"$1Vị trí thuận tiện'],
+  ["Anh chị đến là để cười, thắng thua gì cũng vui.", "Gần cung đường ăn uống, ăn tối xong là qua Lenna chơi tiếp, khỏi đi xa."],
+  [/class="stk s-capdoi"( aria-hidden="true" style="position: absolute; left: \d+px; top: -\d+px[^"]*"><\/span>\s*<strong[^>]*>)Gắn kết/, 'class="stk s-caphe"$1Cơ sở vật chất'],
+  ["Anh chị với hội bạn có thêm kỷ niệm sau mỗi ván.", "Không gian kiểu Hàn hiện đại, máy lạnh mát, gối tựa êm, mền sạch, bàn có lỗ để ly."],
+  [/class="stk s-docsach"( aria-hidden="true" style="position: absolute; left: \d+px; top: -\d+px[^"]*"><\/span>\s*<strong[^>]*>)Tận tình/, 'class="stk s-vuitim"$1Trải nghiệm khách hàng'],
+  ["Chỉ luật tới khi anh chị chơi được mới thôi.", "Chisu dạy luật từng game, nhân viên phục vụ theo 5C: chủ động, cười, chào, chăm sóc, cảm ơn."],
+  [/class="stk s-batngo"( aria-hidden="true" style="position: absolute; left: \d+px; top: -\d+px[^"]*"><\/span>\s*<strong[^>]*>)Thoải mái/, 'class="stk s-choigame"$1Board game xịn xò'],
+  ["Vé tính theo người, anh chị ngồi bao lâu cũng được.", "Hơn 100 board game mới, chính hãng, Việt hóa, game nào cũng có video Chisu hướng dẫn."],
   ['>Giá trị cốt lõi</strong>', '>Giá trị cốt lõi: vì sao anh chị chọn Lenna</strong>'],
   [/<a href="[^"]*" (class="gt-svc[^"]*"[^>]*>)([\s\S]*?)<\/a>/g, '<div $1$2</div>'],
   [/\s*<span[^>]*>Xem thêm →<\/span>/g, '']
@@ -55,9 +62,14 @@ const gioiThieu = [
 /* Khung video hướng dẫn trong thẻ game: bấm để phát video thật (Drive /preview), có đường mở tab mới */
 const videoBox = [
   ['<div role="img" aria-label="Video Chisu hướng dẫn, sắp có" style="', '<div aria-label="Video Chisu hướng dẫn" style="'],
-  ['<div aria-hidden="true" style="position: absolute; right: -30px; top: -30px;', '<sc-if value="{{d.hasVid}}"><button type="button" class="vid-open" aria-label="Phát video Chisu hướng dẫn {{d.name}}" onClick="{{d.play}}"></button></sc-if><sc-if value="{{d.playing}}"><iframe class="vid-frame" src="{{d.vsrc}}" title="Video hướng dẫn {{d.name}}" allow="autoplay; fullscreen; picture-in-picture"></iframe></sc-if><div aria-hidden="true" style="position: absolute; right: -30px; top: -30px;'],
+  // video của Lenna quay dọc: khung dọc 9:16, Chisu vui vẻ (không còn mặt cau có), có nút phóng to
+  ['position: relative; aspect-ratio: 16 / 9; border-radius: 20px;', 'position: relative; flex: none; height: min(46vh, 410px); max-width: 100%; aspect-ratio: 9 / 16; margin: 0 auto; border-radius: 20px;'],
+  [/<div class="chi c-serious" aria-hidden="true" style="[^"]*"><\/div>/, '<div class="chi c-cheerful" aria-hidden="true" style="position: absolute; left: 50%; bottom: -2px; width: 86%; height: 44%; margin-left: -43%; filter: drop-shadow(0 10px 12px rgba(0,0,0,.25))"></div>'],
+  ['left: 50%; top: 50%; width: 58px;', 'left: 50%; top: 36%; width: 58px;'],
+  [/<div style="position: absolute; left: 14px; bottom: 12px; color: #ffffff; display: flex; flex-direction: column; gap: 2px">/, '<div style="position: absolute; left: 0; right: 0; top: 60px; color: #ffffff; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2px; padding: 0 14px">'],
+  ['<div aria-hidden="true" style="position: absolute; right: -30px; top: -30px;', '<sc-if value="{{d.hasVid}}"><button type="button" class="vid-fs" data-fs aria-label="Phóng to video toàn màn hình" title="Phóng to toàn màn hình"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8V3h5M17 8V3h-5M3 12v5h5M17 12v5h-5"></path></svg></button></sc-if><sc-if value="{{d.hasVid}}"><button type="button" class="vid-open" aria-label="Phát video Chisu hướng dẫn {{d.name}}" onClick="{{d.play}}"></button></sc-if><sc-if value="{{d.playing}}"><iframe class="vid-frame" src="{{d.vsrc}}" title="Video hướng dẫn {{d.name}}" allow="autoplay; fullscreen; picture-in-picture"></iframe></sc-if><div aria-hidden="true" style="position: absolute; right: -30px; top: -30px;'],
   ['Mở trong phòng bằng mã QR', 'Bấm để xem video hướng dẫn'],
-  ['<span aria-hidden="true" class="glass" style="position: absolute; left: 50%; top: 50%;', '<span aria-hidden="true" class="glass" style="z-index: 3; position: absolute; left: 50%; top: 50%;']
+  ['<span aria-hidden="true" class="glass" style="position: absolute; left: 50%; top: 36%;', '<span aria-hidden="true" class="glass" style="z-index: 3; position: absolute; left: 50%; top: 36%;']
 ];
 const videoLink = '<sc-if value="{{d.playing}}"><a class="vid-alt" href="{{d.vlink}}" target="_blank" rel="noopener">Không xem được? Mở video ở tab mới ↗</a></sc-if>';
 const videoScript = [
@@ -106,9 +118,9 @@ module.exports = {
       ['max-width: 1240px; margin: 0 auto; padding-top: 262px">', 'max-width: 1240px; margin: 0 auto; padding-top: 110px">'],
       ...videoBox, ['<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px">', videoLink + '<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px">']
     ],
-    Menu: [monRound(166, 232, 30, 18), ['padding: 6px 22px 16px">', 'padding: 18px 22px 20px">']],
+    Menu: [monRound(166, 232, 30, 18), monLabel(64), ['padding: 6px 22px 16px">', 'padding: 18px 22px 20px">']],
     MenuPC: [
-      monRound(250, 330, 44, 26),
+      monRound(250, 330, 44, 26), monLabel(78),
       ['gap: 16px; overflow-x: auto; padding: 8px 0 22px">', 'gap: 16px; overflow-x: auto; padding: 24px 10px 28px">'],
       // lưới món: ô cao bằng nhau, tên món cắt gọn 2 dòng
       [/(grid-template-columns: repeat\(3, minmax\(0, 1fr\)\); gap: 14px)(">\s*<sc-for list="\{\{items\}\}")/, '$1; grid-auto-rows: 1fr$2'],

@@ -60,7 +60,7 @@
 [role="img"]:has(> .chi),.chi[role="img"],[data-spin]{touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
 [role="img"]:has(> .chi){perspective:1000px}
 [role="img"]:has(> .chi):active,.chi[role="img"]:active,[data-spin]:active{cursor:grabbing}
-[role="img"]:has(> .chi):has(> .plate)::after{content:"↔ Kéo để xoay Chisu";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);z-index:6;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.82);color:#173a8a;font:700 12px/1.2 'Be Vietnam Pro',system-ui,sans-serif;white-space:nowrap;box-shadow:0 6px 16px rgba(23,58,138,.16);pointer-events:none;transition:opacity .4s}
+[role="img"]:has(> .chi):has(> .plate)::after{content:"↔ Kéo thử Chisu nè";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);z-index:6;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.82);color:#173a8a;font:700 12px/1.2 'Be Vietnam Pro',system-ui,sans-serif;white-space:nowrap;box-shadow:0 6px 16px rgba(23,58,138,.16);pointer-events:none;transition:opacity .4s}
 html[data-spun] [role="img"]:has(> .chi):has(> .plate)::after{opacity:0}
 /* chuyển động nhỏ khi cuộn tới */
 .rv{opacity:0;translate:0 26px;transition:opacity .7s ease,translate .7s cubic-bezier(.2,.7,.2,1)}
@@ -77,3 +77,16 @@ html[data-spun] [role="img"]:has(> .chi):has(> .plate)::after{opacity:0}
 .vid-open:focus-visible{outline:3px solid #fff;outline-offset:-6px}
 .vid-frame{position:absolute;inset:0;z-index:5;width:100%;height:100%;border:0;background:#0d1530}
 .vid-alt{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;color:#5b3fc4}
+/* thanh menu ghim */
+.sb{position:fixed;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 18px;border-radius:0 0 28px 28px;box-shadow:0 12px 30px rgba(23,58,138,.2);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);transform:translateY(-115%);transition:transform .35s cubic-bezier(.2,.8,.2,1);font-family:'Be Vietnam Pro',system-ui,sans-serif}
+.sb.on{transform:none}
+.sb-logo img{display:block;width:92px;height:auto;filter:drop-shadow(0 2px 6px rgba(0,0,0,.12))}
+.sb-tag{margin-left:auto;color:#fff;font-weight:700;font-size:12px;line-height:1.25;text-align:right;text-shadow:0 1px 4px rgba(0,0,0,.12)}
+.sb-menu{flex:none;width:40px;height:40px;border-radius:50%;padding:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer}
+.sb-menu i{display:block;width:16px;height:2px;border-radius:2px;background:#fff}
+@media(min-width:900px){.sb{padding:10px max(24px,calc((100vw - 1240px)/2 + 40px))}.sb-logo img{width:112px}
+.sb-nav{display:flex;gap:26px;flex-wrap:nowrap;font-weight:600;font-size:15px;padding:10px 26px;border-radius:999px}
+.sb-cta{height:44px;padding:0 24px;border-radius:999px;background:#fff;color:#173a8a;font-weight:700;font-size:15px;display:flex;align-items:center;text-decoration:none;box-shadow:0 8px 20px rgba(23,58,138,.16)}}
+/* nút phóng to video */
+.vid-fs{position:absolute;left:10px;top:10px;z-index:7;width:38px;height:38px;padding:0;border-radius:50%;border:1px solid rgba(255,255,255,.6);background:rgba(23,58,138,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.vid-fs:hover{background:rgba(23,58,138,.8)}

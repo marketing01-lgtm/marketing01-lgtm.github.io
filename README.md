@@ -30,5 +30,12 @@ Nối tên miền lennaboardgame.com: ở DNS Squarespace thêm 4 bản ghi A ch
 ## Đặt lịch + Zalo
 Xem `apps-script/HUONG-DAN.md`.
 
+## Hiệu ứng và tương tác (22/10/2026)
+- Linh vật Chisu ở banner các trang: kéo ngang để xoay 360° (có quán tính, tự về mặt trước), chạm nhẹ xoay 1 vòng, lần đầu thấy tự xoay 1 vòng. Mã ở `src/site.js` (mục "linh vật Chisu"); tôn trọng chế độ giảm chuyển động. Ảnh Chisu Chiến Binh ở Board game chỉ có 1 ảnh liền nền nên chỉ nghiêng nhẹ khi kéo (`data-spin="tilt"`).
+- Thẻ, tiêu đề trượt nhẹ lên khi cuộn tới (`.rv` trong `site.css`, `reveal()` trong `site.js`).
+- Video hướng dẫn trong thẻ game: bấm để phát bằng khung Drive `/preview`, lấy từ `data/games-video.json` (id game → file Drive, từ cột Video của tab App_Game). Game mới thêm vào app thì thêm dòng vào file này.
+- Bài blog: mỗi bài một trang `/blog/<tên-bài>/` (danh sách bài lấy từ trang Blog). Bài đầu dùng nguyên bản thiết kế; các bài còn lại chưa có nội dung đầy đủ nên có khung "Bài đầy đủ sắp lên sóng" và chưa cho Google lập chỉ mục (`src/article.js`). Khi Content có bài thật, thay nội dung ở đó.
+- Mọi nút Nhắn Lenna / Messenger mở `messenger` trong tab Web – Cấu hình (m.me của fanpage).
+
 ## Còn làm
-Nối chữ, menu, ưu đãi, game, blog từ Google Sheet vào các trang (hiện dùng nội dung thiết kế); ảnh thật thay ảnh 3D; chính sách dữ liệu cần người có chuyên môn duyệt; mã đo lường (GA4, Meta Pixel, TikTok Pixel) khi có.
+Nối chữ, menu, ưu đãi, game, blog từ Google Sheet vào các trang (hiện dùng nội dung thiết kế; riêng sứ mệnh, giá trị cốt lõi đã sửa cả trong thiết kế lẫn tab Web – Nội dung); ảnh thật thay ảnh 3D; nội dung đầy đủ cho 8 bài blog; chính sách dữ liệu cần người có chuyên môn duyệt; mã đo lường (GA4, Meta Pixel, TikTok Pixel) khi có.

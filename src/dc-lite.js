@@ -89,7 +89,8 @@
     if (o.nodeType !== n.nodeType || o.nodeName !== n.nodeName) { o.replaceWith(n.cloneNode(true)); return; }
     if (o.nodeType === 3 || o.nodeType === 8) { if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue; return; }
     for (let i = o.attributes.length - 1; i >= 0; i--) if (!n.hasAttribute(o.attributes[i].name)) o.removeAttribute(o.attributes[i].name);
-    for (const a of n.attributes) if (o.getAttribute(a.name) !== a.value) o.setAttribute(a.name, a.value);
+    // o.__spin: linh vật đang được khách kéo xoay (site.js ghi style.rotate); không ghi đè style khi vẽ lại
+    for (const a of n.attributes) if (o.getAttribute(a.name) !== a.value && !(a.name === 'style' && o.__spin)) o.setAttribute(a.name, a.value);
     if (/^(INPUT|TEXTAREA|SELECT)$/.test(o.nodeName)) { if ('value' in n && o.value !== n.getAttribute('value') && o !== document.activeElement) o.value = n.getAttribute('value') || ''; }
     morphKids(o, n);
   }

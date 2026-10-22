@@ -56,3 +56,24 @@
 .st-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin-top:18px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;color:#fff;background:var(--blue);box-shadow:0 8px 20px rgba(47,107,255,.32)}
 .st-foot{padding:22px 20px 32px;text-align:center;font-size:13px;color:var(--mut)}
 .st-chisu{display:block;width:min(240px,60%);height:auto;margin:0 auto 14px}
+/* linh vật kéo xoay: gợi ý, con trỏ, chống cuộn dọc bị chặn khi kéo ngang */
+[role="img"]:has(> .chi),.chi[role="img"],[data-spin]{touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+[role="img"]:has(> .chi){perspective:1000px}
+[role="img"]:has(> .chi):active,.chi[role="img"]:active,[data-spin]:active{cursor:grabbing}
+[role="img"]:has(> .chi):has(> .plate)::after{content:"↔ Kéo để xoay Chisu";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);z-index:6;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.82);color:#173a8a;font:700 12px/1.2 'Be Vietnam Pro',system-ui,sans-serif;white-space:nowrap;box-shadow:0 6px 16px rgba(23,58,138,.16);pointer-events:none;transition:opacity .4s}
+html[data-spun] [role="img"]:has(> .chi):has(> .plate)::after{opacity:0}
+/* chuyển động nhỏ khi cuộn tới */
+.rv{opacity:0;translate:0 26px;transition:opacity .7s ease,translate .7s cubic-bezier(.2,.7,.2,1)}
+.rv.rv-in{opacity:1;translate:0 0}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;translate:none;transition:none}}
+/* tiện ích dùng trong các bản vá giao diện */
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mon{transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.mon-rail{filter:drop-shadow(0 12px 14px rgba(23,58,138,.18))}
+@media(hover:hover){.mon:hover{transform:translateY(-14px) scale(1.06);z-index:5}}
+.mon:active{transform:translateY(-6px) scale(1.03)}
+/* khung xem video hướng dẫn trong thẻ game */
+.vid-open{position:absolute;inset:0;z-index:4;display:block;width:100%;height:100%;padding:0;border:0;background:transparent;cursor:pointer;border-radius:inherit}
+.vid-open:focus-visible{outline:3px solid #fff;outline-offset:-6px}
+.vid-frame{position:absolute;inset:0;z-index:5;width:100%;height:100%;border:0;background:#0d1530}
+.vid-alt{display:inline-block;margin-top:8px;font-size:13px;font-weight:700;color:#5b3fc4}

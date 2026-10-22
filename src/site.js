@@ -113,10 +113,121 @@
   }
   window.LennaBooking = { open: openBook };
 
+  /* ---------- linh vật Chisu: kéo thả để xoay 360° (ảnh tĩnh nên xoay như tấm bìa trên bệ xoay) ---------- */
+  var still = false; try { still = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { }
+  var spinState = new WeakMap(), drag = null;
+  function spinEl(t) {
+    var s = t && t.closest && t.closest('[role="img"],[data-spin]'); if (!s) return null;
+    var el = (s.classList.contains('chi') || s.tagName === 'IMG' || s.hasAttribute('data-spin')) ? s : s.querySelector(':scope > .chi');
+    if (!el || el.offsetWidth < 100 || el.closest('a,button')) return null;
+    if (el.tagName === 'IMG' && !el.classList.contains('float') && !el.hasAttribute('data-spin')) return null;
+    return el;
+  }
+  function S(el) { var s = spinState.get(el); if (!s) { s = { a: 0, v: 0, raf: 0, tilt: el.getAttribute('data-spin') === 'tilt' }; spinState.set(el, s); } return s; }
+  function paint(el, s) {
+    if (!s.a && !s.v && s.mode === 'done') { el.style.rotate = ''; el.__spin = false; return; }
+    el.__spin = true; el.style.rotate = '0 1 0 ' + s.a.toFixed(2) + 'deg';
+  }
+  function loop(el, s) {
+    cancelAnimationFrame(s.raf);
+    var last = performance.now();
+    (function step(t) {
+      var dt = Math.min(34, t - last); last = t;
+      if (s.mode === 'inertia') {
+        s.a += s.v * dt; s.v *= Math.pow(.93, dt / 16);
+        if (s.tilt) s.a = Math.max(-30, Math.min(30, s.a));
+        if (Math.abs(s.v) < .03) { s.mode = 'settle'; s.to = s.tilt ? 0 : Math.round(s.a / 360) * 360; }
+      } else if (s.mode === 'settle') {
+        var d = s.to - s.a; s.a += d * Math.min(1, dt / 120);
+        if (Math.abs(d) < .15) { s.a = 0; s.v = 0; s.mode = 'done'; paint(el, s); return; }
+      } else if (s.mode === 'auto') {
+        var p = Math.min(1, (t - s.t0) / 1300), e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
+        s.a = 360 * e; if (p >= 1) { s.a = 0; s.mode = 'done'; paint(el, s); return; }
+      }
+      paint(el, s); s.raf = requestAnimationFrame(step);
+    })(last);
+  }
+  function persp(el) { var p = el.parentNode; if (p && p.style && !p.style.perspective) p.style.perspective = '1000px'; }
+  function autoSpin(el) { if (still) return; var s = S(el); if (s.mode && s.mode !== 'done') return; persp(el); s.mode = 'auto'; s.t0 = performance.now(); loop(el, s); }
+  document.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    var el = spinEl(e.target); if (!el || still) return;
+    var s = S(el); cancelAnimationFrame(s.raf); persp(el);
+    drag = { el: el, s: s, x0: e.clientX, a0: s.a, moved: 0, pts: [[e.clientX, performance.now()]] };
+    s.mode = 'drag'; document.documentElement.setAttribute('data-spun', '1');
+  });
+  document.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var dx = e.clientX - drag.x0, s = drag.s; drag.moved = Math.max(drag.moved, Math.abs(dx));
+    s.a = drag.a0 + dx * (s.tilt ? .35 : .9); if (s.tilt) s.a = Math.max(-30, Math.min(30, s.a));
+    drag.pts.push([e.clientX, performance.now()]); if (drag.pts.length > 4) drag.pts.shift();
+    paint(drag.el, s);
+  });
+  function release() {
+    if (!drag) return; var d = drag, s = d.s; drag = null;
+    var p = d.pts, v = 0; if (p.length > 1) { var f = p[0], l = p[p.length - 1]; v = (l[0] - f[0]) / Math.max(16, l[1] - f[1]) * (s.tilt ? .35 : .9); }
+    if (d.moved < 6 && !s.tilt) { s.a = s.a % 360; s.mode = 'auto'; s.t0 = performance.now(); } // chạm nhẹ: xoay 1 vòng
+    else { s.v = Math.max(-1.6, Math.min(1.6, v)); s.mode = 'inertia'; }
+    loop(d.el, s);
+  }
+  document.addEventListener('pointerup', release);
+  document.addEventListener('pointercancel', release);
+  // lần đầu thấy linh vật chính trên trang: tự xoay 1 vòng để khách biết kéo được
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      if (still) return;
+      var first = null, list = document.querySelectorAll('#app [role="img"]'), i, el;
+      for (i = 0; i < list.length && !first; i++) { el = spinEl(list[i]); if (el && !el.hasAttribute('data-spin')) first = el; }
+      if (!first) return;
+      function tryIt() {
+        if (document.documentElement.hasAttribute('data-spun')) return true;
+        var r = first.getBoundingClientRect(); if (r.top < innerHeight * .7 && r.bottom > innerHeight * .3) { autoSpin(first); return true; }
+        return false;
+      }
+      if (tryIt()) return;
+      var h = function () { if (tryIt()) removeEventListener('scroll', h); };
+      addEventListener('scroll', h, { passive: true });
+    }, 900);
+  });
+
+  /* ---------- chuyển động nhỏ khi cuộn: thẻ và tiêu đề trượt nhẹ lên ---------- */
+  function reveal() {
+    if (still) return;
+    var app = document.getElementById('app'); if (!app) return;
+    var pending = [], timer = 0;
+    function check() {
+      timer = 0; var vh = innerHeight;
+      pending = pending.filter(function (el) {
+        if (!el.isConnected) return false;
+        var r = el.getBoundingClientRect(); if (r.bottom < 0) { el.classList.remove('rv'); el.style.transitionDelay = ''; return false; } // đã cuộn qua: hiện luôn
+        if (r.top > vh * .94) return true;
+        el.classList.add('rv-in');
+        setTimeout(function () { el.classList.remove('rv', 'rv-in'); el.style.transitionDelay = ''; }, 1100);
+        return false;
+      });
+    }
+    function soon() { if (!timer) timer = setTimeout(check, 80); }
+    function scan(root) {
+      var list = root.querySelectorAll('.card3d, h2, .rv-x'), n = 0, vh = innerHeight;
+      Array.prototype.forEach.call(list, function (el) {
+        if (el.classList.contains('rv') || el.closest('.rv') || el.__rvDone) return; el.__rvDone = true;
+        var r = el.getBoundingClientRect(); if (r.bottom < 0 || r.top < vh * .92 || !r.height) return;
+        var cs = getComputedStyle(el); if (cs.position === 'fixed' || cs.position === 'absolute') return;
+        el.style.transitionDelay = ((n++ % 4) * 70) + 'ms'; el.classList.add('rv'); pending.push(el);
+      });
+    }
+    scan(app);
+    addEventListener('scroll', soon, { passive: true }); addEventListener('resize', soon);
+    setInterval(check, 500); // phòng khi trình duyệt không báo cuộn (cuộn bằng phím, kéo thanh cuộn)
+    var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(function () { scan(app); }, 250); }).observe(app, { childList: true, subtree: true });
+  }
+  window.addEventListener('load', function () { setTimeout(reveal, 400); });
+
   /* ---------- bấm chuột ---------- */
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a'), t = e.target;
     if (t.closest && t.closest('[aria-label="Mở menu"]')) { e.preventDefault(); openMenu(); return; }
+    if (a && a.getAttribute('data-share') === 'fb') { e.preventDefault(); window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href.split('?')[0]), '_blank', 'noopener'); return; }
     if (a) {
       var h = a.getAttribute('href') || '';
       if (/^#dat-lich/.test(h)) { e.preventDefault(); openBook(); return; }

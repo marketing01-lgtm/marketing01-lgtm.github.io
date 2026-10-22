@@ -37,16 +37,17 @@ const PUBLIC_KEYS = ['ten_quan', 'trang_thai', 'khu_vuc', 'dia_chi', 'gio_mo_cua
 const CLIENT_CFG = {}; PUBLIC_KEYS.forEach(k => { if (CFG[k] !== undefined) CLIENT_CFG[k] = CFG[k]; });
 
 /* ---------- đọc 1 file thiết kế ---------- */
-function loadDc(name) {
+function loadDc(name, after) {
   const html = fs.readFileSync(path.join(__dirname, 'pages', name + '.dc.html'), 'utf8');
   const xdc = /<x-dc>([\s\S]*?)<\/x-dc>/.exec(html)[1], hm = /<helmet>([\s\S]*?)<\/helmet>/.exec(xdc);
   const css = [...hm[1].matchAll(/<style>([\s\S]*?)<\/style>/g)].map(m => m[1]).join('\n');
   const links = [...hm[1].matchAll(/<link[^>]*>/g)].map(m => m[0]);
   const script = /<script type="text\/x-dc"[^>]*>([\s\S]*?)<\/script>/.exec(html)[1];
-  let tpl = transform(xdc.replace(/<helmet>[\s\S]*?<\/helmet>/, '')), sc = script;
-  for (const [a, b] of (PATCH.tpl[name] || [])) { if (!tpl.includes(a)) throw new Error('Bản vá giao diện không khớp ở ' + name + ': ' + a.slice(0, 50)); tpl = tpl.split(a).join(b); }
-  for (const [a, b] of (PATCH.script[name] || [])) { if (!sc.includes(a)) throw new Error('Bản vá xử lý không khớp ở ' + name + ': ' + a.slice(0, 50)); sc = sc.split(a).join(b); }
-  return { tpl, css: remap(css), links, script: sc };
+  const patch = (src, list, what) => { for (const [a, b] of list) {
+    if (a instanceof RegExp) { if (!new RegExp(a.source, a.flags.replace('g', '')).test(src)) throw new Error('Bản vá ' + what + ' không khớp ở ' + name + ': ' + a.source.slice(0, 60)); src = src.replace(a, b); }
+    else { if (!src.includes(a)) throw new Error('Bản vá ' + what + ' không khớp ở ' + name + ': ' + a.slice(0, 60)); src = src.split(a).join(b); } } return src; };
+  const tpl = patch(transform(xdc.replace(/<helmet>[\s\S]*?<\/helmet>/, ''), name), PATCH.tpl[name] || [], 'giao diện'), sc = patch(script, PATCH.script[name] || [], 'xử lý');
+  return { tpl: after ? after(tpl) : tpl, css: remap(css), links, script: sc };
 }
 
 /* Đường dẫn các trang và liên hệ: nối theo chữ của nút/liên kết */
@@ -57,7 +58,7 @@ function linkFor(text, href) {
   if (/^(xem thư viện|\d+ game có chisu)/.test(t)) return '/board-game';
   if (/^xem phòng/.test(t)) return '/phong-choi';
   if (t.includes('đặt lịch')) return '#dat-lich';
-  if (t.startsWith('messenger')) return '{{cfg.link_messenger}}';
+  if (t.startsWith('messenger') || /^(nhắn (lenna|đặt phòng|tin)|gửi video dự thi)/.test(t)) return '{{cfg.link_messenger}}';
   if (t.startsWith('zalo')) return '{{cfg.link_zalo}}';
   if (t.startsWith('gọi')) return '{{cfg.link_tel}}';
   if (t === '') { if (/^#phong/.test(href)) return '/phong-choi'; if (/^#dat-lich/.test(href)) return '#dat-lich'; }
@@ -67,8 +68,14 @@ const FLAG = { link_messenger: 'has_messenger', link_zalo: 'has_zalo', link_tel:
 const PILL = { 'Phòng chơi': '/phong-choi', 'Board game': '/board-game', 'Menu': '/menu', 'Ưu đãi': '/uu-dai', 'Giới thiệu': '/gioi-thieu', 'Blog': '/blog', 'Trang chủ': '/' };
 const SOCIAL = { 'Facebook': 'link_facebook', 'TikTok': 'link_tiktok', 'Zalo': 'link_zalo', 'Google Maps': 'link_maps' };
 const guard = (to, html) => { const m = /^\{\{cfg\.(link_\w+)\}\}$/.exec(to); return m ? '<sc-if value="{{cfg.' + FLAG[m[1]] + '}}">' + html + '</sc-if>' : html; };
-function transform(src) {
+function transform(src, name) {
   src = remap(src);
+  // các liên kết chết trên bản thiết kế (mở màn hình thiết kế khác): bỏ đi
+  src = src.replace(/\s*<div style="display: flex; flex-wrap: wrap; gap: 8px 18px">\s*(?:<a href="[^"]*\.dc\.html"[^>]*>Xem màn hình[^<]*<\/a>\s*)+<\/div>/g, '');
+  // số game: ghi "hơn 100" (quy tắc nội dung), không ghi số đang có trong thư viện
+  src = src.replace(/>76 board game/g, '>Hơn 100 board game').replace(/76 board game/g, 'hơn 100 board game');
+  // thanh menu máy tính: thêm "Trang chủ" ở đầu (trang chủ được đánh dấu đang xem)
+  src = src.replace(/(<nav class="nav[^"]*"[^>]*>\s*)(<a )/, (m, a, b) => a + '<a href="#"' + (name === 'Desktop' ? ' aria-current="page" style="font-weight: 800; text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px"' : '') + '>Trang chủ</a>' + b);
   src = src.replace(/<a\s([^>]*?)href="([^"]*)"([^>]*)>([\s\S]*?)<\/a>/g, (m, a, href, b, inner) => {
     const to = linkFor(inner, href); if (!to) return m;
     const ext = /^\{\{cfg\./.test(to) && !/link_tel/.test(to) ? ' target="_blank" rel="noopener"' : '';
@@ -117,10 +124,18 @@ function head(p, extra) {
     '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n' + (extra || '') + jsonLd() + analytics() + '\n';
 }
 
+/* bài viết blog: mỗi bài một trang /blog/<tên-bài>/ (danh sách bài lấy từ trang Blog) */
+const ARTICLE = require('./article.js');
+const POSTS = (() => { const b = loadDc('BlogPC'); return new (compile(b.script)(DC.DCLogic))({}).posts().map(p => Object.assign({ slug: PATCH.slugify(p.t) }, p)); })();
+const ALL = PAGES.concat(POSTS.map((p, i) => ({ id: 'bai-viet-' + p.slug, path: '/blog/' + p.slug, m: 'BaiViet', pc: 'BaiVietPC', post: p, idx: i,
+  title: p.t + ' | Blog Lenna Board Game', desc: p.ex, noindex: i > 0 }))); // bài chưa có nội dung đầy đủ: chưa cho Google lập chỉ mục
+const related = i => [1, 2, 3].map(k => POSTS[(i + k) % POSTS.length]);
+
 fs.rmSync(DIST, { recursive: true, force: true });
 const sitemap = [];
-for (const p of PAGES) {
-  const M = loadDc(p.m), P = loadDc(p.pc);
+for (const p of ALL) {
+  const art = (mobile) => p.post && p.idx > 0 ? (t => ARTICLE.placeholder(t, p.post, p.idx, related(p.idx), mobile)) : undefined;
+  const M = loadDc(p.m, art(true)), P = loadDc(p.pc, art(false));
   const ssr = DC.renderComponent(DC.parse(M.tpl), compile(M.script)(DC.DCLogic), {}, { cfg: CFG });
   for (const [v, d] of [['m', M], ['pc', P]]) write('p/' + p.id + '.' + v + '.js', 'window.DCSite=window.DCSite||{};DCSite[' + q(p.id + '.' + v) + ']={tpl:' + q(d.tpl) + ',Component:(function(DCLogic){' + d.script + '\n;return Component;})(DCLite.DCLogic)};');
   const fonts = [...new Set(M.links.concat(P.links))].join('\n');
@@ -156,4 +171,4 @@ write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="htt
 write('robots.txt', 'User-agent: *\n' + (INDEXABLE ? 'Allow: /\n' + (ORIGIN ? 'Sitemap: ' + ORIGIN + '/sitemap.xml\n' : '') : 'Disallow: /\n'));
 if (ORIGIN) write('CNAME', SITE.config.ten_mien + '\n');
 write('.nojekyll', '');
-console.log('Đã dựng ' + PAGES.length + ' trang + ' + statics.length + ' trang tĩnh, ' + used.size + ' ảnh' + (missing.size ? ', THIẾU ' + missing.size + ' ảnh: ' + [...missing].join(' ') : '') + ' → ' + DIST);
+console.log('Đã dựng ' + ALL.length + ' trang + ' + statics.length + ' trang tĩnh, ' + used.size + ' ảnh' + (missing.size ? ', THIẾU ' + missing.size + ' ảnh: ' + [...missing].join(' ') : '') + ' → ' + DIST);

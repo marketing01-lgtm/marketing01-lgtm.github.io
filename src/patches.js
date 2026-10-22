@@ -37,7 +37,7 @@ const podium = (sz, top) => [
   [/<div style="position: relative; height: \d+px">[\s\S]*?aria-label="Chisu quay video review"[^>]*><\/div>\s*<\/div>\s*(<div style="display: flex; gap: \d+px; align-items: flex-end)">/, '$1; padding-top: ' + top + 'px">'],
   [/(<div class="(?:clay gloss)?" style=")(flex: 1; height: \d+px;[^"]*">)(\s*<span[^>]*>Giải (nhì|nhất|ba)<\/span>)/g, (m, a, b, c, who) => {
     const [pose, label, delay] = PODIUM[who], [w, h] = sz[who];
-    return a + 'position: relative; ' + b + '<span class="chi ' + pose + ' float" role="img" aria-label="' + label + '" style="position: absolute; left: 50%; bottom: calc(100% - 12px); width: ' + w + 'px; height: ' + h + 'px; margin-left: -' + w / 2 + 'px; animation-delay: ' + delay + 's; filter: drop-shadow(0 12px 12px rgba(0,0,0,.25))"></span>' + c;
+    return a + 'position: relative; min-width: 0; ' + b + '<span class="chi ' + pose + ' float" role="img" aria-label="' + label + '" style="position: absolute; left: 50%; bottom: calc(100% - 12px); width: ' + w + 'px; height: ' + h + 'px; margin-left: -' + w / 2 + 'px; animation-delay: ' + delay + 's; filter: drop-shadow(0 12px 12px rgba(0,0,0,.25))"></span>' + c;
   }]
 ];
 /* bỏ khối "Tuần đầu khai trương – tặng 5 xu" (chưa chốt) cùng đường nối phía sau nó */
@@ -57,6 +57,13 @@ const gioiThieu = [
   ['>Giá trị cốt lõi</strong>', '>Giá trị cốt lõi: vì sao anh chị chọn Lenna</strong>'],
   [/<a href="[^"]*" (class="gt-svc[^"]*"[^>]*>)([\s\S]*?)<\/a>/g, '<div $1$2</div>'],
   [/\s*<span[^>]*>Xem thêm →<\/span>/g, '']
+];
+
+/* Chisu chọn dùm: khung kết quả cao cố định 112px ở cả 3 trạng thái (chờ, đang lắc, đã chọn) nên không giật to nhỏ khi tên game đổi */
+const pickSlot = [
+  [/(<div style="border: 2px dashed rgba\(91,63,196,\.35\); border-radius: 22px;)/, '$1 height: 112px; box-sizing: border-box;'],
+  [/(<div aria-live="polite" style="background: #ffffff; border-radius: 22px; )padding: 18px; (font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: \d+px;)/, '$1height: 112px; box-sizing: border-box; padding: 0 18px; display: flex; align-items: center; justify-content: center; overflow: hidden; line-height: 1.15; $2'],
+  [/(<div class="pop" aria-live="polite" style="position: relative; background: #ffffff; border-radius: 22px; )padding: 12px;/, '$1height: 112px; box-sizing: border-box; padding: 12px;']
 ];
 
 /* Khung video hướng dẫn trong thẻ game: bấm để phát video thật (Drive /preview), có đường mở tab mới */
@@ -106,11 +113,13 @@ module.exports = {
     ],
     // thẻ chi tiết game: trên canvas thẻ mở cạnh game được bấm; ở website thật: điện thoại trượt lên từ đáy, máy tính mở giữa màn hình
     ThuVien: [
+      ...pickSlot,
       ['position: absolute; left: 6px; right: 6px; top: {{d.top}}; z-index: 41; max-height: 690px;', 'position: fixed; left: 6px; right: 6px; bottom: 6px; z-index: 41; max-height: 88vh;'],
       [/<img class="hero-tv-img"/, '<img data-spin="tilt" class="hero-tv-img"'],
       ...videoBox, ['<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2b3a5c">{{d.mt}}</p>', videoLink + '<p style="margin: 0; font-size: 15px; line-height: 1.6; color: #2b3a5c">{{d.mt}}</p>']
     ],
     ThuVienPC: [
+      ...pickSlot,
       ['position: absolute; left: 50%; top: {{d.top}}; width: 860px; margin-left: -430px; z-index: 41; max-height: 720px;', 'position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(860px, 94vw); z-index: 41; max-height: 90vh;'],
       // banner Board game: ảnh Chisu Chiến Binh thu nhỏ cho bằng linh vật các trang khác (cao khoảng 450px), nền tím liền với ảnh
       [/<section style="position: relative; min-height: 880px; overflow: hidden; border-radius: 0 0 44px 44px; background: #cdb8f2 url\([^)]*\) center top \/ cover no-repeat;/, '<section style="position: relative; min-height: 640px; overflow: hidden; border-radius: 0 0 44px 44px; background: linear-gradient(180deg, #c2a9ef 0%, #d0bef0 55%, #f5ecfa 100%);'],
@@ -127,7 +136,8 @@ module.exports = {
       ['<div class="card3d lift" style="background: #ffffff; border-radius: 22px; padding: 16px; display: flex; gap: 14px; align-items: center">', '<div class="card3d lift" style="background: #ffffff; border-radius: 22px; padding: 14px 16px; display: flex; gap: 14px; align-items: center; box-sizing: border-box; min-height: 92px">'],
       ['<strong style="font-size: 16px; line-height: 1.3; color: #173a8a">{{it.name}}</strong>', '<strong class="clamp2" style="font-size: 16px; line-height: 1.3; color: #173a8a">{{it.name}}</strong>']
     ],
-    UuDai: [bo5xu, ...podium({ 'nhì': [84, 98], 'nhất': [106, 124], 'ba': [76, 90] }, 104)],
+    // điện thoại: số tiền giải thưởng nhỏ lại để giải ba không tràn ra ngoài khung
+    UuDai: [bo5xu, ...podium({ 'nhì': [84, 98], 'nhất': [106, 124], 'ba': [76, 90] }, 104), [/font-size: 19px; line-height: 1">(\d\.000\.000đ)/g, 'font-size: 15px; line-height: 1; white-space: nowrap">$1']],
     UuDaiPC: [bo5xu, ...podium({ 'nhì': [124, 146], 'nhất': [160, 184], 'ba': [116, 136] }, 150)],
     GioiThieu: gioiThieu,
     GioiThieuPC: gioiThieu,

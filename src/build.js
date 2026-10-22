@@ -7,6 +7,7 @@ const ROOT = path.resolve(__dirname, '..'), DIST = path.join(ROOT, 'dist'), ASSE
 const SITE = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/site.json'), 'utf8'));
 const PAGES = JSON.parse(fs.readFileSync(path.join(__dirname, 'pages.json'), 'utf8'));
 const STATIC = require('./static-pages.js'), PATCH = require('./patches.js');
+const BUILD = Date.now().toString(36); // đưa vào địa chỉ tệp để điện thoại không giữ bản cũ
 const BREAK = 900; // từ 900px trở lên dùng bản máy tính
 const LOGO_BLUE = 'c2442ec9eff7fdd0f5be400ddf2f82ce', OG_IMG = '2a31ccd2124fc5e3e14f3eb2213280cf', CHISU_LOVE = 'a713daca726764e2d9fd3cd8d8e477df';
 
@@ -144,16 +145,16 @@ for (const p of ALL) {
   for (const [v, d] of [['m', M], ['pc', P]]) write('p/' + p.id + '.' + v + '.js', 'window.DCSite=window.DCSite||{};DCSite[' + q(p.id + '.' + v) + ']={tpl:' + q(d.tpl) + ',Component:(function(DCLogic){' + d.script + '\n;return Component;})(DCLite.DCLogic)};');
   const fonts = [...new Set(M.links.concat(P.links))].join('\n');
   const boot = "(function(){var id=" + q(p.id) + ",mq=matchMedia('(min-width: " + BREAK + "px)'),forced=(/[?&]v=(m|pc)\\b/.exec(location.search)||[])[1],cur=null,app=document.getElementById('app');" +
-    "function load(v,cb){if(window.DCSite&&DCSite[id+'.'+v])return cb();var s=document.createElement('script');s.src='/p/'+id+'.'+v+'.js';s.onload=cb;document.head.appendChild(s);}" +
+    "function load(v,cb){if(window.DCSite&&DCSite[id+'.'+v])return cb();var s=document.createElement('script');s.src='/p/'+id+'.'+v+'.js?v=" + BUILD + "';s.onload=cb;document.head.appendChild(s);}" +
     "function go(){var v=forced||(mq.matches?'pc':'m');if(cur&&cur.v===v)return;load(v,function(){if(cur)cur.h.destroy();var d=DCSite[id+'.'+v];if(app.getAttribute('data-ssr')!==v)app.innerHTML='';cur={v:v,h:DCLite.mount(app,d.tpl,d.Component,{},window.DCExtra)};app.setAttribute('data-ssr',v);});}" +
     "go();mq.addEventListener('change',go);})();";
   const base = '<style>body{margin:0;background:#f4f7fd}[aria-hidden="true"]{pointer-events:none}@media(min-width:' + BREAK + 'px){#app[data-ssr="m"]{visibility:hidden}}</style>';
   const mqM = '(max-width: ' + (BREAK - 0.02) + 'px)', mqP = '(min-width: ' + BREAK + 'px)';
   // ?v=m hoặc ?v=pc: ép xem bản điện thoại / máy tính (để anh kiểm tra trên 1 thiết bị)
   const force = '<script>(function(){var m=/[?&]v=(m|pc)\\b/.exec(location.search);if(m){document.getElementById("css-m").media=m[1]==="m"?"all":"not all";document.getElementById("css-pc").media=m[1]==="pc"?"all":"not all";if(m[1]==="pc")document.getElementById("app").setAttribute("data-force","pc")}})();</script>';
-  const html = '<!doctype html>\n<html lang="vi"><head>' + head(p, fonts + '\n<link rel="stylesheet" href="/site.css">\n') + base +
+  const html = '<!doctype html>\n<html lang="vi"><head>' + head(p, fonts + '\n<link rel="stylesheet" href="/site.css?v=' + BUILD + '">\n') + base +
     '\n<style id="css-m" media="' + mqM + '">' + M.css + '</style>\n<style id="css-pc" media="' + mqP + '">' + P.css + '</style>\n' +
-    '</head><body>\n<div id="app" data-ssr="m">' + ssr + '</div>\n' + force + '\n<script src="/dc-lite.js"></script>\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + ',turn:' + q(TURN) + '};</script>\n<script src="/site.js" defer></script>\n<script>' + boot + '</script>\n</body></html>\n';
+    '</head><body>\n<div id="app" data-ssr="m">' + ssr + '</div>\n' + force + '\n<script src="/dc-lite.js?v=' + BUILD + '"></script>\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + ',turn:' + q(TURN) + '};</script>\n<script src="/site.js?v=' + BUILD + '" defer></script>\n<script>' + boot + '</script>\n</body></html>\n';
   write((p.path === '/' ? '' : p.path.replace(/^\//, '') + '/') + 'index.html', html);
   if (!p.noindex) sitemap.push(ORIGIN + p.path);
 }
@@ -161,8 +162,8 @@ for (const p of ALL) {
 /* trang tĩnh: Cảm ơn, Chính sách dữ liệu, 404 */
 const statics = STATIC(CFG, { logo: '/assets/' + assetFile[LOGO_BLUE], chisu: '/assets/' + assetFile[CHISU_LOVE] });
 for (const s of statics) {
-  const html = '<!doctype html>\n<html lang="vi"><head>' + head(s, '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Be+Vietnam+Pro:wght@400;600;700&display=swap">\n<link rel="stylesheet" href="/site.css">\n') +
-    '</head><body style="margin:0">\n' + s.body + '\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + '};</script>\n<script src="/site.js" defer></script>\n</body></html>\n';
+  const html = '<!doctype html>\n<html lang="vi"><head>' + head(s, '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Be+Vietnam+Pro:wght@400;600;700&display=swap">\n<link rel="stylesheet" href="/site.css?v=' + BUILD + '">\n') +
+    '</head><body style="margin:0">\n' + s.body + '\n<script>window.DCExtra={cfg:' + q(CLIENT_CFG) + '};</script>\n<script src="/site.js?v=' + BUILD + '" defer></script>\n</body></html>\n';
   write(s.file, html);
   if (s.sitemap) sitemap.push(ORIGIN + s.path);
 }
